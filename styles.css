@@ -390,6 +390,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .hero__chat-window {
   position: relative;
+  z-index: 1;
   background: var(--color-white);
   border-radius: 20px;
   overflow: hidden;
@@ -636,6 +637,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 /* floating tags around hero chat */
 .hero__chat-tag {
   position: absolute;
+  z-index: 2;
   background: var(--color-white);
   color: var(--color-ink);
   padding: 10px 14px;
@@ -1772,7 +1774,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .footer__inner {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1.8fr 1fr 1fr;
   gap: 40px;
 }
 @media (max-width: 800px) { .footer__inner { grid-template-columns: 1fr 1fr; } }
@@ -2400,3 +2402,27 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .mapp__tab.is-active { color: var(--brand-purple); }
 .mapp__tab:hover { color: var(--brand-purple); }
+
+/* Nav pre-register form */
+.nav__preregister {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-card);
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  padding: 4px 4px 4px 14px;
+}
+.nav__prereg-input {
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--color-ink);
+  outline: none;
+  width: 160px;
+}
+.nav__prereg-input::placeholder { color: var(--color-muted); }
+@media (max-width: 880px) {
+  .nav__preregister { display: none; }
+}
