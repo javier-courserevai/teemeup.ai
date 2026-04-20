@@ -645,8 +645,8 @@
     <span class="eyebrow eyebrow--light">Ready to play?</span>
     <h2 class="cta__title">Your next round, <em>planned in a sentence.</em></h2>
     <p class="cta__lede">Join golfers saving hours every month. teemeup is free to start — no credit card required.</p>
-    <form class="cta__form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks — we\'ll be in touch';">
-      <input class="cta__input" type="email" placeholder="your@email.com" aria-label="Email">
+    <form class="cta__form" action="https://formspree.io/f/xbdqkekb" method="POST">
+      <input class="cta__input" type="email" name="email" placeholder="your@email.com" aria-label="Email" required>
       <button type="submit" class="btn btn--green">Get early access →</button>
     </form>
 
