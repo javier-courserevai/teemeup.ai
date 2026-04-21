@@ -1595,13 +1595,19 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   grid-template-columns: 1fr 1.3fr;
   gap: 80px;
 }
-@media (max-width: 880px) { .faq__inner { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 880px) { .faq__inner { grid-template-columns: 1fr; gap: 32px; } }
 
 .faq__head {
   position: sticky;
   top: 100px;
   align-self: start;
   height: fit-content;
+}
+@media (max-width: 880px) {
+  .faq__head {
+    position: static;
+    top: auto;
+  }
 }
 .faq__list { border-top: 1px solid var(--color-line-strong); }
 .faq-item { border-bottom: 1px solid var(--color-line-strong); }
@@ -1659,6 +1665,10 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   font-size: 16px;
   line-height: 1.65;
   max-width: 62ch;
+}
+@media (max-width: 600px) {
+  .faq-item__a-inner { padding: 0 8px 20px 0; }
+  .faq-item__q { font-size: 17px; padding: 20px 0; }
 }
 
 /* ============================================

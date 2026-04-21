@@ -110,28 +110,6 @@
     tab.addEventListener('click', function () { activateShowcaseKey(tab.dataset.mapp); });
   });
 
-  sideItems.forEach(function (s) {
-    s.addEventListener('click', function () {
-      var key = s.dataset.side;
-      var matchingTab = document.querySelector('.showcase__tab[data-tab="' + key + '"]');
-      if (matchingTab) matchingTab.click();
-    });
-  });
-
-  /* ---------- Pricing toggle ---------- */
-  var billBtns = document.querySelectorAll('.pricing__toggle-btn');
-  var amounts = document.querySelectorAll('.price-card__amount');
-  billBtns.forEach(function (b) {
-    b.addEventListener('click', function () {
-      billBtns.forEach(function (x) { x.classList.remove('is-active'); });
-      b.classList.add('is-active');
-      var mode = b.dataset.billing; // monthly | yearly
-      amounts.forEach(function (a) {
-        var val = mode === 'yearly' ? a.dataset.y : a.dataset.m;
-        a.textContent = val;
-      });
-    });
-  });
 
   /* ---------- FAQ accordion ---------- */
   document.querySelectorAll('.faq-item').forEach(function (item) {
