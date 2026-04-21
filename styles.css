@@ -264,6 +264,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 @media (max-width: 880px) {
   .nav__list { display: none; }
   .nav__cta .btn--ghost { display: none; }
+  .nav__cta .btn { display: none; }
   .nav__toggle { display: inline-flex; }
   .nav.is-open .nav__drawer { display: block; }
 }
