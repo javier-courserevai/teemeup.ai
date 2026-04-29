@@ -2321,21 +2321,27 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 /* Screen area */
 .mapp__screen {
   background: var(--color-white);
-  flex: 1;
-  overflow: hidden;
-  position: relative;
-  min-height: 480px;
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 2px 0 rgba(26,26,46,.06),
+    0 12px 32px -6px rgba(26,26,46,.12),
+    0 40px 80px -20px rgba(72,23,206,.22),
+    0 0 0 1px rgba(26,26,46,.08);
+  max-width: 360px;
+  margin: 0 auto;
 }
 
 /* Views */
 .mapp__view {
   display: none;
   flex-direction: column;
-  height: 100%;
 }
 .mapp__view.is-active {
   display: flex;
   animation: fadePanel .3s ease;
+}
+.mapp__view--voice.is-active {
+  padding: 16px;
 }
 
 /* App bar */
@@ -2876,8 +2882,6 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 
 /* Voice AI view — fills screen via absolute so flex:1 on inner resolves */
 .mapp__view--voice {
-  position: absolute;
-  inset: 0;
   flex-direction: column;
 }
 .mapp__voice-inner {
@@ -2970,15 +2974,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   z-index: 1;
 }
 .mapp__voice-modal {
-  position: absolute;
-  left: 12px; right: 12px;
-  top: 52%;
-  transform: translateY(-50%);
   background: var(--color-white);
   border-radius: 18px;
   padding: 16px;
-  z-index: 2;
-  box-shadow: 0 8px 32px rgba(26,26,46,0.2);
 }
 .mapp__voice-modal-head {
   display: flex;
