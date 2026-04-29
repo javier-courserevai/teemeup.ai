@@ -103,6 +103,9 @@
     tab.addEventListener('click', function () { activateShowcaseKey(tab.dataset.mapp); });
   });
 
+  // Expose globally so animations.js can call it for scroll-driven tab switching
+  window.activateShowcaseKey = activateShowcaseKey;
+
 
   /* ---------- FAQ accordion ---------- */
   document.querySelectorAll('.faq-item').forEach(function (item) {

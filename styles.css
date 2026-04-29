@@ -76,6 +76,20 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 /* ==== Reveal on scroll (initial hidden — GSAP animates in) ==== */
 .reveal { opacity: 0; transform: translateY(24px); will-change: opacity, transform; }
 
+/* ── Word-split helpers (used by animations.js for Apple-style clip reveals) ── */
+.gsap-word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* tiny extra space so descenders don't clip */
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+.gsap-word {
+  display: inline-block;
+  will-change: transform;
+}
+
 /* ==== Layout primitives ==== */
 .container {
   width: 100%;
@@ -310,6 +324,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   grid-template-columns: 1.15fr 1fr;
   gap: clamp(32px, 6vw, 80px);
   align-items: center;
+  perspective: 1200px;  /* enables rotateY on hero__chat entrance */
 }
 @media (max-width: 960px) {
   .hero__inner { grid-template-columns: 1fr; }
