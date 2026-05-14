@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>teemeup — your AI golf companion</title>
+<title>teemeup — Book tee times with your AI golf caddie</title>
+<meta name="description" content="Book golf courses, check weather and manage your rounds through a single conversation. teemeup is the AI caddie that plans your game so you can focus on playing it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/teemeupai_favicon.png">
 <link rel="apple-touch-icon" href="assets/teemeupai_favicon.png">
 <link rel="stylesheet" href="styles.css">
@@ -16,14 +17,14 @@
 <!-- ========== NAV ========== -->
 <header class="nav" id="nav">
   <div class="container nav__inner">
-    <a href="#top" class="nav__brand" aria-label="teemeupAI home">
-      <img src="assets/teemeupai_logo.svg" alt="teemeupAI" class="nav__logo-img">
+    <a href="#top" class="nav__brand" aria-label="teemeup home">
+      <img src="assets/teemeupai_logo.svg" alt="teemeup" class="nav__logo-img">
     </a>
     <nav aria-label="Primary">
       <ul class="nav__list">
         <li><a href="#features" class="nav__link">Features</a></li>
         <li><a href="#how" class="nav__link">How it works</a></li>
-        <li><a href="#showcase" class="nav__link">Product</a></li>
+        <li><a href="#ecosystem" class="nav__link">Ecosystem</a></li>
         <li><a href="#faq" class="nav__link">FAQ</a></li>
       </ul>
     </nav>
@@ -40,232 +41,351 @@
     <ul>
       <li><a href="#features">Features</a></li>
       <li><a href="#how">How it works</a></li>
-      <li><a href="#showcase">Product</a></li>
+      <li><a href="#ecosystem">Ecosystem</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <li><a href="#cta" class="btn btn--primary btn--sm">Get early access →</a></li>
     </ul>
   </div>
 </header>
 
 <!-- ========== HERO ========== -->
 <section class="hero" id="top">
-  <div class="container hero__inner">
-    <div class="hero__copy">
-      <span class="eyebrow">AI golf companion · v1.0</span>
+  <div class="hero__inner">
+
+    <!-- LEFT: Copy -->
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span class="hero__badge-new">By Invitation</span>
+        Industry preview · Limited access
+      </div>
       <h1 class="hero__title">
-        <span id="hero-headline-part-1">Plan the round</span>
-        <span class="hero__title-slash">/</span>
-        <span class="hero__title--accent" id="hero-headline-part-2">just ask</span>.
+        Plan the round<br>
+        — <em>just ask Bob.</em>
       </h1>
       <p class="hero__lede">
-        teemeup is a smart companion for golfers. Find tee times, compare courses, check weather, and book in seconds — all through a simple chat with your personal AI caddie.
+        Tell Bob where you want to play and he handles everything — course search, weather check, booking and reminders. Available on WhatsApp, SMS, iMessage, ChatGPT and the app. No forms. No calls.
       </p>
       <div class="hero__actions">
-        <a href="#cta" class="btn btn--primary">
-          Get early access <span class="btn__arrow">→</span>
+        <a href="#cta" class="btn btn--white btn--lg">Request an invitation →</a>
+        <a href="#how" class="btn btn--ghost-light btn--lg">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" style="margin-right:6px"><polygon points="3,1 13,7 3,13"/></svg>
+          See how it works
         </a>
-        <a href="#how" class="btn btn--ghost">Watch how it works</a>
+      </div>
+      <div class="hero__social">
+        <div class="hero__social-avatars">
+          <img src="https://i.pravatar.cc/32?img=11" alt="" loading="lazy">
+          <img src="https://i.pravatar.cc/32?img=23" alt="" loading="lazy">
+          <img src="https://i.pravatar.cc/32?img=37" alt="" loading="lazy">
+          <img src="https://i.pravatar.cc/32?img=45" alt="" loading="lazy">
+        </div>
+        <p class="hero__social-text">Available by invitation · <strong>Powered by Courserev.ai</strong></p>
       </div>
     </div>
 
-    <!-- App home screen mockup -->
-    <div class="hero__chat">
-      <div class="hero__chat-tag hero__chat-tag--1">Live planning</div>
-      <div class="hero__chat-tag hero__chat-tag--2">Voice ready</div>
-      <div class="happ">
+    <!-- RIGHT: Visual -->
+    <div class="hero__visual">
+      <div class="hero__mockup">
+        <img src="assets/teemeup_home.png" alt="teemeup home screen" loading="eager">
+      </div>
+      <div class="hero__float hero__float--voice">
+        <img src="assets/hero-voice.png" alt="Voice booking with Bob" loading="eager">
+      </div>
+      <div class="hero__float hero__float--chat">
+        <img src="assets/hero-chat.png" alt="Chat with Bob" loading="eager">
+      </div>
+    </div>
 
-        <!-- Status bar -->
-        <div class="happ__status">
-          <span class="happ__status-time">9:41</span>
-          <span class="happ__status-icons">
-            <svg width="15" height="10" viewBox="0 0 15 10" fill="currentColor"><rect x="0" y="3" width="3" height="7" rx="1"/><rect x="4" y="2" width="3" height="8" rx="1"/><rect x="8" y="1" width="3" height="9" rx="1"/><rect x="12" y="0" width="3" height="10" rx="1"/></svg>
-            <svg width="15" height="10" viewBox="0 0 15 10" fill="currentColor"><path d="M7.5 2C9.8 2 11.9 3 13.4 4.6L14.8 3.1C12.9 1.1 10.3 0 7.5 0C4.7 0 2.1 1.1 0.2 3.1L1.6 4.6C3.1 3 5.2 2 7.5 2Z"/><path d="M7.5 5C9 5 10.4 5.6 11.4 6.6L12.8 5.1C11.4 3.8 9.5 3 7.5 3C5.5 3 3.6 3.8 2.2 5.1L3.6 6.6C4.6 5.6 6 5 7.5 5Z"/><circle cx="7.5" cy="9" r="1.5"/></svg>
-            <svg width="22" height="10" viewBox="0 0 22 10" fill="currentColor"><rect x="0" y="1" width="18" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1"/><rect x="1.5" y="2.5" width="13" height="5" rx="1"/><rect x="19" y="3" width="2" height="4" rx="1"/></svg>
-          </span>
-        </div>
+  </div>
+  <div class="hero__fade"></div>
+</section>
 
-        <!-- App header -->
-        <div class="happ__header">
-          <div>
-            <div class="happ__greeting">Hi, Chris ⛳</div>
-            <div class="happ__subtitle">Plan your next game with Bob</div>
-          </div>
-          <button class="happ__menu-btn" aria-label="Open menu">
-            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="12" y2="13"/></svg>
-          </button>
-        </div>
+<!-- ========== FEATURES ========== -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="features__head">
+      <span class="eyebrow">Features</span>
+      <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
+      <p class="section-lede">Bob is your personal AI golf agent — not just a booking tool. Search, weather, booking, reminders and on-course assistance, all through one conversation.</p>
+    </div>
 
-        <!-- Banner -->
-        <div class="happ__banner">
-          <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=480&q=75" alt="Golf course" class="happ__banner-img" loading="lazy">
-          <div class="happ__banner-overlay">
-            <span class="happ__banner-badge">Welcome</span>
-            <p class="happ__banner-text">Find tee times, courses, news, and more — Just ask.<br><span class="happ__banner-sub">Golf made simple.</span></p>
-          </div>
+    <!-- Feature block 1: Voice -->
+    <div class="feature-block">
+      <div class="feature-block__visual">
+        <div class="feature-block__img-wrap feature-block__img-wrap--light">
+          <img src="assets/hero-voice.png" alt="Voice booking with Bob" loading="lazy" class="feature-block__img feature-block__img--phone">
         </div>
+      </div>
+      <div class="feature-block__copy">
+        <span class="feature-block__tag feature-block__tag--purple">Voice AI</span>
+        <h3 class="feature-block__title">Book by voice. Hands stay on the wheel.</h3>
+        <p class="feature-block__desc">Tap the mic and talk. Bob understands your preferences, finds available tee times and completes the booking — all while you drive to the club. No tapping, no forms, no back-and-forth.</p>
+        <ul class="feature-block__list">
+          <li><span class="feature-block__check">✓</span> Full voice-to-booking in one seamless flow</li>
+          <li><span class="feature-block__check">✓</span> Runs in the background while you drive</li>
+          <li><span class="feature-block__check">✓</span> Natural language — say it however you like</li>
+        </ul>
+      </div>
+    </div>
 
-        <!-- Filter pills -->
-        <div class="happ__filters">
-          <button class="happ__filter happ__filter--active">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.83 9.17L24 12l-9.17 2.83L12 24l-2.83-9.17L0 12l9.17-2.83z"/></svg>
-            AI
-          </button>
-          <button class="happ__filter">Golf Courses</button>
-          <button class="happ__filter">Nearby Suggestions</button>
+    <!-- Feature block 2: Chat -->
+    <div class="feature-block feature-block--reverse">
+      <div class="feature-block__visual">
+        <div class="feature-block__img-wrap feature-block__img-wrap--purple">
+          <img src="assets/hero-chat.png" alt="Chat with Bob your AI caddie" loading="lazy" class="feature-block__img feature-block__img--phone">
         </div>
+      </div>
+      <div class="feature-block__copy">
+        <span class="feature-block__tag feature-block__tag--green">AI Chat</span>
+        <h3 class="feature-block__title">A caddie that knows your game.</h3>
+        <p class="feature-block__desc">Bob remembers your handicap, home club, preferred tee windows, budget and weather tolerance. Every recommendation gets sharper the more you play — like a caddie who actually pays attention.</p>
+        <ul class="feature-block__list">
+          <li><span class="feature-block__check">✓</span> Learns your preferences across every session</li>
+          <li><span class="feature-block__check">✓</span> One-tap booking from inside the chat</li>
+          <li><span class="feature-block__check">✓</span> Cancel or reschedule — no phone calls needed</li>
+        </ul>
+      </div>
+    </div>
 
-        <!-- Quick actions -->
-        <div class="happ__section-row">
-          <span class="happ__section-title">Quick Actions</span>
-          <span class="happ__view-more">View more</span>
+    <!-- Feature block 3: Bookings -->
+    <div class="feature-block">
+      <div class="feature-block__visual">
+        <div class="feature-block__img-wrap feature-block__img-wrap--green">
+          <img src="assets/teemeup_bookings.png" alt="Manage your golf bookings" loading="lazy" class="feature-block__img feature-block__img--phone">
         </div>
-        <div class="happ__actions">
-          <div class="happ__action">
-            <span class="happ__action-label">Play a round today?</span>
-            <span class="happ__action-time">10:00 AM</span>
-          </div>
-          <div class="happ__action">
-            <span class="happ__action-label">Check tee times</span>
-            <span class="happ__action-time">10:15 AM</span>
-          </div>
-          <div class="happ__action">
-            <span class="happ__action-label">Search for Golf Course</span>
-            <span class="happ__action-time">10:30 AM</span>
-          </div>
-          <div class="happ__action">
-            <span class="happ__action-label">Events &amp; Tournaments</span>
-            <span class="happ__action-time">10:45 AM</span>
-          </div>
-        </div>
+      </div>
+      <div class="feature-block__copy">
+        <span class="feature-block__tag feature-block__tag--purple">Round Manager</span>
+        <h3 class="feature-block__title">Every round, perfectly organised.</h3>
+        <p class="feature-block__desc">Confirmation numbers, tee time reminders, course directions and weather alerts — all automatically filed and surfaced exactly when you need them. Never miss a round again.</p>
+        <ul class="feature-block__list">
+          <li><span class="feature-block__check">✓</span> Upcoming and past rounds in one view</li>
+          <li><span class="feature-block__check">✓</span> Instant access to confirmation details</li>
+          <li><span class="feature-block__check">✓</span> Auto calendar invites and weather reminders</li>
+        </ul>
+      </div>
+    </div>
 
-        <!-- Chat bar -->
-        <div class="happ__chatbar">
-          <div class="happ__chatbar-mic" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v4"/></svg>
-          </div>
-          <span class="happ__chatbar-text">Talk with Bob</span>
-        </div>
+    <!-- Feature cards bento grid -->
+    <div class="features__bento">
+      <div class="features__grid">
 
-        <!-- Bottom nav -->
-        <nav class="happ__nav">
-          <button class="happ__nav-tab happ__nav-tab--active">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            <span>Home</span>
-          </button>
-          <button class="happ__nav-tab happ__nav-tab--voice">
-            <span class="happ__nav-voice-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v4"/></svg>
-            </span>
-            <span>Voice</span>
-          </button>
-          <button class="happ__nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            <span>Chat</span>
-          </button>
-        </nav>
+        <!-- Live tee times — wide with visual -->
+        <article class="feature-card feature-card--wide">
+          <div class="feature-card__left">
+            <div class="feature-card__icon feature-card__icon--purple">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <div class="feature-card__body">
+              <h4 class="feature-card__title">Live tee times</h4>
+              <p class="feature-card__desc">Real-time availability ranked by what matters to you — distance, conditions, value — not alphabetically.</p>
+            </div>
+          </div>
+          <div class="feature-card__visual">
+            <div class="fc-teetimes">
+              <div class="fc-teetimes__item">
+                <div class="fc-teetimes__left">
+                  <span class="fc-teetimes__time">7:00 AM</span>
+                  <span class="fc-teetimes__name">Pebble View GC</span>
+                </div>
+                <span class="fc-teetimes__tag">Available</span>
+              </div>
+              <div class="fc-teetimes__item fc-teetimes__item--featured">
+                <div class="fc-teetimes__left">
+                  <span class="fc-teetimes__time">8:30 AM</span>
+                  <span class="fc-teetimes__name">Sunrise Links</span>
+                </div>
+                <span class="fc-teetimes__tag fc-teetimes__tag--best">Best pick ✓</span>
+              </div>
+              <div class="fc-teetimes__item">
+                <div class="fc-teetimes__left">
+                  <span class="fc-teetimes__time">9:15 AM</span>
+                  <span class="fc-teetimes__name">Royal Bay Club</span>
+                </div>
+                <span class="fc-teetimes__tag fc-teetimes__tag--limited">2 left</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Play-condition forecast — NOW wide with visual -->
+        <article class="feature-card feature-card--wide">
+          <div class="feature-card__left">
+            <div class="feature-card__icon feature-card__icon--green">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+            </div>
+            <div class="feature-card__body">
+              <h4 class="feature-card__title">Play-condition forecast</h4>
+              <p class="feature-card__desc">Wind, rain probability and a playability score baked into every recommendation — before you commit.</p>
+            </div>
+          </div>
+          <div class="feature-card__visual">
+            <div class="fc-weather">
+              <div class="fc-weather__top">
+                <div class="fc-weather__icon-wrap">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </div>
+                <div>
+                  <div class="fc-weather__verdict">Great conditions</div>
+                  <div class="fc-weather__score">Playability 9 / 10</div>
+                </div>
+              </div>
+              <div class="fc-weather__stats">
+                <div class="fc-weather__cell">
+                  <span class="fc-weather__label">Wind</span>
+                  <span class="fc-weather__value">8 mph</span>
+                </div>
+                <div class="fc-weather__cell">
+                  <span class="fc-weather__label">Rain</span>
+                  <div class="fc-weather__bar"><div class="fc-weather__fill" style="width:12%"></div></div>
+                  <span class="fc-weather__value">12%</span>
+                </div>
+                <div class="fc-weather__cell">
+                  <span class="fc-weather__label">Temp</span>
+                  <span class="fc-weather__value">18°C</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Group coordination -->
+        <article class="feature-card">
+          <div class="feature-card__icon feature-card__icon--purple">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="feature-card__body">
+            <h4 class="feature-card__title">Group coordination</h4>
+            <p class="feature-card__desc">Tell Bob who's playing and he finds a slot that works for everyone. Split logistics handled in the same chat.</p>
+          </div>
+        </article>
+
+        <!-- Course intelligence -->
+        <article class="feature-card">
+          <div class="feature-card__icon feature-card__icon--green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="feature-card__body">
+            <h4 class="feature-card__title">Course intelligence</h4>
+            <p class="feature-card__desc">Ratings, slope, reviews and local tips surfaced in conversation — not buried three tabs deep on a review site.</p>
+          </div>
+        </article>
+
+        <!-- Smart reminders — now span 1 -->
+        <article class="feature-card">
+          <div class="feature-card__icon feature-card__icon--purple">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <div class="feature-card__body">
+            <h4 class="feature-card__title">Smart reminders</h4>
+            <p class="feature-card__desc">Calendar invite, weather update and course directions delivered automatically — right when you need them.</p>
+          </div>
+        </article>
+
+        <!-- Instant confirmation -->
+        <article class="feature-card feature-card--accent">
+          <div class="feature-card__icon feature-card__icon--light">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="feature-card__body">
+            <h4 class="feature-card__title">Instant confirmation</h4>
+            <p class="feature-card__desc">Say "book it" and the round is confirmed in the chat. No redirect, no PDF to find later.</p>
+          </div>
+        </article>
 
       </div>
     </div>
   </div>
 </section>
 
-
-
-<!-- ========== FEATURES ========== -->
-<section class="features" id="features">
+<!-- ========== PLATFORMS ========== -->
+<section class="platforms">
   <div class="container">
-    <div class="features__head">
-      <div class="reveal">
-        <span class="eyebrow">Features</span>
-        <h2 class="section-title">Everything a golfer needs, in one conversation.</h2>
-      </div>
-      <p class="section-lede reveal" data-delay="1">
-        No more juggling five apps and a dozen tabs. teemeup brings tee times, weather, recommendations and bookings into a single AI-powered companion.
-      </p>
+    <div class="platforms__head">
+      <span class="eyebrow">Universal access</span>
+      <h2 class="section-title">Bob goes where<br>you already are.</h2>
+      <p class="section-lede">No new app required. Bob lives on the platforms you use every day — same intelligent golf agent, wherever you are.</p>
     </div>
-
-    <div class="features__grid">
-      <!-- Feature 1: chat -->
-      <article class="feature feature--purple reveal">
-        <span class="feature__num">01 — AI chat</span>
-        <h3 class="feature__title">A caddie that actually listens.</h3>
-        <p class="feature__desc">Ask in your own words. teemeup understands handicap, home club, preferred tee times, budget and weather tolerances — and plans around them.</p>
-        <div class="feature__art">
-          <div class="f-art-voice" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          </div>
+    <div class="platforms__grid">
+      <div class="platform-card">
+        <div class="platform-card__icon platform-card__icon--purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-      </article>
-
-      <!-- Feature 2: tee times -->
-      <article class="feature reveal" data-delay="1">
-        <span class="feature__num">02 — Tee times</span>
-        <h3 class="feature__title">Compare &amp; book in seconds.</h3>
-        <p class="feature__desc">Real-time slots across every connected course, sorted by price, distance or weather.</p>
-        <div class="feature__art">
-          <div class="f-art-tee">
-            <div class="f-art-tee__row">
-              <span class="f-art-tee__time">08:20</span>
-              <span class="f-art-tee__status">Open</span>
-              <span class="f-art-tee__price">$34</span>
-            </div>
-            <div class="f-art-tee__row">
-              <span class="f-art-tee__time">09:40</span>
-              <span class="f-art-tee__badge">Best</span>
-              <span class="f-art-tee__price">$38</span>
-            </div>
-            <div class="f-art-tee__row">
-              <span class="f-art-tee__time">11:10</span>
-              <span class="f-art-tee__status">2 left</span>
-              <span class="f-art-tee__price">$46</span>
-            </div>
-          </div>
+        <div class="platform-card__name">Web &amp; Mobile App</div>
+        <div class="platform-card__sub">The full teemeup experience at teemeup.ai</div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-card__icon platform-card__icon--green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/></svg>
         </div>
-      </article>
-
-
-      <!-- Feature 4: weather -->
-      <article class="feature reveal" data-delay="3">
-        <span class="feature__num">04 — Weather</span>
-        <h3 class="feature__title">Play-condition forecast.</h3>
-        <p class="feature__desc">Wind, precipitation and playability windows for every slot you consider.</p>
-        <div class="feature__art">
-          <div class="f-art-weather">
-            <div class="f-art-weather__sun"></div>
-            <div class="f-art-weather__temp">21°</div>
-            <div class="f-art-weather__label">Clear · wind 6km/h</div>
-            <div class="f-art-weather__bars">
-              <span style="height:40%"></span>
-              <span style="height:60%"></span>
-              <span style="height:85%"></span>
-              <span style="height:95%"></span>
-              <span style="height:70%"></span>
-              <span style="height:55%"></span>
-              <span style="height:30%"></span>
-            </div>
-          </div>
+        <div class="platform-card__name">WhatsApp</div>
+        <div class="platform-card__sub">Message Bob directly on WhatsApp</div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-card__icon platform-card__icon--blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 10a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.25-.43 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </div>
-      </article>
+        <div class="platform-card__name">SMS</div>
+        <div class="platform-card__sub">Text Bob from any phone, no data needed</div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-card__icon platform-card__icon--teal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <div class="platform-card__name">iMessage</div>
+        <div class="platform-card__sub">Book rounds through Apple Messages</div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-card__icon platform-card__icon--ai">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        </div>
+        <div class="platform-card__name">ChatGPT</div>
+        <div class="platform-card__sub">Native integration inside ChatGPT</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Feature 5: events -->
-      <article class="feature reveal" data-delay="1">
-        <span class="feature__num">05 — Events</span>
-        <h3 class="feature__title">Tournaments &amp; local meets.</h3>
-        <p class="feature__desc">Find open amateur events, charity opens and club scrambles near you, filtered by handicap.</p>
-      </article>
-
-      <!-- Feature 6: tips -->
-      <article class="feature reveal" data-delay="2">
-        <span class="feature__num">06 — Coaching</span>
-        <h3 class="feature__title">Tips that know your game.</h3>
-        <p class="feature__desc">Short, contextual pointers based on your recent rounds and typical misses.</p>
-      </article>
-
-      <!-- Feature 7: voice -->
-      <article class="feature reveal" data-delay="3">
-        <span class="feature__num">07 — Voice</span>
-        <h3 class="feature__title">Hands-free on the go.</h3>
-        <p class="feature__desc">In the car, on the range — just talk. teemeup books, checks, replies.</p>
-      </article>
+<!-- ========== WHY TEEMEUP ========== -->
+<section class="stats">
+  <div class="container">
+    <div class="stats__inner">
+      <div class="stats__copy">
+        <span class="eyebrow eyebrow--light">Why teemeup</span>
+        <h2 class="stats__title">Golf planning,<br>finally fixed.</h2>
+        <p class="stats__desc">We obsessed over every friction point in booking a round — so the experience feels like talking to someone who actually plays golf.</p>
+        <a href="#cta" class="btn btn--white">Get early access →</a>
+      </div>
+      <div class="stats__grid">
+        <div class="stats__item">
+          <div class="stats__pill-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </div>
+          <div class="stats__num">Speak it</div>
+          <div class="stats__item-desc">Voice or text — tell Bob what you want in plain English and he takes it from there.</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__pill-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+          </div>
+          <div class="stats__num">Weather-smart</div>
+          <div class="stats__item-desc">Every recommendation is checked against the forecast. Bob won't send you into a downpour.</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__pill-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="stats__num">Group-ready</div>
+          <div class="stats__item-desc">Coordinate tee times for a foursome as easily as booking for one. Bob handles the logistics.</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__pill-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="stats__num">Always-on</div>
+          <div class="stats__item-desc">Bob is available 24/7 on WhatsApp, SMS, iMessage, ChatGPT and the app — whenever you feel like playing.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -273,106 +393,89 @@
 <!-- ========== HOW IT WORKS ========== -->
 <section class="how" id="how">
   <div class="container">
-    <div class="how__head reveal">
-      <span class="eyebrow eyebrow--light">How it works</span>
-      <h2 class="section-title section-title--light">From question to tee-off, in three steps.</h2>
-      <p class="section-lede section-lede--light how__lede">A flow designed so you spend less time planning and more time playing.</p>
+    <div class="how__head">
+      <span class="eyebrow">How it works</span>
+      <h2 class="section-title">Tee off in three steps,<br>not thirty minutes.</h2>
+      <p class="section-lede">Most golfers spend 20+ minutes planning a single round across multiple apps. We cut that to a single conversation.</p>
     </div>
 
     <div class="how__steps">
-      <!-- STEP 1 -->
-      <div class="how__step reveal">
-        <div class="how__step-text">
-          <div class="how__step-num">Step 01</div>
-          <h3 class="how__step-title">Tell teemeup what you want.</h3>
-          <p class="how__step-desc">Type or talk naturally — "find me a dry 18-hole round near Charlotte this Saturday under $60." No filters, no checkboxes.</p>
+      <div class="how__step">
+        <div class="how__step-num">01</div>
+        <div class="how__step-content">
+          <h3 class="how__step-title">Just talk. Bob does the rest.</h3>
+          <p class="how__step-desc">Speak or type naturally — "dry 18-hole near Charlotte this Saturday under $60." No filters, no dropdowns, no wasted time.</p>
           <ul class="how__step-bullets">
-            <li>Natural language</li>
-            <li>Voice dictation</li>
-            <li>Remembers your preferences</li>
+            <li>Natural language or voice input</li>
+            <li>Remembers your preferences automatically</li>
+            <li>Available on web and mobile</li>
           </ul>
         </div>
-        <div class="how__step-visual reveal" data-delay="1">
-          <div class="viz-ask">
-            <div class="viz-ask__prompt">Dry 18-hole near Charlotte, Sat, under $60</div>
-            <div class="viz-ask__think">
-              <span></span><span></span><span></span>
+        <div class="how__step-visual">
+          <div class="how__chat-demo">
+            <div class="how__chat-bubble how__chat-bubble--user">Dry 18-hole near Charlotte, this Saturday under $60</div>
+            <div class="how__chat-bubble how__chat-bubble--ai">
+              <span class="how__chat-ai-icon">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.83 9.17L24 12l-9.17 2.83L12 24l-2.83-9.17L0 12l9.17-2.83z"/></svg>
+              </span>
+              Found 3 great options! Best pick: Pebble View GC at 9:40 AM — 22 miles away, clear skies all morning, $52 per player.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- STEP 2 -->
-      <div class="how__step reveal">
-        <div class="how__step-text">
-          <div class="how__step-num">Step 02</div>
-          <h3 class="how__step-title">Review smart recommendations.</h3>
-          <p class="how__step-desc">teemeup scores options against weather, distance, price, handicap and your history. You see a short, considered list — not infinite scroll.</p>
+      <div class="how__step">
+        <div class="how__step-num">02</div>
+        <div class="how__step-content">
+          <h3 class="how__step-title">Pick from smart recommendations.</h3>
+          <p class="how__step-desc">Bob ranks options by weather, distance, price and your history. You see a short, considered list — not an overwhelming scroll of results.</p>
           <ul class="how__step-bullets">
-            <li>Weather-aware ranking</li>
-            <li>Transparent reasoning</li>
-            <li>Compare side by side</li>
+            <li>Weather-aware ranking built in</li>
+            <li>Transparent reasoning for each pick</li>
+            <li>Side-by-side comparison on request</li>
           </ul>
         </div>
-        <div class="how__step-visual reveal" data-delay="1">
-          <div class="viz-discover">
-            <div class="viz-discover__card viz-discover__card--featured">
-              <div class="viz-discover__thumb"><img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=80&q=70" alt="Pebble View GC" loading="lazy"></div>
-              <div>
-                <div class="viz-discover__name">Pebble View GC</div>
-                <div class="viz-discover__meta">Sat 09:40 · 18H · 22 mi</div>
+        <div class="how__step-visual">
+          <div class="how__cards-demo">
+            <div class="how__course-card how__course-card--best">
+              <div class="how__course-card-badge">Best pick</div>
+              <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=120&q=70" alt="Pebble View GC" loading="lazy">
+              <div class="how__course-card-info">
+                <div class="how__course-card-name">Pebble View GC</div>
+                <div class="how__course-card-meta">Sat 9:40 AM · 18H · $52</div>
               </div>
-              <div class="viz-discover__price">$52</div>
             </div>
-            <div class="viz-discover__card">
-              <div class="viz-discover__thumb"><img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=80&q=70" alt="Lakewood Links" loading="lazy"></div>
-              <div>
-                <div class="viz-discover__name">Lakewood Links</div>
-                <div class="viz-discover__meta">Sat 11:00 · 18H · 14 mi</div>
+            <div class="how__course-card">
+              <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=120&q=70" alt="Lakewood Links" loading="lazy">
+              <div class="how__course-card-info">
+                <div class="how__course-card-name">Lakewood Links</div>
+                <div class="how__course-card-meta">Sat 11:00 AM · 18H · $58</div>
               </div>
-              <div class="viz-discover__price">$62</div>
-            </div>
-            <div class="viz-discover__card">
-              <div class="viz-discover__thumb"><img src="https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=80&q=70" alt="Oak Valley CC" loading="lazy"></div>
-              <div>
-                <div class="viz-discover__name">Oak Valley CC</div>
-                <div class="viz-discover__meta">Sat 13:20 · 18H · 11 mi</div>
-              </div>
-              <div class="viz-discover__price">$47</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- STEP 3 -->
-      <div class="how__step reveal">
-        <div class="how__step-text">
-          <div class="how__step-num">Step 03</div>
-          <h3 class="how__step-title">Confirm &amp; tee off.</h3>
-          <p class="how__step-desc">One tap to book. Calendar invites, course directions and weather reminders arrive automatically so nothing slips.</p>
+      <div class="how__step">
+        <div class="how__step-num">03</div>
+        <div class="how__step-content">
+          <h3 class="how__step-title">Book it. Then forget about it.</h3>
+          <p class="how__step-desc">One tap confirms your round. Calendar invite, course directions and a weather nudge arrive automatically — so nothing slips between now and the first tee.</p>
           <ul class="how__step-bullets">
-            <li>Instant booking</li>
-            <li>Auto calendar &amp; reminders</li>
-            <li>Cancel/reschedule via chat</li>
+            <li>Instant booking confirmation</li>
+            <li>Auto calendar & smart reminders</li>
+            <li>Reschedule or cancel via chat</li>
           </ul>
         </div>
-        <div class="how__step-visual reveal" data-delay="1">
-          <div class="viz-book">
-            <div class="viz-book__title">Pebble View GC · Saturday</div>
-            <div class="viz-book__grid">
-              <div class="viz-book__slot viz-book__slot--unavailable">08:20</div>
-              <div class="viz-book__slot">09:00</div>
-              <div class="viz-book__slot viz-book__slot--selected">09:40</div>
-              <div class="viz-book__slot">10:20</div>
-              <div class="viz-book__slot">11:00</div>
-              <div class="viz-book__slot">11:40</div>
-              <div class="viz-book__slot viz-book__slot--unavailable">12:20</div>
-              <div class="viz-book__slot">13:00</div>
+        <div class="how__step-visual">
+          <div class="how__confirm-demo">
+            <div class="how__confirm-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             </div>
-            <div class="viz-book__confirm">
-              <span>Booked · 09:40 · 4 players</span>
-              <span>$52</span>
-            </div>
+            <div class="how__confirm-title">You're on the tee!</div>
+            <div class="how__confirm-detail">Pebble View GC · Saturday 9:40 AM</div>
+            <div class="how__confirm-detail">4 players · $52 per player</div>
+            <div class="how__confirm-num">Confirmation: PBV-2024-0940</div>
           </div>
         </div>
       </div>
@@ -380,173 +483,75 @@
   </div>
 </section>
 
-<!-- ========== SHOWCASE ========== -->
-<section class="showcase" id="showcase">
+<!-- ========== FOUNDING ACCESS ========== -->
+<section class="testimonials">
   <div class="container">
-    <div class="showcase__head reveal">
-      <span class="eyebrow">Product tour</span>
-      <h2 class="section-title">Built for planning, polished for golfers.</h2>
-      <p class="section-lede">The teemeup web app is your planning cockpit — fast, focused and never in your way.</p>
+    <div class="testimonials__head">
+      <span class="eyebrow">Industry preview</span>
+      <h2 class="section-title">Currently by invitation only.</h2>
+      <p class="section-lede">teemeup is in a focused industry preview, working with golf experts and insiders to refine the experience before public launch. Invitations are limited.</p>
     </div>
-
-    <div class="showcase__canvas">
-      <div class="showcase__layout">
-        <div class="showcase__copy">
-          <div class="showcase__tabs" role="tablist">
-            <button class="showcase__tab is-active" data-tab="voice">Voice AI</button>
-            <button class="showcase__tab" data-tab="chat">Chat</button>
-            <button class="showcase__tab" data-tab="bookings">My Bookings</button>
-          </div>
-
-          <div class="showcase__panel" data-panel="chat">
-            <h3 class="showcase__panel-title">Your caddie, in conversation.</h3>
-            <p class="showcase__panel-desc">Just ask. Bob replies with actionable answers — tee times, course tips, availability — and can book directly from the chat.</p>
-            <ul class="showcase__panel-features">
-              <li>Natural language — no forms, no filters</li>
-              <li>One-tap booking from inside the conversation</li>
-              <li>Picks up context from your previous rounds</li>
-            </ul>
-          </div>
-
-          <div class="showcase__panel" data-panel="bookings">
-            <h3 class="showcase__panel-title">All your bookings, at a glance.</h3>
-            <p class="showcase__panel-desc">Every confirmed round in one clean view — course details, tee times, player count and confirmation numbers, always one tap away.</p>
-            <ul class="showcase__panel-features">
-              <li>Confirmed & pending bookings in one list</li>
-              <li>Instant access to confirmation numbers</li>
-              <li>Cancel or reschedule via chat, no phone calls</li>
-            </ul>
-          </div>
-
-          <div class="showcase__panel is-active" data-panel="voice">
-            <h3 class="showcase__panel-title">Just talk — Bob handles the rest.</h3>
-            <p class="showcase__panel-desc">Tap the mic, say what you want. Bob finds options, confirms details and books — hands-free, in seconds. Perfect for the drive to the club.</p>
-            <ul class="showcase__panel-features">
-              <li>Full voice-to-booking in one flow</li>
-              <li>Works while the app is in the background</li>
-              <li>Proactive suggestions based on your schedule</li>
-            </ul>
-          </div>
+    <div class="testimonials__grid">
+      <div class="testimonial-card">
+        <div class="founding-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-
-        <div class="showcase__product">
-
-            <!-- Screen content -->
-            <div class="mapp__screen">
-
-              <!-- ---- CHAT view ---- -->
-              <div class="mapp__view mapp__view--chat">
-                <div class="mapp__scroll">
-                  <div class="mapp__bubble mapp__bubble--ai">Hi! I'm Bob, your golf assistant. How can I help you today?</div>
-                  <div class="mapp__bubble mapp__bubble--user mapp__bubble--dark">Play a round today?</div>
-                  <div class="mapp__bubble mapp__bubble--ai">Great! Let me find available tee times for you today. What time would work best for you?</div>
-                </div>
-              </div>
-
-              <!-- ---- BOOKINGS view ---- -->
-              <div class="mapp__view mapp__view--bookings">
-                <div class="mapp__scroll">
-                  <div class="mapp__bookings-label">Upcoming</div>
-                  <!-- Card 1 -->
-                  <div class="mapp__bookcard">
-                    <div class="mapp__bookcard-top">
-                      <img class="mapp__bookcard-img" src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=180&q=70" alt="Pebble Beach Golf Links" loading="lazy">
-                      <div class="mapp__bookcard-info">
-                        <div class="mapp__bookcard-head">
-                          <div class="mapp__bookcard-name">Pebble Beach Golf Links</div>
-                          <span class="mapp__bookcard-badge">Confirmed</span>
-                        </div>
-                        <div class="mapp__bookcard-row">
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                          Pebble Beach, CA
-                        </div>
-                        <div class="mapp__bookcard-row">
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                          Dec 20, 2024
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                          8:30 AM
-                        </div>
-                        <div class="mapp__bookcard-row">
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                          4 players
-                        </div>
-                      </div>
-                    </div>
-                    <hr class="mapp__bookcard-sep">
-                    <div class="mapp__bookcard-footer">
-                      <span class="mapp__bookcard-details">View Details <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></span>
-                    </div>
-                    <div class="mapp__bookcard-confirm">
-                      <div class="mapp__bookcard-confirm-label">Confirmation Number</div>
-                      <div class="mapp__bookcard-confirm-num">PB-2024-1234</div>
-                    </div>
-                  </div>
-                  <!-- Card 2 -->
-                  <div class="mapp__bookcard">
-                    <div class="mapp__bookcard-top">
-                      <img class="mapp__bookcard-img" src="https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=180&q=70" alt="TPC Sawgrass" loading="lazy">
-                      <div class="mapp__bookcard-info">
-                        <div class="mapp__bookcard-head">
-                          <div class="mapp__bookcard-name">TPC Sawgrass</div>
-                          <span class="mapp__bookcard-badge">Confirmed</span>
-                        </div>
-                        <div class="mapp__bookcard-row">
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                          Ponte Vedra Beach, FL
-                        </div>
-                        <div class="mapp__bookcard-row">
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                          Dec 25, 2024
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                          2:00 PM
-                        </div>
-                        <div class="mapp__bookcard-row">
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                          2 players
-                        </div>
-                      </div>
-                    </div>
-                    <hr class="mapp__bookcard-sep">
-                    <div class="mapp__bookcard-footer">
-                      <span class="mapp__bookcard-details">View Details <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ---- VOICE AI view ---- -->
-              <div class="mapp__view mapp__view--voice is-active">
-                <!-- Voice modal -->
-                <div class="mapp__voice-modal">
-                  <div class="mapp__voice-modal-head">
-                    <span class="mapp__voice-modal-icon">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.83 9.17L24 12l-9.17 2.83L12 24l-2.83-9.17L0 12l9.17-2.83z"/></svg>
-                    </span>
-                    <div>
-                      <div class="mapp__voice-modal-title">Bob</div>
-                      <div class="mapp__voice-modal-status">Processing…</div>
-                    </div>
-                    <button class="mapp__voice-modal-close" aria-label="Close">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    </button>
-                  </div>
-                  <div class="mapp__voice-query">Find tee times near me for tomorrow morning</div>
-                  <div class="mapp__voice-response">
-                    <span class="mapp__voice-ai-icon">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.83 9.17L24 12l-9.17 2.83L12 24l-2.83-9.17L0 12l9.17-2.83z"/></svg>
-                    </span>
-                    <p class="mapp__voice-response-text">I found 3 available tee times near you for tomorrow morning. The closest is at Pebble Beach Golf Links at 8:30 AM. Would you like me to book it?</p>
-                  </div>
-                  <div class="mapp__voice-btns">
-                    <button class="mapp__voice-btn mapp__voice-btn--ghost">Ask Again</button>
-                    <button class="mapp__voice-btn mapp__voice-btn--primary">Done</button>
-                  </div>
-                </div>
-              </div>
-
-            </div><!-- /mapp__screen -->
-
+        <h3 class="founding-card__title">Founding member status</h3>
+        <p class="founding-card__desc">Secure your place in the first wave. Your input shapes the roadmap — founding member status and benefits are locked in permanently, regardless of what we charge later.</p>
+      </div>
+      <div class="testimonial-card testimonial-card--featured">
+        <div class="founding-card__icon founding-card__icon--light">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
+        <h3 class="founding-card__title founding-card__title--light">Founding access</h3>
+        <p class="founding-card__desc founding-card__desc--light">Founding members are locked in permanently with full access to every feature — including everything we build after the public launch. Your status never changes, regardless of how the product evolves.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="founding-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="founding-card__title">Bring your foursome</h3>
+        <p class="founding-card__desc">Every founding member gets a handful of personal invitations. Bring the golfers you actually play with — before the waitlist opens to everyone else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ECOSYSTEM ========== -->
+<section class="ecosystem" id="ecosystem">
+  <div class="container">
+    <div class="ecosystem__head">
+      <span class="eyebrow">The teemeup ecosystem</span>
+      <h2 class="section-title">Built for golfers.<br>Designed for the industry.</h2>
+      <p class="section-lede">teemeup is more than an app — it's an open platform for everyone who touches golf.</p>
+    </div>
+    <div class="ecosystem__grid">
+      <div class="ecosystem__card">
+        <div class="ecosystem__card-icon ecosystem__card-icon--green">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="ecosystem__card-tag">For golf courses &amp; venues</div>
+        <h3 class="ecosystem__card-title">Turn questions into bookings. Automatically.</h3>
+        <p class="ecosystem__card-desc">Bob connects directly to your tee sheet via Courserev and handles the entire booking flow — from the first "do you have a Saturday slot?" to confirmed payment. No extra staff. No missed tee times.</p>
+        <a href="https://courserev.ai" target="_blank" rel="noopener noreferrer" class="ecosystem__card-cta">Become a partner →</a>
+      </div>
+      <div class="ecosystem__card ecosystem__card--featured">
+        <div class="ecosystem__card-icon ecosystem__card-icon--light">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="ecosystem__card-tag ecosystem__card-tag--light">For partners, influencers &amp; brands</div>
+        <h3 class="ecosystem__card-title ecosystem__card-title--light">Reach golfers at the moment they're planning.</h3>
+        <p class="ecosystem__card-desc ecosystem__card-desc--light">Custom-brand Bob, sponsor tee time recommendations and connect your products to the right golfer at exactly the right moment. AI-driven targeting with a simple dashboard — no technical setup required.</p>
+        <span class="ecosystem__card-cta ecosystem__card-cta--soon">Coming soon</span>
+      </div>
+      <div class="ecosystem__card">
+        <div class="ecosystem__card-icon ecosystem__card-icon--purple">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="ecosystem__card-tag">For developers</div>
+        <h3 class="ecosystem__card-title">Embed golf booking in any app.</h3>
+        <p class="ecosystem__card-desc">Our open SDK gives developers native golf booking capabilities — search, availability and instant confirmation — without building from scratch. Let your users book tee times without ever leaving your experience.</p>
+        <span class="ecosystem__card-cta ecosystem__card-cta--soon">Coming soon</span>
       </div>
     </div>
   </div>
@@ -556,48 +561,68 @@
 <section class="faq" id="faq">
   <div class="container">
     <div class="faq__inner">
-      <div class="faq__head reveal">
+      <div class="faq__head">
         <span class="eyebrow">FAQ</span>
-        <h2 class="section-title">Questions,<br>answered.</h2>
-        <p class="section-lede">Still curious? Reach us at hello@teemeup.ai.</p>
+        <h2 class="section-title">Good questions.<br>Honest answers.</h2>
+        <p class="section-lede">Still curious? We're happy to chat.<br><a href="mailto:hello@teemeup.ai">hello@teemeup.ai</a></p>
       </div>
-      <div class="faq__list reveal">
+      <div class="faq__list">
         <div class="faq-item">
           <button class="faq-item__q">
-            Does teemeup actually complete bookings, or just suggest them?
+            Does teemeup actually complete the booking, or just suggest?
             <span class="faq-item__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">Both. teemeup suggests the best-fit tee times and, for courses connected through our partner network, books them for you directly inside the chat. You'll see a confirmation with full booking details and a calendar invite.</div></div>
+          <div class="faq-item__a"><div class="faq-item__a-inner">Both. teemeup suggests the best-fit tee times and, for courses connected through our partner network, completes the booking for you directly inside the chat. You'll receive a confirmation with full details, a calendar invite and directions.</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-item__q">
             Which courses are covered?
             <span class="faq-item__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">Over 12,000 courses worldwide across major booking networks. Direct-booking coverage is strongest in Europe and North America, with new partners added monthly. If your club isn't listed yet, let us know — we often add them within a few weeks.</div></div>
+          <div class="faq-item__a"><div class="faq-item__a-inner">We're connecting with courses across the UK, US, Europe, Asia and beyond via major booking networks. Coverage grows with every partner we add — and we're adding quickly. If your club isn't listed yet, let us know and we'll prioritise it.</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-item__q">
-            How does teemeup personalize recommendations?
+            How does Bob personalise my recommendations?
             <span class="faq-item__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">It learns from what you play and how you play — handicap, preferred tee windows, travel tolerance, budget and weather sensitivity. Everything you share stays yours; you can review and clear your profile any time in Settings.</div></div>
+          <div class="faq-item__a"><div class="faq-item__a-inner">Bob learns from what you play and how you play — handicap, preferred tee windows, travel tolerance, budget and weather sensitivity. Everything you share stays private; you can review and clear your profile any time from Settings.</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-item__q">
-            Can I use teemeup by voice?
+            Can I really book by voice?
             <span class="faq-item__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">Yes. Tap the mic to dictate or have a full voice conversation with your caddie. Voice is available on web and the mobile app — perfect for planning on the drive home.</div></div>
+          <div class="faq-item__a"><div class="faq-item__a-inner">Yes, fully. Tap the mic to start a voice conversation with Bob. He'll ask the right follow-up questions, find your options and confirm the booking — all without you touching the screen again. Available on web and the mobile app.</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-item__q">
-            What happens if the weather turns?
+            What happens if the weather turns bad before my round?
             <span class="faq-item__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-item__a"><div class="faq-item__a-inner">teemeup monitors conditions up to your tee-off time and proactively proposes reschedule windows that match your preferences. One tap moves the booking — no back-and-forth with the pro shop.</div></div>
+          <div class="faq-item__a"><div class="faq-item__a-inner">teemeup monitors conditions up to your tee-off time and proactively suggests reschedule windows that match your preferences. One tap moves the booking — no phone calls to the pro shop required.</div></div>
         </div>
-        
+        <div class="faq-item">
+          <button class="faq-item__q">
+            How does Bob decide which courses to recommend?
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">Bob learns your preferences over time — your handicap, home club, preferred tee windows, budget range and weather tolerance all feed into every recommendation. The more you play with Bob, the sharper his suggestions get. You can also tell him exactly what you want in plain English and he'll filter accordingly.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__q">
+            Do I need to download an app to use Bob?
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">No. Bob is available on WhatsApp, SMS, iMessage and as a native integration inside ChatGPT — so you can start using him on the device and app you already have. The teemeup web and mobile app is available too, for a richer experience.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__q">
+            I run a golf course — can I connect to teemeup?
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__a"><div class="faq-item__a-inner">Yes — teemeup's booking channel connects directly to your tee sheet via Courserev.ai and handles the full booking flow automatically. If you'd like to partner, email us at hello@teemeup.ai and we'll get you set up.</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -605,15 +630,21 @@
 
 <!-- ========== CTA ========== -->
 <section class="cta" id="cta">
-  <div class="container cta__inner reveal">
-    <span class="eyebrow eyebrow--light">Ready to play?</span>
-    <h2 class="cta__title">Your next round, <em>planned in a sentence.</em></h2>
-    <p class="cta__lede">Join golfers saving hours every month. teemeup is free to start — no credit card required.</p>
-    <form class="cta__form" action="https://formspree.io/f/xbdqkekb" method="POST">
-      <input class="cta__input" type="email" name="email" placeholder="your@email.com" aria-label="Email" required>
-      <button type="submit" class="btn btn--green">Get early access →</button>
-    </form>
-
+  <div class="cta__bg">
+    <img src="assets/golf-7.png" alt="" class="cta__bg-img" loading="lazy" aria-hidden="true">
+    <div class="cta__bg-overlay"></div>
+  </div>
+  <div class="container cta__inner">
+    <div class="cta__content">
+      <span class="eyebrow eyebrow--light">Ready to play more?</span>
+      <h2 class="cta__title">Stop planning.<br><em>Start playing.</em></h2>
+      <p class="cta__lede">teemeup is in invite-only industry preview. Request access and we'll reach out when your invitation is ready.</p>
+      <form class="cta__form" action="https://formspree.io/f/xbdqkekb" method="POST">
+        <input class="cta__input" type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
+        <button type="submit" class="btn btn--primary btn--lg">Request an invitation →</button>
+      </form>
+      <p class="cta__fine">Invitation-only · Industry preview · Powered by Courserev.ai</p>
+    </div>
   </div>
 </section>
 
@@ -621,18 +652,31 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__inner">
-      <div>
-        <a href="#top" class="footer__brand" aria-label="teemeupAI home">
-          <img src="assets/teemeupai_logo.svg" alt="teemeupAI" class="footer__logo">
+      <div class="footer__brand-col">
+        <a href="#top" class="footer__brand" aria-label="teemeup home">
+          <img src="assets/teemeupai_logo.svg" alt="teemeup" class="footer__logo">
         </a>
-        <p class="footer__tagline">The AI companion for golfers. Plan, discover and book — in one conversation.</p>
+        <p class="footer__tagline">Your personal AI golf agent. Book tee times on WhatsApp, SMS, iMessage, ChatGPT and more — powered by Courserev.ai.</p>
+        <div class="footer__socials">
+          <a href="#" aria-label="Twitter/X" class="footer__social">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="footer__social">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="footer__social">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
       </div>
       <div>
         <h4 class="footer__col-title">Product</h4>
         <ul class="footer__links">
           <li><a href="#features">Features</a></li>
+          <li><a href="#ecosystem">Ecosystem</a></li>
           <li><a href="#how">How it works</a></li>
-          <li><a href="#showcase">Product</a></li>
+          <li><a href="#ecosystem">Ecosystem</a></li>
+          <li><a href="#cta">Early access</a></li>
         </ul>
       </div>
       <div>
@@ -643,54 +687,23 @@
           <li><a href="cookies.html">Cookie Policy</a></li>
         </ul>
       </div>
+      <div>
+        <h4 class="footer__col-title">Get in touch</h4>
+        <ul class="footer__links">
+          <li><a href="mailto:hello@teemeup.ai">hello@teemeup.ai</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#cta">Join waitlist</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer__bottom">
       <span>© 2026 teemeup.ai — all rights reserved</span>
-      <span>Built for golfers · v1.0</span>
+      <span>Made for golfers, by golfers</span>
     </div>
   </div>
 </footer>
 
-<!-- ========== TWEAKS PANEL ========== -->
-<div class="tweaks" id="tweaks">
-  <div class="tweaks__title">Tweaks</div>
-  <div class="tweaks__row">
-    <label class="tweaks__label">Accent color</label>
-    <div class="tweaks__swatches" id="tweaks-swatches">
-      <button class="tweaks__swatch is-active" data-accent="#4817CE" style="background:#4817CE"></button>
-      <button class="tweaks__swatch" data-accent="#008200" style="background:#008200"></button>
-      <button class="tweaks__swatch" data-accent="#1A1A2E" style="background:#1A1A2E"></button>
-      <button class="tweaks__swatch" data-accent="#6B3FE8" style="background:#6B3FE8"></button>
-      <button class="tweaks__swatch" data-accent="#00A300" style="background:#00A300"></button>
-    </div>
-  </div>
-  <div class="tweaks__row">
-    <label class="tweaks__label" for="tweak-headline-1">Hero headline — part 1</label>
-    <input class="tweaks__input" id="tweak-headline-1" type="text">
-  </div>
-  <div class="tweaks__row">
-    <label class="tweaks__label" for="tweak-headline-2">Hero headline — part 2 (italic)</label>
-    <input class="tweaks__input" id="tweak-headline-2" type="text">
-  </div>
-  <div class="tweaks__row">
-    <label class="tweaks__label" for="tweak-cta">Nav CTA label</label>
-    <input class="tweaks__input" id="tweak-cta" type="text">
-  </div>
-  <p class="tweaks__hint">Toggle the <strong>Tweaks</strong> button in the toolbar to show or hide this panel.</p>
-</div>
-
-<!-- ========== TWEAK DEFAULTS (persisted) ========== -->
-<script>
-  window.__TWEAK_DEFAULTS__ = /*EDITMODE-BEGIN*/{
-    "accentColor": "#4817CE",
-    "headlinePart1": "Plan the round",
-    "headlinePart2": "just ask",
-    "navCtaLabel": "Get early access"
-  }/*EDITMODE-END*/;
-</script>
-
 <script src="app.js"></script>
-<!-- GSAP + ScrollTrigger -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="animations.js"></script>
