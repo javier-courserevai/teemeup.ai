@@ -4,6 +4,7 @@
    ========================================================= */
 (function () {
   if (typeof gsap === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   gsap.registerPlugin(ScrollTrigger);
 
   var OUT  = 'power3.out';
