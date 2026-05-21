@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About teemeup — teemeup.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/teemeupai_favicon.png">
+<link rel="apple-touch-icon" href="assets/teemeupai_favicon.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ── About page layout ── */
+  .about-app {
+    padding: 32px 0 56px;
+    font-family: var(--font-body);
+    color: var(--ink);
+  }
+  .about-app__header {
+    margin-bottom: 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .about-app__eyebrow {
+    font-family: var(--font-body);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--purple);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .about-app__eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--purple);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .about-app__title {
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 6vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0 0 10px;
+  }
+  .about-app__version {
+    font-size: .8rem;
+    color: var(--gray-400);
+    font-weight: 500;
+    letter-spacing: .02em;
+  }
+  .about-app__body {
+    max-width: 680px;
+  }
+  .about-app__body h2 {
+    font-family: var(--font-head);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    margin: 40px 0 10px;
+  }
+  .about-app__body h2:first-child { margin-top: 0; }
+  .about-app__body p {
+    font-size: .975rem;
+    line-height: 1.75;
+    color: #3f3f46;
+    margin: 0 0 14px;
+  }
+  .about-app__body ul {
+    padding-left: 18px;
+    margin: 0 0 14px;
+  }
+  .about-app__body li {
+    font-size: .975rem;
+    line-height: 1.75;
+    color: #3f3f46;
+    margin-bottom: 5px;
+  }
+  .about-app__body strong { color: var(--ink); font-weight: 600; }
+  .about-app__body a { color: var(--purple); text-decoration: underline; }
+
+  /* ── Feature pill list ── */
+  .about-app__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 24px;
+    padding: 0;
+    list-style: none;
+  }
+  .about-app__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--purple);
+    background: var(--purple-faint);
+    border-radius: 100px;
+    padding: 5px 14px;
+    margin: 0;
+  }
+  .about-app__pill--green {
+    color: var(--green-dark);
+    background: var(--green-faint);
+  }
+
+  /* ── Stat strip ── */
+  .about-app__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--gray-100);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 24px 0 32px;
+  }
+  .about-app__stat {
+    background: var(--off-white);
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .about-app__stat-value {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    color: var(--purple);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .about-app__stat-label {
+    font-size: .72rem;
+    color: var(--gray-400);
+    font-weight: 500;
+    letter-spacing: .01em;
+  }
+
+  /* ── Contact card ── */
+  .about-app__contact {
+    background: var(--purple-xfaint);
+    border: 1px solid var(--purple-faint);
+    border-radius: var(--radius-lg);
+    padding: 20px 22px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .about-app__contact-label {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--purple);
+  }
+  .about-app__contact-email {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .about-app__contact-note {
+    font-size: .82rem;
+    color: var(--gray-400);
+    margin-top: 2px;
+  }
+
+  /* ── App-embedded view: hide chrome ── */
+  .nav, footer.footer { display: none !important; }
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<main>
+  <section class="about-app">
+    <div class="container">
+      <div class="about-app__header">
+        <p class="about-app__eyebrow">About the app</p>
+        <h1 class="about-app__title">teemeup</h1>
+        <p class="about-app__version">Version 1.0 · Powered by Courserev.ai</p>
+      </div>
+
+      <div class="about-app__body">
+
+        <h2>What is teemeup?</h2>
+        <p>teemeup is your personal AI golf assistant — designed to take the friction out of planning and booking a round of golf. Instead of jumping between apps, calling the pro shop, or filling out forms, you simply have a conversation with <strong>Bob</strong>, our AI caddie, and he handles everything for you.</p>
+        <p>Tell Bob where you want to play, when, and what conditions you're looking for. He finds the best available tee times, checks the weather and course conditions, and completes the booking — all in a single conversation, through the channels you already use.</p>
+
+        <h2>Key features</h2>
+        <ul class="about-app__pills">
+          <li class="about-app__pill">AI tee time search</li>
+          <li class="about-app__pill">Voice booking</li>
+          <li class="about-app__pill">Play-condition forecast</li>
+          <li class="about-app__pill">Smart reminders</li>
+          <li class="about-app__pill">Group coordination</li>
+          <li class="about-app__pill--green about-app__pill">Instant confirmation</li>
+          <li class="about-app__pill--green about-app__pill">WhatsApp &amp; SMS</li>
+          <li class="about-app__pill--green about-app__pill">iMessage &amp; ChatGPT</li>
+        </ul>
+
+        <div class="about-app__stats">
+          <div class="about-app__stat">
+            <span class="about-app__stat-value">1</span>
+            <span class="about-app__stat-label">conversation to book</span>
+          </div>
+          <div class="about-app__stat">
+            <span class="about-app__stat-value">4</span>
+            <span class="about-app__stat-label">channels supported</span>
+          </div>
+          <div class="about-app__stat">
+            <span class="about-app__stat-value">0</span>
+            <span class="about-app__stat-label">forms to fill</span>
+          </div>
+        </div>
+
+        <h2>How Bob works</h2>
+        <p>Bob is a conversational AI built specifically for golf. You can speak to him naturally — no commands, no keywords. He understands context, remembers your preferences, and gets better at recommending courses and tee times the more you use him.</p>
+        <ul>
+          <li>Say or type what you want: <em>"dry 18-hole near Edinburgh this Saturday under £60"</em></li>
+          <li>Bob searches real-time availability from courses connected through our partner network.</li>
+          <li>He surfaces the best options ranked by weather, distance, price, and your history — not alphabetically.</li>
+          <li>Confirm with a single message. Booking, calendar invite and directions are sent automatically.</li>
+        </ul>
+
+        <h2>Channels &amp; platforms</h2>
+        <p>teemeup works wherever you already are. Bob is available across:</p>
+        <ul>
+          <li><strong>The teemeup app</strong> — native mobile experience with voice support</li>
+          <li><strong>WhatsApp</strong> — chat with Bob from your existing WhatsApp account</li>
+          <li><strong>SMS / iMessage</strong> — no app required, works on any phone</li>
+          <li><strong>ChatGPT</strong> — via the teemeup plugin for ChatGPT Plus users</li>
+        </ul>
+        <p>Your preferences and booking history sync automatically across all channels.</p>
+
+        <h2>Course coverage</h2>
+        <p>teemeup connects to golf courses through <strong>Courserev.ai</strong>, our booking infrastructure partner. We currently serve courses across the UK, Ireland, and select markets in the US and Europe, with coverage expanding rapidly as new courses join our partner network.</p>
+        <p>If your club isn't listed yet, you can submit a request through the app or email us at <a href="mailto:hello@teemeup.ai">hello@teemeup.ai</a> and we'll prioritise it.</p>
+
+        <h2>Access &amp; availability</h2>
+        <p>teemeup is currently in <strong>invite-only industry preview</strong>. Access is granted by invitation to early users, golf industry partners, and founding members. If you have received an invitation code, you can activate it from the welcome screen.</p>
+        <p>To request access or join the waitlist, visit <a href="https://teemeup.ai">teemeup.ai</a> or email us directly.</p>
+
+        <h2>Data &amp; privacy</h2>
+        <p>We take your privacy seriously. teemeup collects only the information needed to provide the service — your preferences, booking history, and communication data. We do not sell your data to third parties. Full details are in our <a href="privacy-app.html">Privacy Policy</a>.</p>
+
+        <h2>Developer &amp; company</h2>
+        <p>teemeup is developed and operated by <strong>Courserev Ltd</strong>, a golf technology company building the infrastructure for intelligent, conversational golf booking. Our mission is to make planning a round of golf as easy as sending a message.</p>
+        <ul>
+          <li><strong>Company:</strong> Courserev Ltd</li>
+          <li><strong>Website:</strong> <a href="https://teemeup.ai">teemeup.ai</a></li>
+          <li><strong>Partner platform:</strong> <a href="https://courserev.ai">courserev.ai</a></li>
+          <li><strong>Support:</strong> <a href="mailto:support@teemeup.ai">support@teemeup.ai</a></li>
+        </ul>
+
+        <div class="about-app__contact">
+          <span class="about-app__contact-label">Get in touch</span>
+          <a href="mailto:hello@teemeup.ai" class="about-app__contact-email">hello@teemeup.ai</a>
+          <span class="about-app__contact-note">We reply to every message within one business day.</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
