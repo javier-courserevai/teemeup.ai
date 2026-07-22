@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary SEO -->
+<title>About teemeup — The Team Behind Your AI Golf Caddie</title>
+<meta name="description" content="Meet the team behind teemeup.ai — golfers and technologists building the AI agent that books your tee times through natural conversation. Our story, mission and values.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.teemeup.ai/about">
+
+<!-- Open Graph -->
+<meta property="og:title" content="About teemeup — The Team Behind Your AI Golf Caddie">
+<meta property="og:description" content="Meet the team building teemeup — the AI platform that lets golfers book tee times through natural conversation with Bob, their AI caddie.">
+<meta property="og:image" content="https://www.teemeup.ai/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.teemeup.ai/about">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="teemeup.ai">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About teemeup — The Team Behind Your AI Golf Caddie">
+<meta name="twitter:description" content="Meet the team building teemeup — the AI platform that lets golfers book tee times through natural conversation.">
+<meta name="twitter:image" content="https://www.teemeup.ai/assets/og-image.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/teemeupai_favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About teemeup",
+  "description": "The story, mission and team behind teemeup — the AI golf booking platform powered by Courserev.ai.",
+  "url": "https://www.teemeup.ai/about.html",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.teemeup.ai/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.teemeup.ai/about.html" }
+    ]
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "teemeup.ai",
+    "url": "https://www.teemeup.ai",
+    "logo": "https://www.teemeup.ai/assets/teemeupai_logo.svg",
+    "description": "teemeup is an AI-powered golf booking platform that helps golfers book tee times through natural conversation with Bob, an AI caddie available on WhatsApp, SMS, iMessage, ChatGPT and the teemeup app.",
+    "foundingDate": "2024",
+    "industry": "Golf Technology / AI",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Courserev.ai",
+      "url": "https://www.courserev.ai"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@teemeup.ai",
+      "contactType": "customer support"
+    },
+    "sameAs": [
+      "https://www.instagram.com/teemeup.ai/",
+      "https://www.facebook.com/Teemeupai"
+    ]
+  }
+}
+</script>
+
+<style>
+/* ── Nav always solid ── */
+#nav {
+  background: rgba(255,255,255,0.95) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+#nav .nav__logo { filter: none !important; height: 22px !important; }
+#nav .nav__link { color: var(--text-mid) !important; }
+#nav .nav__link:hover { color: var(--text) !important; background: rgba(0,0,0,.05) !important; }
+#nav .nav__burger span { background: var(--text) !important; }
+
+/* ── About page styles ── */
+
+/* Hero */
+.ab-hero {
+  padding: calc(var(--nav-h) + 72px) 0 88px;
+  background: linear-gradient(145deg, #07070F 0%, #0e0a22 55%, #130B2E 100%);
+  position: relative;
+  overflow: hidden;
+}
+.ab-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 100% at 75% 40%, rgba(72,23,206,.22) 0%, transparent 65%),
+    radial-gradient(ellipse 30% 50% at 10% 85%, rgba(34,197,94,.1) 0%, transparent 55%);
+}
+.ab-hero__inner { position: relative; z-index: 1; max-width: 740px; }
+.ab-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--green); display: inline-flex; align-items: center; gap: 10px;
+  margin-bottom: 22px;
+}
+.ab-eyebrow::before { content: ""; width: 18px; height: 1px; background: currentColor; }
+.ab-hero__title {
+  font-family: var(--font-head); font-weight: 800;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  letter-spacing: -0.03em; color: #fff; line-height: 1.05; margin: 0 0 22px;
+}
+.ab-hero__title em { font-style: normal; color: #7C52F6; }
+.ab-hero__lead {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: rgba(255,255,255,.56); line-height: 1.75;
+  max-width: 560px; margin: 0 0 40px;
+}
+.ab-hero__stats {
+  display: flex; flex-wrap: wrap; gap: 32px;
+}
+.ab-stat {}
+.ab-stat__num {
+  font-family: var(--font-head); font-weight: 800;
+  font-size: 2rem; letter-spacing: -0.03em; color: #fff;
+  line-height: 1;
+}
+.ab-stat__num span { color: var(--green); }
+.ab-stat__label {
+  font-size: 12px; color: rgba(255,255,255,.45);
+  margin-top: 4px; font-weight: 500; letter-spacing: 0.03em;
+}
+
+/* Sections */
+.ab-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+.ab-section--alt { background: var(--surface); }
+.ab-section--dark {
+  background: linear-gradient(145deg, #07070F 0%, #0e0a22 100%);
+  border-bottom: 0;
+}
+
+.ab-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--purple); display: block; margin-bottom: 10px;
+}
+.ab-section-title {
+  font-family: var(--font-head); font-weight: 800;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: -0.03em; color: var(--text);
+  margin: 0 0 16px; line-height: 1.1;
+}
+.ab-section-title--light { color: #fff; }
+.ab-section-lead {
+  font-size: 1.05rem; color: var(--text-mid);
+  line-height: 1.75; max-width: 560px; margin: 0;
+}
+.ab-section-lead--light { color: rgba(255,255,255,.52); }
+
+/* Story two-col layout */
+.ab-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.ab-story__copy h2 { font-family: var(--font-head); font-weight: 800; font-size: clamp(1.8rem, 2.8vw, 2.4rem); letter-spacing: -0.03em; color: var(--text); margin: 0 0 20px; line-height: 1.1; }
+.ab-story__copy p { font-size: 16px; color: var(--text-mid); line-height: 1.8; margin: 0 0 18px; }
+.ab-story__copy p:last-child { margin-bottom: 0; }
+.ab-story__copy strong { color: var(--text); font-weight: 600; }
+.ab-story__visual {
+  border-radius: var(--radius-xl);
+  background: linear-gradient(145deg, #130B2E 0%, #1a0f42 100%);
+  border: 1px solid rgba(72,23,206,.25);
+  padding: 36px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.ab-chat-bubble {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 14px; line-height: 1.55;
+}
+.ab-chat-bubble--user {
+  background: var(--purple);
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.ab-chat-bubble--bob {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.09);
+  color: rgba(255,255,255,.82);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.ab-chat-meta {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: rgba(255,255,255,.35);
+  margin-bottom: -4px;
+}
+.ab-chat-meta-dot {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--green) 100%);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 10px; font-weight: 700; color: #fff;
+}
+
+/* Values grid */
+.ab-values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.ab-value-card {
+  padding: 32px 28px;
+  border: 1px solid var(--border); border-radius: var(--radius-xl);
+  background: #fff;
+  transition: box-shadow .2s, transform .2s;
+}
+.ab-value-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.07); transform: translateY(-2px); }
+.ab-value-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.ab-value-icon--purple { background: var(--purple-faint); }
+.ab-value-icon--green  { background: var(--green-faint); }
+.ab-value-icon--blue   { background: #EFF6FF; }
+.ab-value-icon--amber  { background: #FFFBEB; }
+.ab-value-card h3 {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: 1.05rem; color: var(--text); margin: 0 0 8px;
+}
+.ab-value-card p { font-size: 14.5px; color: var(--text-mid); line-height: 1.7; margin: 0; }
+
+/* Team grid */
+.ab-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.ab-team-card {
+  border-radius: var(--radius-xl); overflow: hidden;
+  border: 1px solid var(--border); background: #fff;
+  transition: box-shadow .2s, transform .2s;
+}
+.ab-team-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.07); transform: translateY(-2px); }
+.ab-team-avatar {
+  width: 100%; aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-weight: 800;
+  font-size: 2.4rem; letter-spacing: -0.02em; color: #fff;
+  position: relative; overflow: hidden;
+}
+.ab-team-avatar--1 { background: linear-gradient(145deg, #4817CE 0%, #6B3FE8 100%); }
+.ab-team-avatar--2 { background: linear-gradient(145deg, #1a6b3c 0%, #22C55E 100%); }
+.ab-team-avatar--3 { background: linear-gradient(145deg, #0f3460 0%, #2563EB 100%); }
+.ab-team-avatar--4 { background: linear-gradient(145deg, #7c1d6f 0%, #c026d3 100%); }
+.ab-team-avatar--5 { background: linear-gradient(145deg, #92400e 0%, #F59E0B 100%); }
+.ab-team-avatar--6 { background: linear-gradient(145deg, #064e3b 0%, #10B981 100%); }
+.ab-team-info { padding: 18px 16px; }
+.ab-team-name {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: 1rem; color: var(--text); margin-bottom: 3px;
+}
+.ab-team-role { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+.ab-team-links { display: flex; gap: 8px; margin-top: 12px; }
+.ab-team-link {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: var(--surface2); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; color: var(--text-dim);
+  transition: background .15s, color .15s;
+}
+.ab-team-link:hover { background: var(--purple-faint); color: var(--purple); }
+.ab-team-avatar img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top;
+  display: block;
+  filter: grayscale(100%);
+}
+
+/* Hiring CTA inside team */
+.ab-team-card--hiring {
+  border-style: dashed; border-color: rgba(72,23,206,.25);
+  background: var(--purple-faint);
+}
+.ab-team-card--hiring .ab-team-avatar {
+  background: transparent;
+  border-bottom: 1px dashed rgba(72,23,206,.15);
+}
+.ab-team-card--hiring .ab-team-name { color: var(--purple); }
+
+/* Mission strip */
+.ab-mission {
+  display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: center;
+}
+.ab-mission__label { font-family: var(--font-head); font-weight: 800; font-size: clamp(1.2rem, 2vw, 1.5rem); color: rgba(255,255,255,.2); letter-spacing: -0.02em; }
+.ab-mission__text {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: #fff; line-height: 1.45;
+  letter-spacing: -0.025em;
+}
+.ab-mission__text mark {
+  background: none; color: var(--green);
+}
+
+/* Backers / built on strip */
+.ab-built { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 40px; }
+.ab-built__label { font-size: 13px; color: var(--text-dim); font-weight: 500; flex-shrink: 0; }
+.ab-built__pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid var(--border); border-radius: 100px;
+  font-size: 13px; font-weight: 600; color: var(--text);
+  text-decoration: none; background: #fff;
+  transition: border-color .15s, box-shadow .15s;
+}
+.ab-built__pill:hover { border-color: var(--purple); box-shadow: 0 0 0 3px var(--purple-faint); }
+.ab-built__pill img { height: 16px; width: auto; }
+
+/* CTA */
+.ab-cta {
+  background: linear-gradient(145deg, #07070F 0%, #130B2E 100%);
+  border-radius: var(--radius-xl); padding: 56px 48px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  position: relative; overflow: hidden;
+}
+.ab-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 130% at 90% 50%, rgba(72,23,206,.35) 0%, transparent 65%);
+}
+.ab-cta__copy { position: relative; z-index: 1; }
+.ab-cta__copy h2 { font-family: var(--font-head); font-weight: 800; font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: -0.03em; color: #fff; margin: 0 0 10px; }
+.ab-cta__copy p { font-size: 15px; color: rgba(255,255,255,.5); margin: 0; line-height: 1.6; max-width: 380px; }
+.ab-cta__btns { position: relative; z-index: 1; display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
+.ab-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px; border-radius: var(--radius-pill);
+  font-weight: 600; font-size: .9rem; text-decoration: none;
+  transition: transform .15s, box-shadow .15s; white-space: nowrap;
+}
+.ab-btn:hover { transform: translateY(-1px); }
+.ab-btn--primary { background: linear-gradient(135deg, #5D28EE 0%, var(--purple) 100%); color: #fff; box-shadow: 0 4px 20px rgba(72,23,206,.4); }
+.ab-btn--ghost   { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.85); }
+.ab-btn--ghost:hover { background: rgba(255,255,255,.13); }
+
+/* Breadcrumb */
+.ab-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: rgba(255,255,255,.35);
+  margin-bottom: 28px; flex-wrap: wrap;
+}
+.ab-breadcrumb a { color: rgba(255,255,255,.35); text-decoration: none; }
+.ab-breadcrumb a:hover { color: rgba(255,255,255,.7); }
+.ab-breadcrumb__sep { opacity: .4; }
+.ab-breadcrumb__current { color: rgba(255,255,255,.6); font-weight: 500; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ab-story  { grid-template-columns: 1fr; }
+  .ab-story__visual { display: none; }
+  .ab-values { grid-template-columns: 1fr; }
+  .ab-team-grid { grid-template-columns: repeat(2, 1fr); }
+  .ab-mission { grid-template-columns: 1fr; gap: 16px; }
+  .ab-mission__label { display: none; }
+}
+@media (max-width: 640px) {
+  .ab-team-grid { grid-template-columns: repeat(2, 1fr); }
+  .ab-cta { flex-direction: column; padding: 36px 24px; }
+  .ab-cta__btns { width: 100%; flex-direction: column; }
+  .ab-btn { justify-content: center; }
+  .ab-hero__stats { gap: 24px; }
+  .ab-section { padding: 56px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand" aria-label="teemeup home">
+      <img src="assets/teemeupai_logo.svg" alt="teemeup" class="nav__logo">
+    </a>
+    <nav aria-label="Primary" class="nav__center">
+      <ul class="nav__list">
+        <li><a href="index.html#features" class="nav__link">Features</a></li>
+        <li><a href="index.html#how" class="nav__link">How it works</a></li>
+        <li><a href="index.html#faq" class="nav__link">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav__right">
+      <a href="/early-access" class="btn btn--primary btn--sm">Get early access <span class="btn__arrow">→</span></a>
+      <button class="nav__burger" id="nav-burger" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav__drawer" id="nav-drawer">
+    <ul>
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="/early-access" class="btn btn--primary">Get early access</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ── HERO ── -->
+<section class="ab-hero" aria-labelledby="ab-h1">
+  <div class="container">
+    <div class="ab-hero__inner">
+      <nav aria-label="Breadcrumb" class="ab-breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="ab-breadcrumb__sep">›</span>
+        <span class="ab-breadcrumb__current">About</span>
+      </nav>
+      <p class="ab-eyebrow">Our story</p>
+      <h1 class="ab-hero__title" id="ab-h1">Built by golfers,<br><em>for every golfer</em></h1>
+      <p class="ab-hero__lead">We got tired of juggling course websites, phone calls and half-working booking apps just to arrange a round. So we built the thing we always wanted — an AI caddie who handles all of it with a single message.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── MISSION ── -->
+<section class="ab-section ab-section--dark">
+  <div class="container">
+    <div class="ab-mission">
+      <div class="ab-mission__label">Our mission</div>
+      <p class="ab-mission__text">Make booking a tee time as simple as texting a friend — no tab-hopping, no forms to fill, no phone queues. <mark>Just ask Bob.</mark></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ORIGIN STORY ── -->
+<section class="ab-section">
+  <div class="container">
+    <div class="ab-story">
+      <div class="ab-story__copy">
+        <span class="ab-label">How it started</span>
+        <h2>The round that needed a better booking experience</h2>
+        <p>It started with a simple frustration. Trying to organise a Saturday morning four-ball meant fifteen minutes of tab-hopping, two phone calls to courses that rang out, and a group chat full of "is that still happening?" messages.</p>
+        <p><strong>Golf is a social game.</strong> The booking process shouldn't get in the way of that. We knew conversational AI had reached the point where a genuinely helpful agent was possible — one that understood golf the way a seasoned caddie does.</p>
+        <p>We built Bob: a golf-native AI agent that lives wherever you already message. Tell him what you want — when, where, how many players, what budget — and he handles the rest. Course search, weather check, tee time availability, booking confirmation, reminders. Done.</p>
+        <p>teemeup is built by the team behind <a href="https://courserev.ai" rel="noopener" style="color:var(--purple);font-weight:600;">Courserev.ai</a>, giving us deep roots in how golf courses operate, what booking partners need, and what golfers actually care about.</p>
+      </div>
+      <aside class="ab-story__visual" aria-hidden="true">
+        <div class="ab-chat-meta">
+          <div class="ab-chat-meta-dot">B</div>
+          <span>Bob · teemeup AI</span>
+        </div>
+        <div class="ab-chat-bubble ab-chat-bubble--user">
+          Book me a tee time Saturday morning for 4 players, within 20 miles, under $80 per person
+        </div>
+        <div class="ab-chat-bubble ab-chat-bubble--bob">
+          Found 3 great options for Saturday. The closest is Pebble Ridge Golf Club at 08:30 — $62pp, 4.2⭐ rating, no rain forecast. Shall I book it?
+        </div>
+        <div class="ab-chat-bubble ab-chat-bubble--user">Yes, book it 👍</div>
+        <div class="ab-chat-bubble ab-chat-bubble--bob">
+          Done ✓ Booking confirmed at Pebble Ridge, Saturday 08:30, 4 players. I'll send reminders to everyone the evening before. Anything else?
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUES ── -->
+<section class="ab-section ab-section--alt">
+  <div class="container">
+    <div class="ab-section-head" style="margin-bottom:36px;">
+      <span class="ab-label">What we believe</span>
+      <h2 class="ab-section-title">How we build</h2>
+      <p class="ab-section-lead">Four principles that guide every product decision we make.</p>
+    </div>
+    <div class="ab-values">
+      <div class="ab-value-card">
+        <div class="ab-value-icon ab-value-icon--purple">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C6.03 2 2 6.03 2 11s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm3 10H8v-1c0-1.66 2.34-3 3-3s3 1.34 3 3v1z" fill="#4817CE"/></svg>
+        </div>
+        <h3>Golfer-first, always</h3>
+        <p>Every feature starts with a real golfer frustration. If it doesn't make booking faster, clearer or more enjoyable, it doesn't ship.</p>
+      </div>
+      <div class="ab-value-card">
+        <div class="ab-value-icon ab-value-icon--green">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2l2.09 6.43H20l-5.46 3.97 2.09 6.43L11 14.87l-5.63 3.96 2.09-6.43L2 8.43h6.91L11 2z" fill="#16A34A"/></svg>
+        </div>
+        <h3>AI that earns trust</h3>
+        <p>Bob never books without asking first. He shows his reasoning, surfaces real options, and lets you stay in control. Helpful, not presumptuous.</p>
+      </div>
+      <div class="ab-value-card">
+        <div class="ab-value-icon ab-value-icon--blue">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="12" rx="2" stroke="#2563EB" stroke-width="1.6"/><path d="M3 9h16" stroke="#2563EB" stroke-width="1.6"/><path d="M7 13h2M12 13h3" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Works where you already are</h3>
+        <p>Bob lives on WhatsApp, SMS, iMessage and ChatGPT — plus the dedicated teemeup app. Wherever you message, Bob is there.</p>
+      </div>
+      <div class="ab-value-card">
+        <div class="ab-value-icon ab-value-icon--amber">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M19 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z" fill="#D97706"/></svg>
+        </div>
+        <h3>Reliability over hype</h3>
+        <p>We'd rather ship fewer features that actually work than demo impressive things that let golfers down on the first tee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section class="ab-section" id="team">
+  <div class="container">
+    <div class="ab-section-head" style="margin-bottom:36px;">
+      <span class="ab-label">The team</span>
+      <h2 class="ab-section-title">The people building Bob</h2>
+      <p class="ab-section-lead">Golfers, engineers, product builders and marketers — all united by a love of the game and a belief that booking a tee time should never be the hard part.</p>
+    </div>
+    <div class="ab-team-grid">
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/695e791932f1873511bd8fc4_del-ratcliffe.webp" alt="Del Ratcliffe" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Del Ratcliffe</div>
+          <div class="ab-team-role" itemprop="jobTitle">President</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/del-ratcliffe-8132994/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Del on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/695e7ab8391013e5f0213635_bob_.webp" alt="Bob Kennedy" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Bob Kennedy</div>
+          <div class="ab-team-role" itemprop="jobTitle">Co-Founder</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/bkennedyathoasolutionsinc/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Bob on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/695e791b56578feb08465fae_manna.webp" alt="Manna Justin" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Manna Justin</div>
+          <div class="ab-team-role" itemprop="jobTitle">Co-Founder &amp; CEO</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/mannajustin/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Manna on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/695e79173298251038ade6a9_christopher.webp" alt="Christopher Hill" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Christopher Hill</div>
+          <div class="ab-team-role" itemprop="jobTitle">CTO</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/christopher-jameshill/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Chris on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/695e79163f33afbdd8a2a605_belen.webp" alt="Belén Galiana" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Belén Galiana</div>
+          <div class="ab-team-role" itemprop="jobTitle">Head of Product</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/belen-galiana-528b1658/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Belén on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/69a1bb38a987d260d56e4054_vijay.webp" alt="Vijay Shankar" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Vijay Shankar</div>
+          <div class="ab-team-role" itemprop="jobTitle">VP of Engineering</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/vijayshankark/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Vijay on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/695e791adbd3fd6dca27a3b0_sanjay.webp" alt="Sanjay Nandakumar" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Sanjay Nandakumar</div>
+          <div class="ab-team-role" itemprop="jobTitle">Head of Technology</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/sanjay-nandakumar-96627819/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Sanjay on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/69fd92be9d94a788a8708a0e_JavierMula_uxhead.png" alt="Javier Mula" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Javier Mula</div>
+          <div class="ab-team-role" itemprop="jobTitle">Head of UX</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/javier-mula-terr%C3%A9s-aba7b7140/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Javier on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/695e7917c1c86f119d55aa45_aline.webp" alt="Aline Silva" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Aline Silva</div>
+          <div class="ab-team-role" itemprop="jobTitle">Web Designer</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/alinems/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Aline on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/695e791bfa6c30b1a527c01e_tim.webp" alt="Tim Crawford" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Tim Crawford</div>
+          <div class="ab-team-role" itemprop="jobTitle">Head of Partnerships</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/tim-crawford-95bb4a31/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Tim on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="https://cdn.prod.website-files.com/695296519019b961e89e3694/69f0df3ef55cb6a3babf8039_casey.webp" alt="Casey Johnston" loading="lazy" itemprop="image"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Casey Johnston</div>
+          <div class="ab-team-role" itemprop="jobTitle">Marketing Specialist</div>
+          <div class="ab-team-links">
+            <a href="https://www.linkedin.com/in/casey-johnston8/" class="ab-team-link" target="_blank" rel="noopener" aria-label="Casey on LinkedIn" itemprop="sameAs">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 6v4M4 4.5v.01M7 10V7.5c0-.83.67-1.5 1.5-1.5h0A1.5 1.5 0 0110 7.5V10M7 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ab-team-card" itemscope itemtype="https://schema.org/Person">
+        <div class="ab-team-avatar"><img src="assets/Nivas.webp" alt="Nivas" width="600" height="600" loading="lazy"></div>
+        <div class="ab-team-info">
+          <div class="ab-team-name" itemprop="name">Nivas</div>
+          <div class="ab-team-role" itemprop="jobTitle">Developer Team Manager</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── BUILT ON ── -->
+<section class="ab-section ab-section--alt">
+  <div class="container">
+    <div style="max-width:640px;">
+      <span class="ab-label">The foundation</span>
+      <h2 class="ab-section-title">Standing on strong ground</h2>
+      <p class="ab-section-lead" style="margin-bottom:0;">teemeup is built on <strong style="color:var(--text);">Courserev.ai</strong> — a platform with deep integrations into how golf courses manage tee sheets, pricing and availability. That foundation means Bob has real, reliable data to work with, not scraped or stale listings.</p>
+    </div>
+    <div class="ab-built">
+      <span class="ab-built__label">Powered by</span>
+      <a href="https://courserev.ai" target="_blank" rel="noopener" class="ab-built__pill">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#4817CE" stroke-width="1.4"/><path d="M5 8h6M8 5l3 3-3 3" stroke="#4817CE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Courserev.ai
+      </a>
+      <span class="ab-built__label" style="margin-left:8px;">Booking partners</span>
+      <span class="ab-built__pill" style="cursor:default;">GolfNow</span>
+      <span class="ab-built__pill" style="cursor:default;">Chronogolf</span>
+      <span class="ab-built__pill" style="cursor:default;">TeeOff</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="ab-section" style="border-bottom:0;background:var(--surface);">
+  <div class="container">
+    <div class="ab-cta">
+      <div class="ab-cta__copy">
+        <h2>Ready to meet Bob?</h2>
+        <p>Join the waitlist and be among the first golfers to book tee times through natural conversation.</p>
+      </div>
+      <div class="ab-cta__btns">
+        <a href="/early-access" class="ab-btn ab-btn--primary">
+          Get early access
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="media-kit.html" class="ab-btn ab-btn--ghost">Media Kit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <a href="index.html" aria-label="teemeup home">
+        <img src="assets/teemeupai_logo.svg" alt="teemeup" class="footer__logo">
+      </a>
+      <p class="footer__tagline">Your personal AI golf agent. Book tee times on WhatsApp, SMS, iMessage, ChatGPT and more — powered by Courserev.ai.</p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/teemeup.ai/" rel="noopener" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://www.facebook.com/Teemeupai" rel="noopener" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Product</h4>
+      <ul class="footer__links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a href="index.html#ecosystem">Ecosystem</a></li>
+        <li><a href="/early-access">Early access</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Company</h4>
+      <ul class="footer__links">
+        <li><a href="about.html">About us</a></li>
+        <li><a href="media-kit.html">Media Kit</a></li>
+        <li><a href="https://courserev.ai" rel="noopener">Courserev.ai</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Resources</h4>
+      <ul class="footer__links">
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="/early-access">Join waitlist</a></li>
+        <li><a href="mailto:hello@teemeup.ai">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Legal</h4>
+      <ul class="footer__links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="cookies.html">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 teemeup.ai — all rights reserved</span>
+    <span>Made for golfers, by golfers</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

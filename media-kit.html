@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Kit — teemeup.ai</title>
+<meta name="description" content="teemeup.ai media kit — logos, brand colours, typography, app screenshots and press assets for journalists and partners.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.teemeup.ai/media-kit">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.teemeup.ai/media-kit">
+<meta property="og:site_name" content="teemeup">
+<meta property="og:title" content="Media Kit — teemeup.ai">
+<meta property="og:description" content="Download teemeup logos, brand colours, typography and app screenshots. Press enquiries: hello@teemeup.ai.">
+<meta property="og:image" content="https://www.teemeup.ai/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Media Kit — teemeup.ai">
+<meta name="twitter:description" content="Download teemeup logos, brand colours, typography and app screenshots.">
+<meta name="twitter:image" content="https://www.teemeup.ai/assets/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/teemeupai_favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── Nav always solid ── */
+#nav {
+  background: rgba(255,255,255,0.95) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+#nav .nav__logo { filter: none !important; height: 22px !important; }
+#nav .nav__link { color: var(--text-mid) !important; }
+#nav .nav__link:hover { color: var(--text) !important; background: rgba(0,0,0,.05) !important; }
+#nav .nav__burger span { background: var(--text) !important; }
+
+/* ── Hero ── */
+.mk-hero {
+  padding: calc(var(--nav-h) + 64px) 0 80px;
+  background: linear-gradient(135deg, #07070F 0%, #0d0a24 60%, #130B2E 100%);
+  position: relative;
+  overflow: hidden;
+}
+.mk-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 90% at 85% 50%, rgba(72,23,206,0.28) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 50% at 5% 90%, rgba(34,197,94,0.12) 0%, transparent 60%);
+}
+.mk-hero__inner { position: relative; z-index: 1; max-width: 680px; }
+.mk-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.mk-eyebrow::before { content: ""; width: 18px; height: 1px; background: currentColor; }
+.mk-hero__title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0 0 16px;
+  line-height: 1.05;
+}
+.mk-hero__subtitle {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.58);
+  line-height: 1.7;
+  margin: 0 0 36px;
+}
+.mk-hero__pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.mk-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 100px;
+  font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 500;
+}
+.mk-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+/* ── Sections ── */
+.mk-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+.mk-section--alt { background: var(--surface); }
+.mk-section-head { margin-bottom: 40px; }
+.mk-section-head h2 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+.mk-section-head p { font-size: 15px; color: var(--text-dim); margin: 0; line-height: 1.6; max-width: 520px; }
+.mk-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--purple);
+  display: block;
+  margin: 0 0 8px;
+}
+
+/* ── Logo grid ── */
+.mk-logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.mk-logo-card { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); }
+.mk-logo-stage {
+  display: flex; align-items: center; justify-content: center;
+  padding: 44px 32px; min-height: 150px;
+}
+.mk-logo-stage img { max-height: 44px; width: auto; }
+.mk-logo-stage--mark img { max-height: 68px; }
+.mk-logo-stage--white   { background: #fff; }
+.mk-logo-stage--dark    { background: #07070F; }
+.mk-logo-stage--purple  { background: #4817CE; }
+.mk-logo-stage--surface { background: var(--surface); border-bottom: 1px solid var(--border); }
+.mk-logo-stage--cover   { padding: 0; overflow: hidden; min-height: 150px; }
+.mk-logo-stage--cover img { width: 100%; height: 150px; object-fit: cover; max-height: none; }
+
+.mk-logo-foot {
+  padding: 14px 16px; background: #fff;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.mk-logo-foot--alt { background: var(--surface); }
+.mk-logo-foot__name { font-size: 13px; font-weight: 600; color: var(--text); }
+.mk-logo-foot__fmt  { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); }
+
+.mk-dl {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 6px 12px;
+  background: var(--surface2); border: 1px solid var(--border2);
+  border-radius: var(--radius-pill);
+  font-size: 12px; font-weight: 600; color: var(--text);
+  text-decoration: none; cursor: pointer;
+  transition: background .15s, transform .15s;
+  white-space: nowrap; flex-shrink: 0;
+}
+.mk-dl:hover { background: var(--surface3); transform: translateY(-1px); }
+
+/* ── Colors ── */
+.mk-colors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+.mk-color-card {
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+.mk-color-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.mk-swatch { height: 80px; }
+.mk-color-info { padding: 12px; background: #fff; }
+.mk-color-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.mk-color-hex  { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-dim); }
+.mk-copied { font-size: 11px; color: var(--green-dark); font-weight: 600; opacity: 0; transition: opacity .2s; }
+.mk-copied.show { opacity: 1; }
+
+/* ── Typography ── */
+.mk-type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mk-type-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; background: #fff; }
+.mk-type-role { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+.mk-type-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.mk-type-wts  { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; }
+.mk-type-specimen {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 800; letter-spacing: -0.025em; line-height: 1.1;
+  color: var(--text); margin-bottom: 20px;
+}
+.mk-type-specimen--body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem; font-weight: 400; letter-spacing: 0; line-height: 1.7;
+}
+.mk-type-abc {
+  font-size: 13px; color: var(--text-mid); line-height: 1.8;
+  border-top: 1px solid var(--border); padding-top: 16px; margin-top: 8px;
+}
+
+/* ── Screenshots ── */
+.mk-screens-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.mk-screen-card { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
+.mk-screen-img { width: 100%; aspect-ratio: 9/16; object-fit: cover; object-position: top; display: block; background: var(--surface2); }
+.mk-screen-img--contain { object-fit: contain; padding: 16px; background: #f8f7fc; }
+.mk-screen-foot { padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px; background: #fff; border-top: 1px solid var(--border); }
+.mk-screen-label { font-size: 13px; font-weight: 600; color: var(--text); }
+
+/* ── Brand voice ── */
+.mk-voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.mk-voice-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; background: #fff; }
+.mk-voice-icon { width: 40px; height: 40px; border-radius: 10px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; }
+.mk-voice-icon--green  { background: var(--green-faint); }
+.mk-voice-icon--purple { background: var(--purple-faint); }
+.mk-voice-icon--red    { background: #FEF2F2; }
+.mk-voice-card h3 { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+.mk-voice-card ul { list-style: disc; padding-left: 16px; margin: 0; }
+.mk-voice-card li { font-size: 14px; color: var(--text-mid); line-height: 1.65; margin-bottom: 4px; }
+.mk-boilerplate { margin-top: 28px; padding: 24px 28px; background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.mk-boilerplate p { font-size: 14.5px; color: var(--text-mid); line-height: 1.7; margin: 0 0 16px; }
+
+/* ── CTA ── */
+.mk-cta {
+  background: linear-gradient(135deg, #07070F 0%, #130B2E 100%);
+  border-radius: var(--radius-xl); padding: 56px 48px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  position: relative; overflow: hidden;
+}
+.mk-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 130% at 90% 50%, rgba(72,23,206,0.38) 0%, transparent 65%);
+}
+.mk-cta__copy { position: relative; z-index: 1; }
+.mk-cta__copy h2 { font-family: var(--font-head); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; letter-spacing: -0.03em; color: #fff; margin: 0 0 10px; }
+.mk-cta__copy p  { font-size: 15px; color: rgba(255,255,255,0.52); margin: 0; line-height: 1.6; max-width: 400px; }
+.mk-cta__actions { position: relative; z-index: 1; flex-shrink: 0; }
+.mk-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px; border-radius: var(--radius-pill);
+  font-weight: 600; font-size: .9rem;
+  text-decoration: none; transition: transform .15s, box-shadow .15s;
+  white-space: nowrap; cursor: pointer; border: none;
+}
+.mk-btn:hover { transform: translateY(-1px); }
+.mk-btn--primary { background: linear-gradient(135deg, #5D28EE 0%, var(--purple) 100%); color: #fff; box-shadow: 0 4px 20px rgba(72,23,206,.4); }
+
+/* ── Contact ── */
+.mk-contact {
+  display: flex; align-items: center; gap: 20px;
+  padding: 28px 32px;
+  background: var(--purple-faint); border: 1px solid rgba(72,23,206,0.12);
+  border-radius: var(--radius-xl); margin-top: 20px; flex-wrap: wrap;
+}
+.mk-contact p { font-size: 15px; color: var(--text-mid); margin: 0; flex: 1; min-width: 200px; line-height: 1.6; }
+.mk-contact a { color: var(--purple); font-weight: 600; text-decoration: underline; }
+
+/* ── Info note ── */
+.mk-note { display: flex; gap: 12px; align-items: flex-start; padding: 18px 22px; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); margin-top: 24px; }
+.mk-note p { font-size: 13.5px; color: var(--text-mid); margin: 0; line-height: 1.6; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .mk-logo-grid    { grid-template-columns: 1fr 1fr; }
+  .mk-screens-grid { grid-template-columns: repeat(2, 1fr); }
+  .mk-type-grid    { grid-template-columns: 1fr; }
+  .mk-voice-grid   { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .mk-logo-grid    { grid-template-columns: 1fr; }
+  .mk-screens-grid { grid-template-columns: 1fr 1fr; }
+  .mk-cta { flex-direction: column; padding: 36px 24px; }
+  .mk-btn { width: 100%; justify-content: center; }
+  .mk-contact { flex-direction: column; padding: 24px; }
+  .mk-section { padding: 56px 0; }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.teemeup.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Media Kit", "item": "https://www.teemeup.ai/media-kit" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand" aria-label="teemeup home">
+      <img src="assets/teemeupai_logo.svg" alt="teemeup" class="nav__logo">
+    </a>
+    <nav aria-label="Primary" class="nav__center">
+      <ul class="nav__list">
+        <li><a href="index.html#features" class="nav__link">Features</a></li>
+        <li><a href="index.html#how" class="nav__link">How it works</a></li>
+        <li><a href="index.html#faq" class="nav__link">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav__right">
+      <a href="/early-access" class="btn btn--primary btn--sm">Get early access <span class="btn__arrow">→</span></a>
+      <button class="nav__burger" id="nav-burger" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav__drawer" id="nav-drawer">
+    <ul>
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="/early-access" class="btn btn--primary">Get early access</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="mk-hero">
+  <div class="container">
+    <div class="mk-hero__inner">
+      <p class="mk-eyebrow">Brand resources</p>
+      <h1 class="mk-hero__title">teemeup Media Kit</h1>
+      <p class="mk-hero__subtitle">Everything journalists, partners and creators need to represent the teemeup brand accurately — logos, colours, typography, screenshots and press assets.</p>
+      <div class="mk-hero__pills">
+        <span class="mk-pill"><span class="mk-pill-dot"></span>SVG &amp; PNG logos</span>
+        <span class="mk-pill"><span class="mk-pill-dot"></span>Colour palette</span>
+        <span class="mk-pill"><span class="mk-pill-dot"></span>Typography</span>
+        <span class="mk-pill"><span class="mk-pill-dot"></span>App screenshots</span>
+        <span class="mk-pill"><span class="mk-pill-dot"></span>Brand guidelines</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+
+<!-- 01 LOGOS -->
+<section class="mk-section">
+  <div class="container">
+    <div class="mk-section-head">
+      <span class="mk-label">01 — Logos</span>
+      <h2>Logo variants</h2>
+      <p>Use the full wordmark wherever space allows. Reserve the shield mark for compact contexts — app icons, favicons, social avatars.</p>
+    </div>
+    <div class="mk-logo-grid">
+
+      <div class="mk-logo-card">
+        <div class="mk-logo-stage mk-logo-stage--white">
+          <img src="assets/teemeupai_logo.svg" alt="teemeup full logo on white">
+        </div>
+        <div class="mk-logo-foot">
+          <div><div class="mk-logo-foot__name">Wordmark — Light</div><div class="mk-logo-foot__fmt">SVG · light backgrounds</div></div>
+          <a href="assets/teemeupai_logo.svg" download class="mk-dl"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3.5 6.5l3 3 3-3M2 11.5h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>SVG</a>
+        </div>
+      </div>
+
+      <div class="mk-logo-card">
+        <div class="mk-logo-stage mk-logo-stage--dark">
+          <img src="assets/teemeupai_logo.svg" alt="teemeup full logo on dark" style="filter:brightness(0) invert(1);">
+        </div>
+        <div class="mk-logo-foot mk-logo-foot--alt">
+          <div><div class="mk-logo-foot__name">Wordmark — Dark</div><div class="mk-logo-foot__fmt">SVG · dark backgrounds</div></div>
+          <a href="assets/teemeupai_logo.svg" download class="mk-dl"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3.5 6.5l3 3 3-3M2 11.5h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>SVG</a>
+        </div>
+      </div>
+
+      <div class="mk-logo-card">
+        <div class="mk-logo-stage mk-logo-stage--white mk-logo-stage--mark">
+          <img src="assets/teemeupai_mark.svg" alt="teemeup shield mark">
+        </div>
+        <div class="mk-logo-foot">
+          <div><div class="mk-logo-foot__name">Brand Mark</div><div class="mk-logo-foot__fmt">SVG · icon / favicon</div></div>
+          <a href="assets/teemeupai_mark.svg" download class="mk-dl"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3.5 6.5l3 3 3-3M2 11.5h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>SVG</a>
+        </div>
+      </div>
+
+      <div class="mk-logo-card">
+        <div class="mk-logo-stage mk-logo-stage--purple mk-logo-stage--mark">
+          <img src="assets/teemeupai_mark.svg" alt="teemeup mark on purple" style="filter:brightness(0) invert(1);">
+        </div>
+        <div class="mk-logo-foot mk-logo-foot--alt">
+          <div><div class="mk-logo-foot__name">Mark — Purple</div><div class="mk-logo-foot__fmt">SVG · social / brand</div></div>
+          <a href="assets/teemeupai_mark.svg" download class="mk-dl"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3.5 6.5l3 3 3-3M2 11.5h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>SVG</a>
+        </div>
+      </div>
+
+      <div class="mk-logo-card">
+        <div class="mk-logo-stage mk-logo-stage--surface mk-logo-stage--mark">
+          <img src="assets/teemeupai_favicon.png" alt="teemeup favicon" style="max-height:72px;">
+        </div>
+        <div class="mk-logo-foot">
+          <div><div class="mk-logo-foot__name">Favicon</div><div class="mk-logo-foot__fmt">PNG · browser icon</div></div>
+          <a href="assets/teemeupai_favicon.png" download class="mk-dl"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3.5 6.5l3 3 3-3M2 11.5h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>PNG</a>
+        </div>
+      </div>
+
+      <div class="mk-logo-card">
+        <div class="mk-logo-stage mk-logo-stage--cover">
+          <img src="assets/og-image.jpg" alt="teemeup social card">
+        </div>
+        <div class="mk-logo-foot mk-logo-foot--alt">
+          <div><div class="mk-logo-foot__name">OG / Social Card</div><div class="mk-logo-foot__fmt">PNG 1200×630</div></div>
+          <a href="assets/og-image.png" download class="mk-dl"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3.5 6.5l3 3 3-3M2 11.5h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>PNG</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="mk-note">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:1px;"><circle cx="9" cy="9" r="8" stroke="#4817CE" stroke-width="1.5"/><path d="M9 8v5M9 6.5v.01" stroke="#4817CE" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <p><strong style="color:var(--text);">Clear space rule:</strong> Maintain clear space equal to the height of the "T" character around all sides of the logo. Do not rotate, recolour, stretch, or place on backgrounds that reduce legibility. Preferred backgrounds: white <strong>#FFFFFF</strong> or near-black <strong style="color:var(--purple);">#07070F</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 COLOURS -->
+<section class="mk-section mk-section--alt">
+  <div class="container">
+    <div class="mk-section-head">
+      <span class="mk-label">02 — Colours</span>
+      <h2>Brand palette</h2>
+      <p>Click any swatch to copy the hex code to your clipboard.</p>
+    </div>
+    <div class="mk-colors-grid">
+      <div class="mk-color-card" onclick="copyColor('#4817CE','c1')"><div class="mk-swatch" style="background:#4817CE;"></div><div class="mk-color-info"><div class="mk-color-name">Brand Purple</div><div class="mk-color-hex">#4817CE</div><div class="mk-copied" id="c1">✓ Copied</div></div></div>
+      <div class="mk-color-card" onclick="copyColor('#6B3FE8','c2')"><div class="mk-swatch" style="background:#6B3FE8;"></div><div class="mk-color-info"><div class="mk-color-name">Purple Light</div><div class="mk-color-hex">#6B3FE8</div><div class="mk-copied" id="c2">✓ Copied</div></div></div>
+      <div class="mk-color-card" onclick="copyColor('#F3EFFF','c3')"><div class="mk-swatch" style="background:#F3EFFF;border-bottom:1px solid #e8e0ff;"></div><div class="mk-color-info"><div class="mk-color-name">Purple Faint</div><div class="mk-color-hex">#F3EFFF</div><div class="mk-copied" id="c3">✓ Copied</div></div></div>
+      <div class="mk-color-card" onclick="copyColor('#22C55E','c4')"><div class="mk-swatch" style="background:#22C55E;"></div><div class="mk-color-info"><div class="mk-color-name">Brand Green</div><div class="mk-color-hex">#22C55E</div><div class="mk-copied" id="c4">✓ Copied</div></div></div>
+      <div class="mk-color-card" onclick="copyColor('#16A34A','c5')"><div class="mk-swatch" style="background:#16A34A;"></div><div class="mk-color-info"><div class="mk-color-name">Green Dark</div><div class="mk-color-hex">#16A34A</div><div class="mk-copied" id="c5">✓ Copied</div></div></div>
+      <div class="mk-color-card" onclick="copyColor('#008200','c6')"><div class="mk-swatch" style="background:#008200;"></div><div class="mk-color-info"><div class="mk-color-name">Golf Green</div><div class="mk-color-hex">#008200</div><div class="mk-copied" id="c6">✓ Copied</div></div></div>
+      <div class="mk-color-card" onclick="copyColor('#07070F','c7')"><div class="mk-swatch" style="background:#07070F;"></div><div class="mk-color-info"><div class="mk-color-name">Near Black</div><div class="mk-color-hex">#07070F</div><div class="mk-copied" id="c7">✓ Copied</div></div></div>
+      <div class="mk-color-card" onclick="copyColor('#0D0D1A','c8')"><div class="mk-swatch" style="background:#0D0D1A;"></div><div class="mk-color-info"><div class="mk-color-name">Dark Ink</div><div class="mk-color-hex">#0D0D1A</div><div class="mk-copied" id="c8">✓ Copied</div></div></div>
+      <div class="mk-color-card" onclick="copyColor('#FFFFFF','c9')"><div class="mk-swatch" style="background:#fff;border-bottom:1px solid #eee;"></div><div class="mk-color-info"><div class="mk-color-name">White</div><div class="mk-color-hex">#FFFFFF</div><div class="mk-copied" id="c9">✓ Copied</div></div></div>
+      <div class="mk-color-card" onclick="copyColor('#F8F7FC','c10')"><div class="mk-swatch" style="background:#F8F7FC;border-bottom:1px solid #eee;"></div><div class="mk-color-info"><div class="mk-color-name">Surface</div><div class="mk-color-hex">#F8F7FC</div><div class="mk-copied" id="c10">✓ Copied</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 TYPOGRAPHY -->
+<section class="mk-section">
+  <div class="container">
+    <div class="mk-section-head">
+      <span class="mk-label">03 — Typography</span>
+      <h2>Brand typefaces</h2>
+      <p>Both fonts are free on Google Fonts. Do not substitute with similar-looking alternatives.</p>
+    </div>
+    <div class="mk-type-grid">
+      <div class="mk-type-card">
+        <div class="mk-type-role">Display / Headings</div>
+        <div class="mk-type-name">Space Grotesk</div>
+        <div class="mk-type-wts">400 · 500 · 600 · 700 · 800</div>
+        <div class="mk-type-specimen">Book the round. Just ask Bob.</div>
+        <div class="mk-type-abc" style="font-family:'Space Grotesk',sans-serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; @ ! ?</div>
+        <a href="https://fonts.google.com/specimen/Space+Grotesk" target="_blank" rel="noopener" class="mk-dl" style="margin-top:18px;display:inline-flex;"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M9.5 3.5l-6 6M9.5 3.5H5M9.5 3.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Fonts</a>
+      </div>
+      <div class="mk-type-card">
+        <div class="mk-type-role">Body / UI text</div>
+        <div class="mk-type-name">DM Sans</div>
+        <div class="mk-type-wts">300 · 400 · 500 · 600</div>
+        <div class="mk-type-specimen mk-type-specimen--body">teemeup lets golfers book tee times through a conversational AI agent called Bob. Just describe what you want and Bob handles everything — course search, weather, booking and reminders.</div>
+        <div class="mk-type-abc" style="font-family:'DM Sans',sans-serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; @ ! ?</div>
+        <a href="https://fonts.google.com/specimen/DM+Sans" target="_blank" rel="noopener" class="mk-dl" style="margin-top:18px;display:inline-flex;"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M9.5 3.5l-6 6M9.5 3.5H5M9.5 3.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Fonts</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 SCREENSHOTS -->
+<section class="mk-section mk-section--alt">
+  <div class="container">
+    <div class="mk-section-head">
+      <span class="mk-label">04 — App screenshots</span>
+      <h2>Product visuals</h2>
+      <p>For editorial and press use. Do not alter, crop, or add overlays without written approval.</p>
+    </div>
+    <div class="mk-screens-grid">
+      <div class="mk-screen-card">
+        <img src="assets/teemeup_home.webp" alt="teemeup home screen showing Bob the AI golf caddie" class="mk-screen-img">
+        <div class="mk-screen-foot"><span class="mk-screen-label">Home</span><a href="assets/teemeup_home.png" download class="mk-dl"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3.5 6.5l3 3 3-3M2 11.5h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>PNG</a></div>
+      </div>
+      <div class="mk-screen-card">
+        <img src="assets/hero-voice.webp" alt="teemeup voice booking interface" class="mk-screen-img mk-screen-img--contain">
+        <div class="mk-screen-foot"><span class="mk-screen-label">Voice booking</span><a href="assets/hero-voice.png" download class="mk-dl"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3.5 6.5l3 3 3-3M2 11.5h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>PNG</a></div>
+      </div>
+      <div class="mk-screen-card">
+        <img src="assets/hero-chat.webp" alt="teemeup chat with Bob AI agent" class="mk-screen-img mk-screen-img--contain">
+        <div class="mk-screen-foot"><span class="mk-screen-label">Chat with Bob</span><a href="assets/hero-chat.png" download class="mk-dl"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3.5 6.5l3 3 3-3M2 11.5h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>PNG</a></div>
+      </div>
+      <div class="mk-screen-card">
+        <img src="assets/teemeup_bookings.webp" alt="teemeup my bookings screen" class="mk-screen-img">
+        <div class="mk-screen-foot"><span class="mk-screen-label">My Bookings</span><a href="assets/teemeup_bookings.png" download class="mk-dl"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3.5 6.5l3 3 3-3M2 11.5h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>PNG</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 BRAND GUIDELINES -->
+<section class="mk-section">
+  <div class="container">
+    <div class="mk-section-head">
+      <span class="mk-label">05 — Brand guidelines</span>
+      <h2>Voice &amp; usage rules</h2>
+    </div>
+    <div class="mk-voice-grid">
+      <div class="mk-voice-card">
+        <div class="mk-voice-icon mk-voice-icon--green">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Brand voice</h3>
+        <ul>
+          <li>Confident, not arrogant</li>
+          <li>Knowledgeable — like a seasoned caddie</li>
+          <li>Conversational and direct</li>
+          <li>Golfer-first, technology second</li>
+        </ul>
+      </div>
+      <div class="mk-voice-card">
+        <div class="mk-voice-icon mk-voice-icon--purple">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#4817CE" stroke-width="1.5"/><path d="M10 6v5M10 13.5v.01" stroke="#4817CE" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Naming rules</h3>
+        <ul>
+          <li>Always <strong>teemeup</strong> — lowercase, one word</li>
+          <li>The AI agent is <strong>Bob</strong>, not "the bot"</li>
+          <li>Write <strong>teemeup.ai</strong>, never "Teemeup"</li>
+          <li>Parent company: <strong>Courserev.ai</strong></li>
+        </ul>
+      </div>
+      <div class="mk-voice-card">
+        <div class="mk-voice-icon mk-voice-icon--red">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Please avoid</h3>
+        <ul>
+          <li>Recolouring or distorting the logo</li>
+          <li>Placing logo on clashing backgrounds</li>
+          <li>Claiming partnership without written approval</li>
+          <li>Altering or cropping app screenshots</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mk-boilerplate">
+      <span class="mk-label">Press boilerplate</span>
+      <p id="bpcopy">teemeup is an AI-powered golf booking platform built by the team behind Courserev.ai. Bob, the AI golf agent, helps golfers book tee times through natural conversation on WhatsApp, SMS, iMessage, ChatGPT and the teemeup app — no browsing required. teemeup is currently in invite-only industry preview. Learn more at <a href="https://www.teemeup.ai" style="color:var(--purple);">teemeup.ai</a>.</p>
+      <button onclick="copyBP()" class="mk-dl" id="bp-btn">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1.5" y="3.5" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M4 3V2.5A1 1 0 015 1.5h5a1 1 0 011 1V8a1 1 0 01-1 1H10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Copy boilerplate
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- 06 CONTACT -->
+<section class="mk-section" style="border-bottom:0;background:var(--surface);">
+  <div class="container">
+    <div class="mk-cta">
+      <div class="mk-cta__copy">
+        <h2>Need something else?</h2>
+        <p>High-res assets, interview requests, partnership announcements or custom brand collateral — reach out directly.</p>
+      </div>
+      <div class="mk-cta__actions">
+        <a href="mailto:hello@teemeup.ai?subject=Media%20Kit%20Request" class="mk-btn mk-btn--primary">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1" y="3" width="13" height="9" rx="1.5" stroke="white" stroke-width="1.3"/><path d="M1 4.5l6.5 4.5L14 4.5" stroke="white" stroke-width="1.3" stroke-linecap="round"/></svg>
+          hello@teemeup.ai
+        </a>
+      </div>
+    </div>
+    <div class="mk-contact">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" style="flex-shrink:0;"><circle cx="17" cy="17" r="16" stroke="#4817CE" stroke-width="1.4"/><rect x="9" y="11" width="16" height="12" rx="2" stroke="#4817CE" stroke-width="1.4"/><path d="M9 13l8 5.5L25 13" stroke="#4817CE" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <p>Press enquiries and media requests: <a href="mailto:hello@teemeup.ai">hello@teemeup.ai</a> · We respond within one business day. For partner integrations see <a href="https://courserev.ai" rel="noopener">courserev.ai</a>.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <a href="index.html" aria-label="teemeup home">
+        <img src="assets/teemeupai_logo.svg" alt="teemeup" class="footer__logo">
+      </a>
+      <p class="footer__tagline">Your personal AI golf agent. Book tee times on WhatsApp, SMS, iMessage, ChatGPT and more — powered by Courserev.ai.</p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/teemeup.ai/" rel="noopener" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://www.facebook.com/Teemeupai" rel="noopener" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Product</h4>
+      <ul class="footer__links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a href="index.html#ecosystem">Ecosystem</a></li>
+        <li><a href="/early-access">Early access</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Company</h4>
+      <ul class="footer__links">
+        <li><a href="about.html">About us</a></li>
+        <li><a href="media-kit.html">Media Kit</a></li>
+        <li><a href="https://courserev.ai" rel="noopener">Courserev.ai</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Resources</h4>
+      <ul class="footer__links">
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="/early-access">Join waitlist</a></li>
+        <li><a href="mailto:hello@teemeup.ai">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Legal</h4>
+      <ul class="footer__links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="cookies.html">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 teemeup.ai — all rights reserved</span>
+    <span>Made for golfers, by golfers</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+function copyColor(hex, id) {
+  navigator.clipboard.writeText(hex).catch(function() {
+    var t = document.createElement('textarea');
+    t.value = hex; document.body.appendChild(t); t.select();
+    document.execCommand('copy'); document.body.removeChild(t);
+  });
+  var el = document.getElementById(id);
+  if (el) { el.classList.add('show'); setTimeout(function(){ el.classList.remove('show'); }, 1800); }
+}
+function copyBP() {
+  var text = "teemeup is an AI-powered golf booking platform built by the team behind Courserev.ai. Bob, the AI golf agent, helps golfers book tee times through natural conversation on WhatsApp, SMS, iMessage, ChatGPT and the teemeup app — no browsing required. teemeup is currently in invite-only industry preview. Learn more at https://www.teemeup.ai.";
+  navigator.clipboard.writeText(text).catch(function() {
+    var t = document.createElement('textarea');
+    t.value = text; document.body.appendChild(t); t.select();
+    document.execCommand('copy'); document.body.removeChild(t);
+  });
+  var btn = document.getElementById('bp-btn');
+  if (btn) {
+    btn.textContent = '✓ Copied!';
+    setTimeout(function(){
+      btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1.5" y="3.5" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M4 3V2.5A1 1 0 015 1.5h5a1 1 0 011 1V8a1 1 0 01-1 1H10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Copy boilerplate';
+    }, 2000);
+  }
+}
+</script>
+</body>
+</html>

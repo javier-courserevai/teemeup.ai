@@ -1,4 +1,12 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "teemeup.ai" }],
+      "destination": "https://www.teemeup.ai/$1",
+      "permanent": true
+    }
+  ]
 }

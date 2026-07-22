@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teemeup — Animation Preview</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0a0a;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 40px 20px;
+  }
+
+  header {
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 6px;
+  }
+
+  header p {
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 0.05em;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 4px;
+  }
+
+  .tab {
+    padding: 7px 20px;
+    border-radius: 5px;
+    border: none;
+    background: transparent;
+    color: #555;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .tab.active {
+    background: #222;
+    color: #fff;
+  }
+
+  .panels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .panel {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .panel.active {
+    display: flex;
+  }
+
+  /* Lottie panel */
+  .stage {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stage.dark  { background: #111; }
+  .stage.white { background: #fff; }
+  .stage.brand { background: #f5f0e8; }
+
+  #lottie-container {
+    width: 360px;
+    height: 360px;
+  }
+
+  .bg-switcher {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .bg-switcher span {
+    font-size: 11px;
+    color: #555;
+    margin-right: 4px;
+  }
+
+  .bg-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+
+  .bg-btn.active { border-color: #fff; }
+  .bg-btn[data-bg="dark"]  { background: #111; border-color: #444; }
+  .bg-btn[data-bg="white"] { background: #fff; }
+  .bg-btn[data-bg="brand"] { background: #f5f0e8; }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 400px;
+  }
+
+  .scrubber-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  #scrubber {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 3px;
+    background: #222;
+    border-radius: 2px;
+    outline: none;
+  }
+
+  #scrubber::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .frame-label {
+    font-size: 11px;
+    color: #444;
+    font-variant-numeric: tabular-nums;
+    width: 60px;
+    text-align: right;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .ctrl-btn {
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: 1px solid #222;
+    background: #111;
+    color: #ccc;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.12s;
+    letter-spacing: 0.03em;
+  }
+
+  .ctrl-btn:hover { background: #1e1e1e; color: #fff; }
+  .ctrl-btn.primary { background: #fff; color: #000; border-color: #fff; }
+  .ctrl-btn.primary:hover { background: #e0e0e0; }
+
+  .speed-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .speed-row span {
+    font-size: 11px;
+    color: #555;
+    margin-right: 4px;
+  }
+
+  .speed-btn {
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #222;
+    background: transparent;
+    color: #666;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+
+  .speed-btn.active, .speed-btn:hover { background: #222; color: #fff; }
+
+  /* GIF panel */
+  .gif-stage {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+  }
+
+  .gif-stage img {
+    max-width: 360px;
+    max-height: 360px;
+    object-fit: contain;
+  }
+
+  .gif-meta {
+    font-size: 11px;
+    color: #444;
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  /* Info pill */
+  .meta-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pill {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: #555;
+  }
+
+  .pill strong { color: #888; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Teemeup — Animation Preview</h1>
+  <p>Main Scene · 700×700 · 60fps · 8s</p>
+</header>
+
+<div class="tabs">
+  <button class="tab active" data-tab="lottie">Lottie (interactivo)</button>
+  <button class="tab" data-tab="gif">GIF exportado</button>
+</div>
+
+<div class="panels">
+
+  <!-- LOTTIE PANEL -->
+  <div class="panel active" id="panel-lottie">
+    <div class="stage dark" id="stage-el">
+      <div id="lottie-container"></div>
+    </div>
+
+    <div class="bg-switcher">
+      <span>Fondo</span>
+      <button class="bg-btn active" data-bg="dark" onclick="setBg(this)"></button>
+      <button class="bg-btn" data-bg="white" onclick="setBg(this)"></button>
+      <button class="bg-btn" data-bg="brand" onclick="setBg(this)"></button>
+    </div>
+
+    <div class="controls">
+      <div class="scrubber-row">
+        <input type="range" id="scrubber" min="0" max="480" value="0" step="1">
+        <span class="frame-label" id="frame-label">f 0 / 480</span>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-btn" onclick="goToStart()">↩ Inicio</button>
+        <button class="ctrl-btn primary" id="play-btn" onclick="togglePlay()">▶ Play</button>
+        <button class="ctrl-btn" onclick="toggleLoop()">↻ <span id="loop-label">Loop: On</span></button>
+      </div>
+      <div class="speed-row">
+        <span>Velocidad</span>
+        <button class="speed-btn" data-speed="0.5" onclick="setSpeed(this)">0.5×</button>
+        <button class="speed-btn active" data-speed="1" onclick="setSpeed(this)">1×</button>
+        <button class="speed-btn" data-speed="1.5" onclick="setSpeed(this)">1.5×</button>
+        <button class="speed-btn" data-speed="2" onclick="setSpeed(this)">2×</button>
+      </div>
+    </div>
+
+    <div class="meta-pills">
+      <span class="pill">Frames: <strong>480</strong></span>
+      <span class="pill">FPS: <strong>60</strong></span>
+      <span class="pill">Duración: <strong>8s</strong></span>
+      <span class="pill">Tamaño: <strong>700×700</strong></span>
+      <span class="pill">Capas: <strong>8</strong></span>
+    </div>
+  </div>
+
+  <!-- GIF PANEL -->
+  <div class="panel" id="panel-gif">
+    <div class="gif-stage">
+      <img src="teemeup_animations.gif" alt="Teemeup animation GIF">
+    </div>
+    <div class="gif-meta">
+      GIF exportado · 296 KB<br>
+      <small style="color:#333">Loop automático · sin controles</small>
+    </div>
+    <div class="meta-pills">
+      <span class="pill">Archivo: <strong>teemeup_animations.gif</strong></span>
+      <span class="pill">Tamaño: <strong>296 KB</strong></span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ── Tabs ──────────────────────────────────────────
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // ── Lottie ────────────────────────────────────────
+  let anim = null;
+  let isLooping = true;
+  let isPlaying = false;
+  let scrubbing = false;
+
+  fetch('teemeup_animations.json')
+    .then(r => r.json())
+    .then(data => {
+      anim = lottie.loadAnimation({
+        container: document.getElementById('lottie-container'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: false,
+        animationData: data,
+      });
+
+      anim.addEventListener('enterFrame', () => {
+        if (!scrubbing) {
+          const f = Math.round(anim.currentFrame);
+          document.getElementById('scrubber').value = f;
+          document.getElementById('frame-label').textContent = `f ${f} / 480`;
+        }
+      });
+
+      anim.addEventListener('complete', () => {
+        if (!isLooping) {
+          isPlaying = false;
+          document.getElementById('play-btn').textContent = '▶ Play';
+        }
+      });
+    });
+
+  function togglePlay() {
+    if (!anim) return;
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+      anim.play();
+      document.getElementById('play-btn').textContent = '⏸ Pausa';
+    } else {
+      anim.pause();
+      document.getElementById('play-btn').textContent = '▶ Play';
+    }
+  }
+
+  function goToStart() {
+    if (!anim) return;
+    anim.goToAndStop(0, true);
+    isPlaying = false;
+    document.getElementById('play-btn').textContent = '▶ Play';
+  }
+
+  function toggleLoop() {
+    if (!anim) return;
+    isLooping = !isLooping;
+    anim.loop = isLooping;
+    document.getElementById('loop-label').textContent = `Loop: ${isLooping ? 'On' : 'Off'}`;
+  }
+
+  function setSpeed(btn) {
+    if (!anim) return;
+    document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    anim.setSpeed(parseFloat(btn.dataset.speed));
+  }
+
+  function setBg(btn) {
+    document.querySelectorAll('.bg-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const stage = document.getElementById('stage-el');
+    stage.className = 'stage ' + btn.dataset.bg;
+  }
+
+  // Scrubber interaction
+  const scrubber = document.getElementById('scrubber');
+  scrubber.addEventListener('mousedown', () => { scrubbing = true; });
+  scrubber.addEventListener('touchstart', () => { scrubbing = true; });
+  scrubber.addEventListener('input', () => {
+    if (!anim) return;
+    const f = parseInt(scrubber.value);
+    anim.goToAndStop(f, true);
+    document.getElementById('frame-label').textContent = `f ${f} / 480`;
+  });
+  scrubber.addEventListener('mouseup', () => { scrubbing = false; });
+  scrubber.addEventListener('touchend', () => { scrubbing = false; });
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', e => {
+    if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
+    if (e.code === 'ArrowLeft') { if (anim) { const f = Math.max(0, Math.round(anim.currentFrame) - 1); anim.goToAndStop(f, true); } }
+    if (e.code === 'ArrowRight') { if (anim) { const f = Math.min(480, Math.round(anim.currentFrame) + 1); anim.goToAndStop(f, true); } }
+  });
+</script>
+</body>
+</html>

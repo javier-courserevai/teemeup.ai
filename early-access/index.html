@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Primary meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Early Access — teemeup AI Golf Caddie</title>
+<meta name="description" content="Request your invitation to teemeup early access. Be first to access new courses and features, get a direct line to the team, and bring your foursome. Invitation-only industry preview.">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en-US" href="https://www.teemeup.ai/early-access">
+<link rel="alternate" hreflang="en-GB" href="https://www.teemeup.ai/early-access">
+<link rel="alternate" hreflang="x-default" href="https://www.teemeup.ai/early-access">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://www.teemeup.ai/early-access">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.teemeup.ai/early-access">
+<meta property="og:site_name" content="teemeup">
+<meta property="og:title" content="Early Access — teemeup AI Golf Caddie">
+<meta property="og:description" content="Request your invitation to teemeup early access. Be first to access new courses and features, get a direct line to the team, and bring your foursome. Invitation-only industry preview.">
+<meta property="og:image" content="https://www.teemeup.ai/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Early Access — teemeup AI Golf Caddie">
+<meta name="twitter:description" content="Request your invitation to teemeup early access. Be first to access new courses and features — and bring your foursome. Invitation-only industry preview.">
+<meta name="twitter:image" content="https://www.teemeup.ai/assets/og-image.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="/assets/teemeupai_favicon.png">
+<link rel="icon" type="image/svg+xml" href="/assets/teemeupai_logo.svg">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/styles.css">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.teemeup.ai/#organization",
+  "name": "teemeup",
+  "url": "https://www.teemeup.ai/",
+  "logo": "https://www.teemeup.ai/assets/teemeupai_logo.svg",
+  "description": "teemeup is an AI-powered golf booking platform.",
+  "email": "hello@teemeup.ai",
+  "parentOrganization": { "@type": "Organization", "name": "Courserev.ai", "url": "https://courserev.ai" },
+  "sameAs": ["https://www.instagram.com/teemeup.ai/","https://www.facebook.com/Teemeupai"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What does teemeup early access include?", "acceptedAnswer": { "@type": "Answer", "text": "Early access makes you a founding member: you get first access to every course, channel and feature as we build them, a direct line to the team, and personal invitations for the golfers you actually play with." } },
+    { "@type": "Question", "name": "When will I get my invitation?", "acceptedAnswer": { "@type": "Answer", "text": "We onboard in waves. Once you join the list we email your invitation when your wave opens — typically within a few weeks." } },
+    { "@type": "Question", "name": "Is early access free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The industry preview is free for founding members. We'll be transparent about what comes next well before anything changes." } },
+    { "@type": "Question", "name": "Which platforms can I use Bob on?", "acceptedAnswer": { "@type": "Answer", "text": "WhatsApp, SMS, iMessage, ChatGPT and the teemeup web and mobile app." } },
+    { "@type": "Question", "name": "Is my spot saved if I don't respond right away?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Joining the list reserves your place in the queue, and your invitation won't expire the moment it arrives." } }
+  ]
+}
+</script>
+
+<style>
+/* ── Early-access page styles ───────────────────────────── */
+
+/* HERO */
+.ea-hero {
+  position: relative; overflow: hidden;
+  background: var(--dark-base); color: #fff;
+  padding: calc(var(--nav-h) + 72px) 0 0;
+}
+.ea-hero__glow {
+  position: absolute; border-radius: 50%; pointer-events: none; filter: blur(8px);
+}
+.ea-hero__glow--purple {
+  width: 800px; height: 800px; top: -300px; left: 50%; transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(72,23,206,.5) 0%, transparent 62%);
+}
+.ea-hero__glow--green {
+  width: 500px; height: 500px; bottom: 40px; right: -120px;
+  background: radial-gradient(circle, rgba(34,197,94,.2) 0%, transparent 65%);
+}
+.ea-hero__grid {
+  position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 55% at 50% 20%, #000 25%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 20%, #000 25%, transparent 70%);
+}
+.ea-hero__inner {
+  position: relative; z-index: 1;
+  max-width: 1060px; margin: 0 auto; padding: 0 28px;
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: 52px; align-items: center;
+}
+.ea-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: .72rem; font-weight: 600; letter-spacing: .04em;
+  color: rgba(255,255,255,.72);
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius-pill); padding: 7px 14px; margin-bottom: 24px;
+}
+.ea-badge__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(34,197,94,.22); }
+.ea-hero__title {
+  font-family: var(--font-head); font-weight: 800; letter-spacing: -.045em; line-height: 1.03;
+  font-size: clamp(2.6rem, 5.2vw, 4rem); color: #fff; margin-bottom: 22px; text-wrap: balance;
+}
+.ea-hero__title em {
+  font-style: italic;
+  background: linear-gradient(95deg, var(--purple-light), #a78bfa);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.ea-hero__sub { font-size: 1.06rem; color: rgba(255,255,255,.6); line-height: 1.72; max-width: 440px; margin-bottom: 30px; }
+.ea-hero__list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 4px; }
+.ea-hero__list li { display: flex; align-items: center; gap: 11px; font-size: .92rem; color: rgba(255,255,255,.78); }
+.ea-hero__list svg { flex: none; color: var(--green); }
+
+/* Form card */
+.ea-formcard {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius-xl); padding: 32px 30px;
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 32px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(72,23,206,.15);
+}
+.ea-formcard__title { font-family: var(--font-head); font-weight: 700; font-size: 1.35rem; letter-spacing: -.025em; color: #fff; margin-bottom: 6px; }
+.ea-formcard__hint { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.55; margin-bottom: 24px; }
+.ea-field { margin-bottom: 14px; }
+.ea-field label { display: block; font-size: .76rem; font-weight: 600; letter-spacing: .03em; color: rgba(255,255,255,.6); margin-bottom: 7px; }
+.ea-field label .ea-req { color: var(--green); }
+.ea-input {
+  width: 100%; background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: var(--radius); padding: 13px 16px; min-height: 48px;
+  font-family: var(--font-body); font-size: .93rem; color: #fff; outline: none;
+  transition: border-color .2s, background .2s;
+}
+.ea-input::placeholder { color: rgba(255,255,255,.32); }
+.ea-input:focus { border-color: var(--purple-light); background: rgba(255,255,255,.1); }
+.ea-consent { display: flex; gap: 10px; align-items: flex-start; margin: 16px 0 22px; }
+.ea-consent input { flex: none; width: 17px; height: 17px; margin-top: 2px; accent-color: var(--purple-light); cursor: pointer; }
+.ea-consent label { font-size: .78rem; color: rgba(255,255,255,.52); line-height: 1.55; }
+.ea-consent a { color: var(--purple-light); text-decoration: underline; }
+.ea-formcard .btn { width: 100%; justify-content: center; }
+.ea-form__note { font-size: .72rem; color: rgba(255,255,255,.3); text-align: center; margin-top: 14px; line-height: 1.5; }
+.ea-form__error { display: none; font-size: .82rem; color: #fca5a5; background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.25); border-radius: var(--radius); padding: 10px 14px; margin-bottom: 14px; }
+.ea-form__error.is-shown { display: block; }
+.ea-success { display: none; text-align: center; padding: 8px 4px; }
+.ea-success.is-shown { display: block; }
+.ea-success__icon { width: 58px; height: 58px; margin: 0 auto 18px; border-radius: 50%;
+  background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.4); display: grid; place-items: center; color: var(--green); }
+.ea-success__title { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
+.ea-success__msg { font-size: .92rem; color: rgba(255,255,255,.6); line-height: 1.65; max-width: 320px; margin: 0 auto; }
+
+/* Hero phone strip */
+.ea-hero__phones {
+  position: relative; z-index: 1;
+  max-width: 1060px; margin: 48px auto 0; padding: 0 28px;
+  height: 280px; overflow: hidden;
+}
+.ea-hero__phones::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 160px;
+  background: linear-gradient(to bottom, transparent, var(--dark-base));
+  pointer-events: none; z-index: 2;
+}
+.ea-hero__phones-track {
+  display: flex; gap: 18px; justify-content: center; align-items: flex-start;
+}
+.ea-hero__phone-frame {
+  flex-shrink: 0; width: 200px;
+  border-radius: 28px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 28px 64px rgba(0,0,0,.6);
+}
+.ea-hero__phone-frame img { width: 100%; display: block; vertical-align: top; }
+.ea-hero__phone-frame--top  { margin-top: 0; }
+.ea-hero__phone-frame--mid  { margin-top: 36px; }
+
+/* Trust strip */
+.ea-trust { background: var(--dark-surface); border-top: 1px solid var(--dark-border); border-bottom: 1px solid var(--dark-border); padding: 26px 0; }
+.ea-trust__inner { max-width: 1060px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px 36px; }
+.ea-trust__item { display: flex; align-items: center; gap: 10px; font-size: .85rem; color: rgba(255,255,255,.55); }
+.ea-trust__item strong { color: rgba(255,255,255,.85); font-weight: 600; }
+.ea-trust__avatars { display: flex; }
+.ea-trust__avatars img { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--dark-surface); margin-left: -8px; }
+.ea-trust__avatars img:first-child { margin-left: 0; }
+.ea-trust__sep { width: 1px; height: 22px; background: rgba(255,255,255,.12); }
+
+/* Generic light section */
+.ea-section { padding: clamp(72px, 9vw, 112px) 0; background: var(--base); }
+.ea-section--alt { background: var(--surface); }
+.ea-section--dark { background: var(--dark-base); color: #fff; }
+.ea-section__head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+.ea-section__head .s-lede { margin-left: auto; margin-right: auto; }
+
+/* App screenshots section */
+.ea-screens-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  max-width: 1060px; margin: 0 auto; padding: 0 28px;
+}
+.ea-screen-card {
+  border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--border); background: var(--surface);
+  transition: transform .22s, box-shadow .22s;
+}
+.ea-screen-card:hover { transform: translateY(-4px); box-shadow: 0 20px 56px rgba(13,13,26,.1); }
+.ea-screen-card__img { aspect-ratio: 9/16; overflow: hidden; background: var(--surface2); }
+.ea-screen-card__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.ea-screen-card__body { padding: 20px 22px 24px; }
+.ea-screen-card__step { font-size: .7rem; font-weight: 700; letter-spacing: .08em; color: var(--purple); text-transform: uppercase; margin-bottom: 7px; }
+.ea-screen-card__title { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; letter-spacing: -.015em; color: var(--text); margin-bottom: 7px; }
+.ea-screen-card__desc { font-size: .88rem; color: var(--text-mid); line-height: 1.62; }
+
+/* Benefits */
+.ea-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1060px; margin: 0 auto; padding: 0 28px; }
+.ea-benefit { background: var(--base); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 30px 26px; transition: transform .22s, box-shadow .22s; }
+.ea-section--alt .ea-benefit { background: var(--base); }
+.ea-benefit:hover { transform: translateY(-3px); box-shadow: 0 18px 50px rgba(13,13,26,.07); }
+.ea-benefit__icon { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 18px; background: var(--purple-faint); color: var(--purple); }
+.ea-benefit__icon--green { background: var(--green-faint); color: var(--green-dark); }
+.ea-benefit__title { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; letter-spacing: -.01em; color: var(--text); margin-bottom: 9px; }
+.ea-benefit__desc { font-size: .92rem; color: var(--text-mid); line-height: 1.65; }
+
+/* Course photo CTA */
+.ea-course-cta {
+  position: relative; overflow: hidden;
+  min-height: 520px; display: flex; align-items: center;
+}
+.ea-course-cta__bg {
+  position: absolute; inset: 0;
+  background-image: url('/assets/golf-ai-bg.jpg');
+  background-size: cover; background-position: center;
+  transform: scale(1.04);
+  transition: transform 8s ease;
+}
+.ea-course-cta:hover .ea-course-cta__bg { transform: scale(1); }
+.ea-course-cta__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(4,4,12,.92) 0%, rgba(72,23,206,.38) 55%, rgba(4,4,12,.9) 100%);
+}
+.ea-course-cta__inner {
+  position: relative; z-index: 1;
+  max-width: 760px; margin: 0 auto; padding: 80px 28px;
+  text-align: center; color: #fff;
+}
+.ea-course-cta__title {
+  font-family: var(--font-head); font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -.04em; line-height: 1.06;
+  color: #fff; margin-bottom: 20px; text-wrap: balance;
+}
+.ea-course-cta__title em {
+  font-style: italic;
+  background: linear-gradient(95deg, #86efac, var(--green));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.ea-course-cta__sub { font-size: 1.1rem; color: rgba(255,255,255,.68); line-height: 1.7; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+/* Steps */
+.ea-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1060px; margin: 0 auto; padding: 0 28px; }
+.ea-step { position: relative; padding: 4px 4px 4px 0; }
+.ea-step__num { font-family: var(--font-head); font-weight: 800; font-size: 2.6rem; letter-spacing: -.04em;
+  background: linear-gradient(135deg, var(--purple-light), var(--purple)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 16px; display: block; }
+.ea-step__title { font-family: var(--font-head); font-weight: 700; font-size: 1.12rem; color: var(--text); margin-bottom: 9px; }
+.ea-step__desc { font-size: .9rem; color: var(--text-mid); line-height: 1.65; }
+
+/* Scarcity */
+.ea-scarcity { background: var(--dark-base); color: #fff; padding: clamp(72px, 9vw, 108px) 0; position: relative; overflow: hidden; }
+.ea-scarcity::before { content: ''; position: absolute; width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(72,23,206,.22) 0%, transparent 65%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+.ea-scarcity__inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 28px; text-align: center; }
+.ea-scarcity__title { font-family: var(--font-head); font-weight: 800; font-size: clamp(2rem, 4.4vw, 3rem); letter-spacing: -.04em; line-height: 1.08; color: #fff; margin-bottom: 20px; }
+.ea-scarcity__title em { font-style: italic; background: linear-gradient(95deg, var(--purple-light), #a78bfa); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.ea-scarcity__desc { font-size: 1.02rem; color: rgba(255,255,255,.6); line-height: 1.75; margin-bottom: 36px; }
+.ea-scarcity .btn { margin: 0 auto; }
+
+/* FAQ */
+.ea-faq { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+.ea-faq .faq-item { border-bottom: 1px solid var(--border); }
+.ea-faq .faq-item__q { width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 18px;
+  font-family: var(--font-head); font-weight: 600; font-size: 1.06rem; color: var(--text);
+  padding: 24px 0; letter-spacing: -.01em; }
+.ea-faq .faq-item__icon { flex: none; width: 20px; height: 20px; position: relative; }
+.ea-faq .faq-item__icon::before, .ea-faq .faq-item__icon::after { content: ''; position: absolute; background: var(--purple); border-radius: 2px; transition: transform .25s ease; }
+.ea-faq .faq-item__icon::before { width: 14px; height: 2px; top: 9px; left: 3px; }
+.ea-faq .faq-item__icon::after { width: 2px; height: 14px; top: 3px; left: 9px; }
+.ea-faq .faq-item.is-open .faq-item__icon::after { transform: scaleY(0); }
+.ea-faq .faq-item__a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.ea-faq .faq-item.is-open .faq-item__a { max-height: 320px; }
+.ea-faq .faq-item__a-inner { padding: 0 0 24px; font-size: .96rem; color: var(--text-mid); line-height: 1.72; max-width: 660px; }
+
+/* Responsive */
+@media (max-width: 920px) {
+  .ea-hero__inner { grid-template-columns: 1fr; gap: 40px; }
+  .ea-hero__sub { max-width: none; }
+  .ea-screens-grid { grid-template-columns: 1fr 1fr; }
+  .ea-screens-grid .ea-screen-card:last-child { display: none; }
+  .ea-benefits { grid-template-columns: 1fr; }
+  .ea-steps { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .ea-hero { padding-top: calc(var(--nav-h) + 44px); }
+  .ea-hero__phones { height: 180px; }
+  .ea-hero__phone-frame { width: 110px; }
+  .ea-screens-grid { grid-template-columns: 1fr; }
+  .ea-screens-grid .ea-screen-card:last-child { display: block; }
+  .ea-trust__sep { display: none; }
+  .ea-golf-strip__img:nth-child(n+4) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__brand" aria-label="teemeup home">
+      <img src="/assets/teemeupai_logo.svg" alt="teemeup" class="nav__logo">
+    </a>
+    <nav aria-label="Primary" class="nav__center">
+      <ul class="nav__list">
+        <li><a href="/#features" class="nav__link">Features</a></li>
+        <li><a href="/#how" class="nav__link">How it works</a></li>
+        <li><a href="/#ecosystem" class="nav__link">Ecosystem</a></li>
+        <li><a href="/#faq" class="nav__link">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav__right">
+      <a href="#ea-form" class="btn btn--primary btn--sm">Get early access</a>
+      <button class="nav__burger" id="nav-burger" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav__drawer" id="nav-drawer">
+    <ul>
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#how">How it works</a></li>
+      <li><a href="/#ecosystem">Ecosystem</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="#ea-form">Get early access</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="ea-hero" id="top">
+  <div class="ea-hero__glow ea-hero__glow--purple" aria-hidden="true"></div>
+  <div class="ea-hero__glow ea-hero__glow--green" aria-hidden="true"></div>
+  <div class="ea-hero__grid" aria-hidden="true"></div>
+
+  <div class="ea-hero__inner">
+    <div class="ea-hero__content">
+      <span class="ea-badge"><span class="ea-badge__dot"></span> Founding access · Invitation-only</span>
+      <h1 class="ea-hero__title">Be among the first<br>to play with <em>Bob.</em></h1>
+      <p class="ea-hero__sub">teemeup is in invitation-only industry preview. Request your invitation and get founding-member access before the waitlist opens to everyone.</p>
+      <ul class="ea-hero__list">
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> First to access every new course and feature</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Direct line to the team building teemeup</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Personal invites for your foursome</li>
+      </ul>
+    </div>
+
+    <div class="ea-formcard" id="ea-form">
+      <div class="ea-formcard__title">Request your invitation</div>
+      <p class="ea-formcard__hint">We onboard in waves and email your invite when your spot opens.</p>
+
+      <form id="ea-signup" action="https://formspree.io/f/xbdqkekb" method="POST">
+        <div class="ea-field">
+          <label for="ea-email">Email <span class="ea-req">*</span></label>
+          <input class="ea-input" type="email" id="ea-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <div class="ea-consent">
+          <input type="checkbox" id="ea-consent" name="consent" value="yes" required>
+          <label for="ea-consent">I agree to be contacted about my teemeup invitation and accept the <a href="/privacy">Privacy Policy</a>.</label>
+        </div>
+        <input type="hidden" name="_source" value="early-access-page">
+        <input type="hidden" name="_subject" value="New early-access signup">
+        <input type="hidden" name="_next" value="https://www.teemeup.ai/early-access/thanks">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn btn--primary btn--lg" id="ea-submit">Request an invitation →</button>
+        <p class="ea-form__note">Invitation-only · Industry preview · Powered by Courserev.ai</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- App screenshots peaking up from the bottom of the hero -->
+  <div class="ea-hero__phones" aria-hidden="true">
+    <div class="ea-hero__phones-track">
+      <div class="ea-hero__phone-frame ea-hero__phone-frame--mid">
+        <img src="/assets/teemeup_home.webp" alt="" loading="eager">
+      </div>
+      <div class="ea-hero__phone-frame ea-hero__phone-frame--top">
+        <img src="/assets/teemeup_booking_details.webp" alt="" loading="lazy">
+      </div>
+      <div class="ea-hero__phone-frame ea-hero__phone-frame--mid">
+        <img src="/assets/teemeup_bookings.webp" alt="" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TRUST STRIP ═══════════════ -->
+<div class="ea-trust">
+  <div class="ea-trust__inner">
+    <div class="ea-trust__item">
+      <div class="ea-trust__avatars">
+        <img src="/assets/avatar-1.svg" alt="" width="30" height="30" loading="lazy">
+        <img src="/assets/avatar-2.svg" alt="" width="30" height="30" loading="lazy">
+        <img src="/assets/avatar-3.svg" alt="" width="30" height="30" loading="lazy">
+        <img src="/assets/avatar-4.svg" alt="" width="30" height="30" loading="lazy">
+      </div>
+      <span>Golfers joining by invitation</span>
+    </div>
+    <div class="ea-trust__sep" aria-hidden="true"></div>
+    <div class="ea-trust__item"><strong>Industry preview</strong></div>
+    <div class="ea-trust__sep" aria-hidden="true"></div>
+    <div class="ea-trust__item">Powered by <strong>Courserev.ai</strong></div>
+    <div class="ea-trust__sep" aria-hidden="true"></div>
+    <div class="ea-trust__item"><strong>WhatsApp · SMS · iMessage · ChatGPT</strong></div>
+  </div>
+</div>
+
+<!-- ═══════════════ APP SCREENSHOTS ═══════════════ -->
+<section class="ea-section">
+  <div class="ea-section__head">
+    <span class="eyebrow">See it in action</span>
+    <h2 class="s-title">From message<br>to booked — <em>in seconds.</em></h2>
+    <p class="s-lede">No forms, no phone calls. Tell Bob where you want to play and he handles everything from there.</p>
+  </div>
+  <div class="ea-screens-grid">
+    <div class="ea-screen-card">
+      <div class="ea-screen-card__img">
+        <img src="/assets/teemeup_home.webp" alt="teemeup home — Bob suggesting tee times" loading="lazy">
+      </div>
+      <div class="ea-screen-card__body">
+        <div class="ea-screen-card__step">Step 01</div>
+        <h3 class="ea-screen-card__title">Just ask Bob</h3>
+        <p class="ea-screen-card__desc">Chat, voice, WhatsApp, SMS — wherever you are, however you prefer. Bob knows what to ask next.</p>
+      </div>
+    </div>
+    <div class="ea-screen-card">
+      <div class="ea-screen-card__img">
+        <img src="/assets/teemeup_bookings.webp" alt="teemeup bookings — available tee times" loading="lazy">
+      </div>
+      <div class="ea-screen-card__body">
+        <div class="ea-screen-card__step">Step 02</div>
+        <h3 class="ea-screen-card__title">Bob finds the options</h3>
+        <p class="ea-screen-card__desc">He checks live tee sheet availability, weather and your preferences — then surfaces the best fits.</p>
+      </div>
+    </div>
+    <div class="ea-screen-card">
+      <div class="ea-screen-card__img">
+        <img src="/assets/teemeup_booking_details.webp" alt="teemeup booking confirmed" loading="lazy">
+      </div>
+      <div class="ea-screen-card__body">
+        <div class="ea-screen-card__step">Step 03</div>
+        <h3 class="ea-screen-card__title">You're confirmed</h3>
+        <p class="ea-screen-card__desc">Full booking details, a calendar invite and directions — all in one message. Nothing to do but show up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOUNDING BENEFITS ═══════════════ -->
+<section class="ea-section ea-section--alt">
+  <div class="ea-section__head">
+    <span class="eyebrow">Founding member benefits</span>
+    <h2 class="s-title">Get in early.<br>Stay ahead <em>always.</em></h2>
+    <p class="s-lede">Founding members shape the product and get first access as teemeup grows.</p>
+  </div>
+  <div class="ea-benefits">
+    <div class="ea-benefit">
+      <div class="ea-benefit__icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <h3 class="ea-benefit__title">Founding member status</h3>
+      <p class="ea-benefit__desc">Your feedback goes directly to the team and directly into the roadmap. You help shape what teemeup becomes.</p>
+    </div>
+    <div class="ea-benefit">
+      <div class="ea-benefit__icon ea-benefit__icon--green">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <h3 class="ea-benefit__title">First in line, always</h3>
+      <p class="ea-benefit__desc">As we add new courses, channels and capabilities, founding members get access first — before the public launch.</p>
+    </div>
+    <div class="ea-benefit">
+      <div class="ea-benefit__icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3 class="ea-benefit__title">Bring your foursome</h3>
+      <p class="ea-benefit__desc">Every founding member gets personal invitations for the golfers they actually play with — before the waitlist opens.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ COURSE PHOTO CTA ═══════════════ -->
+<div class="ea-course-cta">
+  <div class="ea-course-cta__bg"></div>
+  <div class="ea-course-cta__overlay"></div>
+  <div class="ea-course-cta__inner">
+    <span class="eyebrow eyebrow--light" style="margin-bottom: 24px; display: block;">Play more golf</span>
+    <h2 class="ea-course-cta__title">Your next round starts<br>with one <em>message.</em></h2>
+    <p class="ea-course-cta__sub">teemeup handles everything from there — course search, weather, booking and reminders. No calls. No forms. Just golf.</p>
+    <a href="#ea-form" class="btn btn--white btn--lg">Request an invitation →</a>
+  </div>
+</div>
+
+<!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+<section class="ea-section">
+  <div class="ea-section__head">
+    <span class="eyebrow">How early access works</span>
+    <h2 class="s-title">Three steps to your<br>first round with Bob.</h2>
+  </div>
+  <div class="ea-steps">
+    <div class="ea-step">
+      <span class="ea-step__num">01</span>
+      <h3 class="ea-step__title">Request your invitation</h3>
+      <p class="ea-step__desc">Drop your email above. It takes seconds, and there's nothing to download to get on the list.</p>
+    </div>
+    <div class="ea-step">
+      <span class="ea-step__num">02</span>
+      <h3 class="ea-step__title">We open your wave</h3>
+      <p class="ea-step__desc">We onboard founding members in small waves. When your spot opens, your invitation lands in your inbox.</p>
+    </div>
+    <div class="ea-step">
+      <span class="ea-step__num">03</span>
+      <h3 class="ea-step__title">Just ask Bob</h3>
+      <p class="ea-step__desc">Tell Bob where you want to play on WhatsApp, iMessage, SMS, ChatGPT or the app — he handles the rest.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SCARCITY ═══════════════ -->
+<section class="ea-scarcity">
+  <div class="ea-scarcity__inner">
+    <span class="eyebrow eyebrow--light">Why it's limited</span>
+    <h2 class="ea-scarcity__title">We onboard in waves —<br><em>on purpose.</em></h2>
+    <p class="ea-scarcity__desc">teemeup is in a focused industry preview, working closely with golfers and insiders to refine the experience before public launch. Inviting everyone at once would dilute that. Invitations are limited, and founding spots fill before the waitlist opens — so the earlier you join, the sooner you play.</p>
+    <a href="#ea-form" class="btn btn--white btn--lg">Request an invitation →</a>
+  </div>
+</section>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section class="ea-section ea-section--alt">
+  <div class="ea-section__head">
+    <span class="eyebrow">Early-access FAQ</span>
+    <h2 class="s-title">Good questions.<br>Straight answers.</h2>
+  </div>
+  <div class="ea-faq">
+    <div class="faq-item">
+      <button class="faq-item__q">What does teemeup early access include? <span class="faq-item__icon" aria-hidden="true"></span></button>
+      <div class="faq-item__a"><div class="faq-item__a-inner">Early access makes you a founding member: you get first access to every course, channel and feature as we build them, a direct line to the team, and personal invitations for the golfers you actually play with.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-item__q">When will I get my invitation? <span class="faq-item__icon" aria-hidden="true"></span></button>
+      <div class="faq-item__a"><div class="faq-item__a-inner">We onboard in waves. Once you join the list we email your invitation when your wave opens — typically within a few weeks. You'll get a heads-up before it lands, so nothing catches you by surprise.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-item__q">Is early access free? <span class="faq-item__icon" aria-hidden="true"></span></button>
+      <div class="faq-item__a"><div class="faq-item__a-inner">Yes. The industry preview is free for founding members. We'll be transparent about what comes next well before anything changes.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-item__q">Which platforms can I use Bob on? <span class="faq-item__icon" aria-hidden="true"></span></button>
+      <div class="faq-item__a"><div class="faq-item__a-inner">WhatsApp, SMS, iMessage, ChatGPT and the teemeup web and mobile app. You can start on whichever you already use — there's nothing new to download to begin.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-item__q">Is my spot saved if I don't respond right away? <span class="faq-item__icon" aria-hidden="true"></span></button>
+      <div class="faq-item__a"><div class="faq-item__a-inner">Yes. Joining the list reserves your place in the queue, and your invitation won't expire the moment it arrives. If you miss it, we'll follow up.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <a href="/" aria-label="teemeup home">
+        <img src="/assets/teemeupai_logo.svg" alt="teemeup" class="footer__logo">
+      </a>
+      <p class="footer__tagline">Your personal AI golf agent. Book tee times on WhatsApp, SMS, iMessage, ChatGPT and more — powered by Courserev.ai.</p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/teemeup.ai/" rel="noopener" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://www.facebook.com/Teemeupai" rel="noopener" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Product</h4>
+      <ul class="footer__links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#ecosystem">Ecosystem</a></li>
+        <li><a href="/early-access">Early access</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Company</h4>
+      <ul class="footer__links">
+        <li><a href="/about">About us</a></li>
+        <li><a href="/media-kit">Media Kit</a></li>
+        <li><a href="https://courserev.ai" rel="noopener">Courserev.ai</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Resources</h4>
+      <ul class="footer__links">
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/early-access">Join waitlist</a></li>
+        <li><a href="mailto:hello@teemeup.ai">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Legal</h4>
+      <ul class="footer__links">
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+        <li><a href="/cookies">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 teemeup.ai — all rights reserved</span>
+    <span>Made for golfers, by golfers</span>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  // Standard POST → Formspree reCAPTCHA → redirect to /early-access/thanks.
+  // Just show a loading state while the browser navigates away.
+  var form   = document.getElementById('ea-signup');
+  var submit = document.getElementById('ea-submit');
+  if (form && submit) {
+    form.addEventListener('submit', function () {
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+    });
+  }
+})();
+</script>
+</body>
+</html>

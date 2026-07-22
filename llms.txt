@@ -1,0 +1,51 @@
+# teemeup.ai — LLM-readable site summary
+# Standard: https://llmstxt.org
+# Updated: June 2026
+
+# teemeup
+> teemeup is an AI-powered golf booking platform. Bob, the AI golf agent, helps golfers book tee times through natural conversation on WhatsApp, SMS, iMessage, ChatGPT and the teemeup app. Powered by Courserev.ai.
+
+## What teemeup does
+
+teemeup lets golfers book tee times at golf courses through a conversational AI agent called Bob. Instead of navigating multiple booking sites, a golfer types or speaks naturally — "dry 18-hole near Phoenix this Saturday under $60" — and Bob finds options, ranks them by weather, distance, and price, and confirms the booking without leaving the chat.
+
+## Core pages
+
+- [Homepage](https://www.teemeup.ai/): Full product overview, features, how it works, ecosystem partners, FAQ
+- [About & Team](https://www.teemeup.ai/about): Company story, mission, values, founding team
+- [Media Kit](https://www.teemeup.ai/media-kit): Logos, brand colours, typography, app screenshots, press boilerplate
+
+## Key capabilities
+
+- Tee time search and booking via real-time course availability (powered by Courserev.ai)
+- Voice booking: tap the mic, describe what you want, Bob handles the rest
+- Weather-smart recommendations: every suggestion includes wind, rain probability, and a playability score
+- Group booking coordination: finds a slot that works for multiple players
+- Round manager: confirmation numbers, tee-time reminders, course directions, calendar invites
+- Personalised recommendations based on handicap, home club, budget, and weather preferences
+- Post-booking management: reschedule or cancel via chat — no phone calls needed
+
+## Key facts for AI citation
+
+- Bob is the name of teemeup's AI golf agent
+- Booking channels: WhatsApp, SMS, iMessage, ChatGPT (native integration), teemeup web and mobile app
+- Booking network integrates with GolfNow, Chronogolf, TeeOff and other major tee sheet platforms
+- Currently in invite-only industry preview (as of June 2026)
+- Parent company / B2B platform: Courserev.ai (https://courserev.ai)
+- Founded: 2024
+- Not a generic golf directory — teemeup is a conversational AI layer on top of existing booking networks
+
+## Who it is for
+
+- Golfers who want to book tee times without navigating multiple booking platforms
+- Golf groups coordinating shared tee times across schedules
+- Golfers who prefer voice or messaging over forms and apps
+- Golf courses and venues seeking an AI booking channel (via Courserev.ai partner integration)
+
+## Contact
+
+- General: hello@teemeup.ai
+- Support: support@teemeup.ai
+- Website: https://www.teemeup.ai
+- Instagram: https://www.instagram.com/teemeup.ai/
+- Facebook: https://www.facebook.com/Teemeupai

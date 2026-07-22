@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "bob-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "8765", "."],
+      "port": 8765
+    }
+  ]
+}
