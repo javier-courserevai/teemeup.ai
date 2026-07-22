@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're on the list — teemeup</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.teemeup.ai/early-access/thanks">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/assets/teemeupai_favicon.png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .thanks-page {
+    min-height: 100vh;
+    background: var(--dark-base);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 40px 24px;
+    position: relative; overflow: hidden;
+  }
+  .thanks-page__glow {
+    position: absolute; border-radius: 50%; pointer-events: none;
+    width: 700px; height: 700px; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(72,23,206,.35) 0%, transparent 62%);
+    filter: blur(8px);
+  }
+  .thanks-page__grid {
+    position: absolute; inset: 0; pointer-events: none; opacity: .4;
+    background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 70%);
+  }
+  .thanks-card {
+    position: relative; z-index: 1;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 28px;
+    padding: 52px 44px;
+    max-width: 480px; width: 100%;
+    text-align: center;
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 32px 80px rgba(0,0,0,.55);
+  }
+  .thanks-icon {
+    width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 28px;
+    background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.4);
+    display: grid; place-items: center; color: #22C55E;
+  }
+  .thanks-logo { margin: 0 auto 40px; display: block; height: 28px; }
+  .thanks-title {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 800;
+    font-size: 2rem; letter-spacing: -.04em; color: #fff;
+    margin-bottom: 14px; line-height: 1.1;
+  }
+  .thanks-msg {
+    font-family: 'DM Sans', sans-serif; font-size: 1rem;
+    color: rgba(255,255,255,.6); line-height: 1.7; margin-bottom: 36px;
+  }
+  .thanks-divider {
+    border: none; border-top: 1px solid rgba(255,255,255,.1); margin: 0 0 32px;
+  }
+  .thanks-note {
+    font-size: .8rem; color: rgba(255,255,255,.35); line-height: 1.6; margin-bottom: 28px;
+  }
+  .thanks-actions { display: flex; flex-direction: column; gap: 12px; }
+</style>
+</head>
+<body>
+<div class="thanks-page">
+  <div class="thanks-page__glow" aria-hidden="true"></div>
+  <div class="thanks-page__grid" aria-hidden="true"></div>
+
+  <div class="thanks-card">
+    <a href="/">
+      <img src="/assets/teemeupai_logo.svg" alt="teemeup" class="thanks-logo">
+    </a>
+
+    <div class="thanks-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <h1 class="thanks-title">You're on the list.</h1>
+    <p class="thanks-msg">We onboard in waves and will email your invitation when your spot opens. Keep an eye on your inbox — your founding-member access is reserved.</p>
+
+    <hr class="thanks-divider">
+    <p class="thanks-note">Invitation-only · Industry preview · Powered by Courserev.ai</p>
+
+    <div class="thanks-actions">
+      <a href="/" class="btn btn--primary btn--lg" style="justify-content:center;">Back to teemeup.ai</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

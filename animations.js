@@ -1,6 +1,6 @@
 /* =========================================================
-   teemeup.ai — GSAP animation suite (redesign)
-   Requires: gsap.min.js + ScrollTrigger.min.js
+   teemeup.ai — animations.js
+   GSAP + ScrollTrigger entrance animations (rebuild 2)
    ========================================================= */
 (function () {
   if (typeof gsap === 'undefined') return;
@@ -11,142 +11,21 @@
   var OUT2 = 'power2.out';
   var EXPO = 'expo.out';
 
-  /* ─── 1. NAV ─────────────────────────────────────────── */
-  gsap.from('.nav', { y: -70, opacity: 0, duration: 0.9, ease: EXPO, clearProps: 'all' });
-  gsap.from('.nav__list li', { y: -16, opacity: 0, duration: 0.5, stagger: 0.07, delay: 0.3, ease: OUT2 });
-  gsap.from('.nav__cta .btn', { y: -16, opacity: 0, duration: 0.5, delay: 0.55, ease: OUT2, clearProps: 'all' });
+  /* ── HERO ─────────────────────────────────────────────── */
+  gsap.from('.hero__badge',  { y: 20, opacity: 0, duration: 0.6, delay: 0.15, ease: OUT2 });
+  gsap.from('.hero__title-line',     { y: 60, opacity: 0, duration: 0.9, stagger: 0.13, delay: 0.25, ease: EXPO });
+  gsap.from('.hero__desc',   { y: 24, opacity: 0, duration: 0.8, delay: 0.6, ease: OUT2 });
+  gsap.from('.hero__actions',{ y: 20, opacity: 0, duration: 0.7, delay: 0.75, ease: OUT2 });
+  gsap.from('.hero__social-proof', { y: 16, opacity: 0, duration: 0.6, delay: 0.88, ease: OUT2 });
+  gsap.from('.hero__phone',  { y: 40, opacity: 0, scale: 0.95, duration: 1.1, delay: 0.35, ease: EXPO });
+  gsap.from('.hero__float--voice', { x: -28, opacity: 0, duration: 0.8, delay: 0.85, ease: EXPO });
+  gsap.from('.hero__float--chat',  { x: 28,  opacity: 0, duration: 0.8, delay: 1.0,  ease: EXPO });
 
-  /* ─── 2. HERO ────────────────────────────────────────── */
-  gsap.set('.hero__badge',         { opacity: 0, y: 20 });
-  gsap.set('.hero__title',         { opacity: 0, y: 40 });
-  gsap.set('.hero__lede',          { opacity: 0, y: 28 });
-  gsap.set('.hero__actions',       { opacity: 0, y: 24 });
-  gsap.set('.hero__social',        { opacity: 0, y: 20 });
-  gsap.set('.hero__mockup',        { opacity: 0, x: 60, scale: 0.96 });
-  gsap.set('.hero__float--voice',  { opacity: 0, x: -28, y: 12 });
-  gsap.set('.hero__float--chat',   { opacity: 0, x: 28,  y: 12 });
-
-  var heroTl = gsap.timeline({ defaults: { ease: OUT } });
-  heroTl
-    .to('.hero__badge',        { opacity: 1, y: 0, duration: 0.55 }, 0.20)
-    .to('.hero__title',        { opacity: 1, y: 0, duration: 0.80, ease: EXPO }, 0.35)
-    .to('.hero__lede',         { opacity: 1, y: 0, duration: 0.60 }, 0.62)
-    .to('.hero__actions',      { opacity: 1, y: 0, duration: 0.55 }, 0.78)
-    .to('.hero__social',       { opacity: 1, y: 0, duration: 0.50 }, 0.90)
-    .to('.hero__mockup',       { opacity: 1, x: 0, scale: 1, duration: 0.95, ease: EXPO }, 0.30)
-    .to('.hero__float--voice', { opacity: 1, x: 0, y: 0, duration: 0.75, ease: EXPO }, 0.72)
-    .to('.hero__float--chat',  { opacity: 1, x: 0, y: 0, duration: 0.75, ease: EXPO }, 0.84);
-
-  /* Hero stats bar */
-  gsap.from('.hero__stat', {
-    scrollTrigger: { trigger: '.hero__stats', start: 'top 90%', once: true },
-    opacity: 0, y: 18, duration: 0.5, stagger: 0.1, ease: OUT2
-  });
-
-  /* ─── 4. FEATURES ────────────────────────────────────── */
-  gsap.from('.features__head .eyebrow', {
-    scrollTrigger: { trigger: '.features__head', start: 'top 85%', once: true },
-    opacity: 0, y: 20, duration: 0.5, ease: OUT2
-  });
-  gsap.from('.features__head .section-title', {
-    scrollTrigger: { trigger: '.features__head', start: 'top 85%', once: true },
-    opacity: 0, y: 28, duration: 0.7, delay: 0.1, ease: EXPO
-  });
-  gsap.from('.features__head .section-lede', {
-    scrollTrigger: { trigger: '.features__head', start: 'top 85%', once: true },
-    opacity: 0, y: 20, duration: 0.6, delay: 0.22, ease: OUT2
-  });
-
-  document.querySelectorAll('.feature-block').forEach(function (block) {
-    var isReverse = block.classList.contains('feature-block--reverse');
-    var visual = block.querySelector('.feature-block__visual');
-    var copy   = block.querySelector('.feature-block__copy');
-    gsap.from(copy, {
-      scrollTrigger: { trigger: block, start: 'top 82%', once: true },
-      opacity: 0, x: isReverse ? 50 : -50, duration: 0.85, ease: EXPO
-    });
-    if (visual) {
-      gsap.from(visual, {
-        scrollTrigger: { trigger: block, start: 'top 82%', once: true },
-        opacity: 0, x: isReverse ? -50 : 50, duration: 0.95, delay: 0.1, ease: EXPO
-      });
-    }
-  });
-
-  gsap.from('.feature-card', {
-    scrollTrigger: { trigger: '.features__grid', start: 'top 85%', once: true },
-    opacity: 0, y: 40, scale: 0.96, duration: 0.65, stagger: 0.1, ease: OUT2
-  });
-
-  /* ─── 5. STATS ───────────────────────────────────────── */
-  gsap.from('.stats__copy > *', {
-    scrollTrigger: { trigger: '.stats', start: 'top 80%', once: true },
-    opacity: 0, y: 30, duration: 0.7, stagger: 0.12, ease: OUT2
-  });
-  gsap.from('.stats__item', {
-    scrollTrigger: { trigger: '.stats__grid', start: 'top 82%', once: true },
-    opacity: 0, y: 30, scale: 0.96, duration: 0.65, stagger: 0.12, ease: EXPO
-  });
-
-  /* ─── 6. HOW IT WORKS ────────────────────────────────── */
-  gsap.from('.how__head > *', {
-    scrollTrigger: { trigger: '.how__head', start: 'top 85%', once: true },
-    opacity: 0, y: 24, duration: 0.6, stagger: 0.1, ease: OUT2
-  });
-  document.querySelectorAll('.how__step').forEach(function (step) {
-    gsap.from(step, {
-      scrollTrigger: { trigger: step, start: 'top 86%', once: true },
-      opacity: 0, y: 40, duration: 0.75, ease: EXPO
-    });
-  });
-
-  /* ─── 7. TESTIMONIALS ───────────────────────────────── */
-  gsap.from('.testimonials__head > *', {
-    scrollTrigger: { trigger: '.testimonials__head', start: 'top 85%', once: true },
-    opacity: 0, y: 24, duration: 0.6, stagger: 0.1, ease: OUT2
-  });
-  gsap.from('.testimonial-card', {
-    scrollTrigger: { trigger: '.testimonials__grid', start: 'top 84%', once: true },
-    opacity: 0, y: 40, scale: 0.97, duration: 0.7, stagger: 0.12, ease: EXPO
-  });
-
-  /* ─── 8. SHOWCASE ───────────────────────────────────── */
-  gsap.from('.showcase__head > *', {
-    scrollTrigger: { trigger: '.showcase__head', start: 'top 85%', once: true },
-    opacity: 0, y: 24, duration: 0.6, stagger: 0.1, ease: OUT2
-  });
-  gsap.from('.showcase__screen-item', {
-    scrollTrigger: { trigger: '.showcase__screens', start: 'top 82%', once: true },
-    opacity: 0, y: 50, duration: 0.8, stagger: 0.14, ease: EXPO
-  });
-
-  /* ─── 8. FAQ ─────────────────────────────────────────── */
-  gsap.from('.faq__head > *', {
-    scrollTrigger: { trigger: '.faq__head', start: 'top 85%', once: true },
-    opacity: 0, y: 20, duration: 0.55, stagger: 0.1, ease: OUT2
-  });
-  gsap.from('.faq-item', {
-    scrollTrigger: { trigger: '.faq__list', start: 'top 86%', once: true },
-    opacity: 0, y: 22, duration: 0.5, stagger: 0.08, ease: OUT2
-  });
-
-  /* ─── 9. CTA ─────────────────────────────────────────── */
-  gsap.from('.cta__content > *', {
-    scrollTrigger: { trigger: '.cta', start: 'top 78%', once: true },
-    opacity: 0, y: 30, duration: 0.7, stagger: 0.13, ease: OUT2
-  });
-
-  /* ─── 10. FOOTER ─────────────────────────────────────── */
-  gsap.from('.footer__inner > *', {
-    scrollTrigger: { trigger: '.footer', start: 'top 92%', once: true },
-    opacity: 0, y: 20, duration: 0.6, stagger: 0.1, ease: OUT2
-  });
-
-  /* ─── 11. HERO PARALLAX (desktop only) ──────────────── */
+  /* Hero parallax */
   gsap.matchMedia().add('(min-width: 881px)', function () {
     gsap.to('.hero__content', {
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.2 },
-      y: -70, opacity: 0, ease: 'none'
+      y: -60, opacity: 0.2, ease: 'none'
     });
     gsap.to('.hero__visual', {
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.8 },
@@ -154,31 +33,174 @@
     });
   });
 
-  /* ─── 12. HOVER micro-interactions ──────────────────── */
-  document.querySelectorAll('.feature-card').forEach(function (card) {
-    card.addEventListener('mouseenter', function () {
-      gsap.to(card, { y: -6, scale: 1.02, duration: 0.3, ease: OUT2, overwrite: 'auto' });
+  /* ── 3D tilt on phone (mouse) ────────────────────────── */
+  var heroVisual = document.getElementById('hero-visual');
+  if (heroVisual) {
+    document.addEventListener('mousemove', function (e) {
+      var rect = heroVisual.getBoundingClientRect();
+      var cx = rect.left + rect.width / 2;
+      var cy = rect.top + rect.height / 2;
+      var rx = (e.clientY - cy) / window.innerHeight * 10;
+      var ry = (e.clientX - cx) / window.innerWidth * -10;
+      gsap.to(heroVisual, { rotateX: rx, rotateY: ry, transformPerspective: 900, ease: OUT2, duration: 0.6 });
     });
-    card.addEventListener('mouseleave', function () {
-      gsap.to(card, { y: 0, scale: 1, duration: 0.4, ease: OUT2, overwrite: 'auto' });
+    document.addEventListener('mouseleave', function () {
+      gsap.to(heroVisual, { rotateX: 0, rotateY: 0, duration: 1, ease: OUT2 });
     });
+  }
+
+  /* ── Generic section heading reveal ─────────────────────
+     Targets eyebrow / s-title / s-lede in each section head */
+  function animHead(parentSelector) {
+    var parent = document.querySelector(parentSelector);
+    if (!parent) return;
+    ScrollTrigger.create({
+      trigger: parent,
+      start: 'top 85%',
+      onEnter: function () {
+        gsap.from(parent.querySelectorAll('.eyebrow, .s-title, .s-lede'), {
+          y: 28, opacity: 0, duration: 0.75, stagger: 0.12, ease: EXPO
+        });
+      },
+      once: true
+    });
+  }
+  animHead('.features__head');
+  animHead('.how__head');
+  animHead('.founding__head');
+  animHead('.ecosystem__head');
+  animHead('.platforms__head');
+  animHead('.faq__head');
+
+  /* ── FEATURES sticky panel ───────────────────────────── */
+  ScrollTrigger.create({
+    trigger: '.features__showcase',
+    start: 'top 72%',
+    onEnter: function () {
+      gsap.from('.features__sticky', { x: -32, opacity: 0, duration: 0.9, ease: EXPO });
+    },
+    once: true
+  });
+  /* Note: .features__item opacity is controlled by tab-state CSS (.is-active)
+     — no GSAP override here to avoid conflicts */
+
+  /* ── FEATURE EXTRA: window cards + tiles ─────────────── */
+  ScrollTrigger.batch('.fex-win', {
+    start: 'top 86%',
+    onEnter: function (els) {
+      gsap.from(els, { y: 32, opacity: 0, duration: 0.75, stagger: 0.12, ease: EXPO });
+    },
+    once: true
+  });
+  ScrollTrigger.batch('.fex-tile', {
+    start: 'top 88%',
+    onEnter: function (els) {
+      gsap.from(els, { y: 20, opacity: 0, duration: 0.55, stagger: 0.07, ease: OUT2 });
+    },
+    once: true
   });
 
+  /* ── HOW cards: sticky stack + scale-back ────────────── */
+  var howCards = document.querySelectorAll('.how-card');
+  howCards.forEach(function (card, i) {
+    /* Scale back as the NEXT card scrolls over this one */
+    if (i < howCards.length - 1) {
+      var nextCard = howCards[i + 1];
+      gsap.to(card, {
+        scrollTrigger: {
+          trigger: nextCard,
+          start: 'top 90%',
+          end: 'top top+=108',
+          scrub: 0.6,
+        },
+        scale: 0.95,
+        ease: 'none',
+      });
+    }
+  });
+
+  /* ── STATS copy + cards ──────────────────────────────── */
+  ScrollTrigger.create({
+    trigger: '.stats__copy', start: 'top 85%',
+    onEnter: function () {
+      gsap.from('.stats__copy > *', { y: 28, opacity: 0, duration: 0.75, stagger: 0.1, ease: OUT2 });
+    },
+    once: true
+  });
+  ScrollTrigger.batch('.stats__card', {
+    start: 'top 85%',
+    onEnter: function (els) {
+      gsap.from(els, { y: 28, opacity: 0, duration: 0.7, stagger: 0.1, ease: OUT2 });
+    },
+    once: true
+  });
+
+  /* ── FOUNDING cards ──────────────────────────────────── */
+  ScrollTrigger.batch('.founding-card', {
+    start: 'top 86%',
+    onEnter: function (els) {
+      gsap.from(els, { y: 32, opacity: 0, duration: 0.75, stagger: 0.12, ease: EXPO });
+    },
+    once: true
+  });
+
+  /* ── ECOSYSTEM cards ─────────────────────────────────── */
+  ScrollTrigger.batch('.eco-card', {
+    start: 'top 86%',
+    onEnter: function (els) {
+      gsap.from(els, { y: 32, opacity: 0, duration: 0.75, stagger: 0.12, ease: EXPO });
+    },
+    once: true
+  });
+
+  /* ── PLATFORMS chips ─────────────────────────────────── */
+  ScrollTrigger.batch('.platform-chip', {
+    start: 'top 88%',
+    onEnter: function (els) {
+      gsap.from(els, { scale: 0.88, opacity: 0, duration: 0.45, stagger: 0.07, ease: 'back.out(1.6)' });
+    },
+    once: true
+  });
+
+  /* ── FAQ items ───────────────────────────────────────── */
+  ScrollTrigger.batch('.faq-item', {
+    start: 'top 88%',
+    onEnter: function (els) {
+      gsap.from(els, { opacity: 0, y: 18, duration: 0.5, stagger: 0.06, ease: OUT2 });
+    },
+    once: true
+  });
+
+  /* ── CTA section ─────────────────────────────────────── */
+  ScrollTrigger.create({
+    trigger: '.cta-section',
+    start: 'top 78%',
+    onEnter: function () {
+      gsap.from('.cta-section__inner > *', { y: 36, opacity: 0, duration: 0.8, stagger: 0.1, ease: EXPO });
+    },
+    once: true
+  });
+
+  /* ── Magnetic buttons ─────────────────────────────────── */
   document.querySelectorAll('.btn--primary').forEach(function (btn) {
-    btn.addEventListener('mouseenter', function () {
-      gsap.to(btn, { scale: 1.05, duration: 0.22, ease: OUT2 });
+    btn.addEventListener('mousemove', function (e) {
+      var rect = btn.getBoundingClientRect();
+      var x = (e.clientX - rect.left - rect.width  / 2) * 0.22;
+      var y = (e.clientY - rect.top  - rect.height / 2) * 0.22;
+      gsap.to(btn, { x: x, y: y, duration: 0.3, ease: OUT2 });
     });
     btn.addEventListener('mouseleave', function () {
-      gsap.to(btn, { scale: 1, duration: 0.28, ease: OUT2 });
+      gsap.to(btn, { x: 0, y: 0, duration: 0.55, ease: 'elastic.out(1,0.4)' });
     });
   });
 
-  document.querySelectorAll('.stats__item').forEach(function (item) {
-    item.addEventListener('mouseenter', function () {
-      gsap.to(item, { y: -4, duration: 0.3, ease: OUT2, overwrite: 'auto' });
+  /* ── Card hover lifts ─────────────────────────────────── */
+  document.querySelectorAll('.bento-card, .eco-card, .founding-card, .how__step').forEach(function (card) {
+    card.addEventListener('mouseenter', function () {
+      gsap.to(card, { y: -5, duration: 0.25, ease: OUT2, overwrite: 'auto' });
     });
-    item.addEventListener('mouseleave', function () {
-      gsap.to(item, { y: 0, duration: 0.35, ease: OUT2, overwrite: 'auto' });
+    card.addEventListener('mouseleave', function () {
+      gsap.to(card, { y: 0, duration: 0.35, ease: OUT2, overwrite: 'auto' });
     });
   });
 

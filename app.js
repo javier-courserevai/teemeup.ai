@@ -1,14 +1,12 @@
 /* =========================================================
-   teemeup.ai — page script (redesign)
-   - Nav toggle + scroll shadow
-   - Smooth anchor scroll
-   - FAQ accordion
+   teemeup.ai — app.js
+   Nav, drawer, smooth scroll, FAQ accordion,
+   sticky feature tabs scroll driver
    ========================================================= */
-
 (function () {
   'use strict';
 
-  /* ---------- Smooth anchor scroll ---------- */
+  /* ── Smooth anchor scroll ─────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href');
@@ -16,56 +14,87 @@
       var target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      var navH = document.getElementById('nav') ? document.getElementById('nav').offsetHeight : 68;
-      var top = target.getBoundingClientRect().top + window.pageYOffset - navH + 1;
+      var navH = 72;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - navH;
       window.scrollTo({ top: top, behavior: 'smooth' });
-      // close mobile drawer
       var drawer = document.getElementById('nav-drawer');
       if (drawer) drawer.classList.remove('is-open');
     });
   });
 
-  /* ---------- Nav scroll shadow ---------- */
+  /* ── Nav scroll state ─────────────────────────────────── */
   var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function () {
+  function onScroll() {
     if (!nav) return;
-    if (window.scrollY > 12) {
-      nav.style.boxShadow = '0 2px 20px rgba(0,0,0,.08)';
+    if (window.scrollY > 20) {
+      nav.classList.add('is-scrolled');
     } else {
-      nav.style.boxShadow = '';
+      nav.classList.remove('is-scrolled');
     }
-  }, { passive: true });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  /* ---------- Mobile nav drawer ---------- */
-  var navToggle = document.getElementById('nav-toggle');
-  var navDrawer = document.getElementById('nav-drawer');
-  if (navToggle && navDrawer) {
-    navToggle.addEventListener('click', function () {
-      navDrawer.classList.toggle('is-open');
+  /* ── Mobile nav drawer ────────────────────────────────── */
+  var burger = document.getElementById('nav-burger');
+  var drawer = document.getElementById('nav-drawer');
+  if (burger && drawer) {
+    burger.addEventListener('click', function () {
+      drawer.classList.toggle('is-open');
     });
   }
 
-  /* ---------- FAQ accordion ---------- */
+  /* ── FAQ accordion ────────────────────────────────────── */
   document.querySelectorAll('.faq-item').forEach(function (item) {
     var q = item.querySelector('.faq-item__q');
     if (!q) return;
     q.addEventListener('click', function () {
       var isOpen = item.classList.contains('is-open');
-      // Close all
       document.querySelectorAll('.faq-item').forEach(function (o) {
         o.classList.remove('is-open');
       });
-      // Open this one if it was closed
       if (!isOpen) item.classList.add('is-open');
     });
   });
 
-  /* ---------- GSAP fallback ---------- */
-  if (typeof gsap === 'undefined') {
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
+  /* ── Sticky features: IntersectionObserver ────────────── */
+  var featItems = document.querySelectorAll('.features__item');
+  var featImg   = document.getElementById('feat-img');
+  var featGlow  = document.getElementById('feat-glow');
+
+  if (featItems.length && featImg) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          // Deactivate all
+          featItems.forEach(function (el) { el.classList.remove('is-active'); });
+          // Activate this one
+          entry.target.classList.add('is-active');
+          // Swap image
+          var imgSrc  = entry.target.getAttribute('data-feat-img');
+          var glowType = entry.target.getAttribute('data-feat-glow');
+          if (imgSrc && imgSrc !== featImg.getAttribute('src')) {
+            featImg.classList.remove('is-visible');
+            featImg.classList.add('is-hidden');
+            setTimeout(function () {
+              featImg.setAttribute('src', imgSrc);
+              featImg.classList.remove('is-hidden');
+              featImg.classList.add('is-visible');
+            }, 250);
+          }
+          // Swap glow colour
+          if (featGlow) {
+            featGlow.className = 'features__phone-glow features__phone-glow--' + (glowType || 'purple');
+          }
+        }
+      });
+    }, {
+      rootMargin: '-30% 0px -40% 0px',
+      threshold: 0
     });
+    featItems.forEach(function (el) { observer.observe(el); });
   }
+
+  /* Scroll reveal is handled entirely by GSAP in animations.js */
 
 })();

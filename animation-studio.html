@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teemeup — Animation Studio</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0c0c0c;
+    --surface: #111;
+    --border: #1e1e1e;
+    --text: #fff;
+    --muted: #555;
+    --accent: #fff;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: 56px 1fr;
+  }
+
+  /* ── Topbar ── */
+  .topbar {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+  }
+  .topbar-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .topbar-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #333;
+  }
+  .topbar-file {
+    font-size: 12px;
+    color: #444;
+    font-family: monospace;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .section {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 12px;
+  }
+
+  /* Segments */
+  .segment-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 7px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #888;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.12s;
+    margin-bottom: 4px;
+    text-align: left;
+  }
+  .segment-btn:hover { background: #161616; color: #ccc; }
+  .segment-btn.active { background: #1a1a1a; border-color: #2a2a2a; color: #fff; }
+
+  .seg-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .seg-info { flex: 1; }
+  .seg-name { font-weight: 500; }
+  .seg-dur {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  /* Export settings */
+  .setting-row {
+    margin-bottom: 12px;
+  }
+  .setting-row label {
+    display: block;
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 6px;
+  }
+  .btn-group {
+    display: flex;
+    gap: 4px;
+  }
+  .option-btn {
+    flex: 1;
+    padding: 6px 0;
+    border-radius: 5px;
+    border: 1px solid #222;
+    background: transparent;
+    color: #666;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.12s;
+    font-weight: 500;
+  }
+  .option-btn.active, .option-btn:hover { background: #1e1e1e; color: #fff; border-color: #333; }
+
+  .export-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    background: #fff;
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.12s;
+    margin-top: 4px;
+  }
+  .export-btn:hover { opacity: 0.85; }
+  .export-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Progress */
+  .progress-wrap {
+    margin-top: 12px;
+    display: none;
+  }
+  .progress-wrap.visible { display: block; }
+  .progress-bar-bg {
+    height: 3px;
+    background: #1e1e1e;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: #fff;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s;
+  }
+  .progress-label {
+    font-size: 10px;
+    color: #555;
+    text-align: center;
+  }
+
+  /* Download history */
+  .downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dl-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #888;
+    font-size: 11px;
+    transition: all 0.12s;
+  }
+  .dl-item:hover { border-color: #333; color: #fff; }
+  .dl-name { font-weight: 500; color: #ccc; }
+  .dl-meta { font-size: 10px; color: #444; margin-top: 1px; }
+  .dl-icon { color: #444; font-size: 14px; }
+
+  /* ── Main panel ── */
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 24px;
+    position: relative;
+  }
+
+  /* Preview stage */
+  .stage-wrap {
+    position: relative;
+  }
+  .stage {
+    width: 440px;
+    height: 440px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #111;
+    transition: background 0.2s;
+  }
+  .stage.bg-white { background: #fff; }
+  .stage.bg-warm  { background: #f5f0e8; }
+  .stage.bg-dark  { background: #111; }
+
+  #preview-lottie {
+    width: 400px;
+    height: 400px;
+  }
+
+  .loading-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #111;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #444;
+  }
+  .spinner {
+    width: 24px; height: 24px;
+    border: 2px solid #1e1e1e;
+    border-top-color: #444;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Controls */
+  .controls-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ctrl {
+    padding: 7px 16px;
+    border-radius: 6px;
+    border: 1px solid #1e1e1e;
+    background: #111;
+    color: #ccc;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .ctrl:hover { background: #1a1a1a; color: #fff; }
+  .ctrl.primary { background: #fff; color: #000; border-color: #fff; }
+  .ctrl.primary:hover { opacity: 0.85; }
+
+  /* Scrubber */
+  .scrubber-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 440px;
+  }
+  input[type=range] {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 2px;
+    background: #1e1e1e;
+    border-radius: 2px;
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+  }
+  .timecode {
+    font-size: 11px;
+    color: #444;
+    font-variant-numeric: tabular-nums;
+    min-width: 64px;
+    text-align: right;
+  }
+
+  /* Segment range bar */
+  .range-bar {
+    width: 440px;
+    height: 24px;
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  .range-fill {
+    position: absolute;
+    top: 0; bottom: 0;
+    opacity: 0.25;
+    transition: left 0.3s, width 0.3s, background 0.3s;
+  }
+  .range-tick {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: #333;
+  }
+  .range-tick-label {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 9px;
+    color: #444;
+  }
+  .range-playhead {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: rgba(255,255,255,0.6);
+    pointer-events: none;
+    transition: left 0.05s;
+  }
+
+  /* Bg switcher */
+  .bg-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .bg-row span { font-size: 11px; color: #444; margin-right: 2px; }
+  .bg-dot {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 2px solid #222;
+    cursor: pointer;
+    transition: border-color 0.12s;
+  }
+  .bg-dot.active { border-color: #888; }
+  .bg-dot[data-bg="dark"]  { background: #111; }
+  .bg-dot[data-bg="white"] { background: #fff; }
+  .bg-dot[data-bg="warm"]  { background: #f5f0e8; }
+
+  /* Hidden render canvas */
+  #render-host { position: fixed; left: -9999px; top: 0; pointer-events: none; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-title">Animation Studio</span>
+  <div class="topbar-dot"></div>
+  <span class="topbar-file">teemeup_animations.json · 700×700 · 60fps · 8s</span>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <div class="section">
+    <div class="section-label">Segmentos</div>
+    <button class="segment-btn active" data-seg="0" onclick="selectSegment(0)">
+      <span class="seg-dot" style="background:#888"></span>
+      <div class="seg-info">
+        <div class="seg-name">Completa</div>
+        <div class="seg-dur">0s – 8s · 480 frames</div>
+      </div>
+    </button>
+    <button class="segment-btn" data-seg="1" onclick="selectSegment(1)">
+      <span class="seg-dot" style="background:#60a5fa"></span>
+      <div class="seg-info">
+        <div class="seg-name">1 — Ring spinner</div>
+        <div class="seg-dur">0s – 3s · 182 frames</div>
+      </div>
+    </button>
+    <button class="segment-btn" data-seg="2" onclick="selectSegment(2)">
+      <span class="seg-dot" style="background:#f87171"></span>
+      <div class="seg-info">
+        <div class="seg-name">2 — Cross / Error</div>
+        <div class="seg-dur">3s – 4.5s · 90 frames</div>
+      </div>
+    </button>
+    <button class="segment-btn" data-seg="3" onclick="selectSegment(3)">
+      <span class="seg-dot" style="background:#fb923c"></span>
+      <div class="seg-info">
+        <div class="seg-name">3 — Loading</div>
+        <div class="seg-dur">4.5s – 6.5s · 118 frames</div>
+      </div>
+    </button>
+    <button class="segment-btn" data-seg="4" onclick="selectSegment(4)">
+      <span class="seg-dot" style="background:#4ade80"></span>
+      <div class="seg-info">
+        <div class="seg-name">4 — Final / Shake</div>
+        <div class="seg-dur">6.5s – 8s · 90 frames</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Exportar GIF</div>
+    <div class="setting-row">
+      <label>Resolución</label>
+      <div class="btn-group">
+        <button class="option-btn" data-size="300" onclick="selectOpt(this,'size')">300px</button>
+        <button class="option-btn active" data-size="500" onclick="selectOpt(this,'size')">500px</button>
+        <button class="option-btn" data-size="700" onclick="selectOpt(this,'size')">700px</button>
+      </div>
+    </div>
+    <div class="setting-row">
+      <label>Velocidad</label>
+      <div class="btn-group">
+        <button class="option-btn" data-fps="15" onclick="selectOpt(this,'fps')">15fps</button>
+        <button class="option-btn active" data-fps="24" onclick="selectOpt(this,'fps')">24fps</button>
+        <button class="option-btn" data-fps="30" onclick="selectOpt(this,'fps')">30fps</button>
+      </div>
+    </div>
+    <div class="setting-row">
+      <label>Calidad</label>
+      <div class="btn-group">
+        <button class="option-btn" data-quality="1" onclick="selectOpt(this,'quality')">Alta</button>
+        <button class="option-btn active" data-quality="8" onclick="selectOpt(this,'quality')">Media</button>
+        <button class="option-btn" data-quality="20" onclick="selectOpt(this,'quality')">Rápida</button>
+      </div>
+    </div>
+    <button class="export-btn" id="export-btn" onclick="startExport()">Exportar GIF ↓</button>
+    <div class="progress-wrap" id="progress-wrap">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-label" id="progress-label">Renderizando frames…</div>
+    </div>
+  </div>
+
+  <div class="section" id="downloads-section" style="display:none">
+    <div class="section-label">Descargados</div>
+    <div class="downloads" id="downloads-list"></div>
+  </div>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="stage-wrap">
+    <div class="stage bg-dark" id="stage">
+      <div id="preview-lottie"></div>
+      <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+        Cargando animación…
+      </div>
+    </div>
+  </div>
+
+  <div class="scrubber-row">
+    <input type="range" id="scrubber" min="0" max="480" value="0" step="1">
+    <span class="timecode" id="timecode">0.00s</span>
+  </div>
+
+  <div class="range-bar" id="range-bar">
+    <!-- ticks at 3s, 4.5s, 6.5s -->
+    <div class="range-tick" style="left: 37.5%"></div>
+    <div class="range-tick-label" style="left: 37.5%">3s</div>
+    <div class="range-tick" style="left: 56.25%"></div>
+    <div class="range-tick-label" style="left: 56.25%">4.5s</div>
+    <div class="range-tick" style="left: 81.25%"></div>
+    <div class="range-tick-label" style="left: 81.25%">6.5s</div>
+    <div class="range-fill" id="range-fill"></div>
+    <div class="range-playhead" id="range-playhead" style="left:0"></div>
+  </div>
+
+  <div class="controls-row">
+    <button class="ctrl" onclick="goStart()">↩</button>
+    <button class="ctrl primary" id="play-btn" onclick="togglePlay()">▶ Play</button>
+    <button class="ctrl" onclick="toggleLoop()" id="loop-btn">↻ Loop</button>
+    <div class="bg-row">
+      <span>Bg</span>
+      <div class="bg-dot active" data-bg="dark" onclick="setBg(this)"></div>
+      <div class="bg-dot" data-bg="white" onclick="setBg(this)"></div>
+      <div class="bg-dot" data-bg="warm" onclick="setBg(this)"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden render host -->
+<div id="render-host"></div>
+
+<script>
+// ── Animation data ────────────────────────────────────
+let animData = null;
+let previewAnim = null;
+let isPlaying = false;
+let isLooping = true;
+let scrubbing = false;
+let currentSeg = 0;
+
+const SEGMENTS = [
+  { name: 'completa',  label: 'Completa',        start: 0,   end: 480, color: '#888' },
+  { name: 'ring',      label: 'Ring spinner',     start: 0,   end: 182, color: '#60a5fa' },
+  { name: 'cross',     label: 'Cross / Error',    start: 182, end: 272, color: '#f87171' },
+  { name: 'loading',   label: 'Loading',          start: 272, end: 390, color: '#fb923c' },
+  { name: 'final',     label: 'Final / Shake',    start: 390, end: 480, color: '#4ade80' },
+];
+
+let exportSize = 500;
+let exportFps = 24;
+let exportQuality = 8;
+
+// ── Load JSON ─────────────────────────────────────────
+fetch('teemeup_animations.json')
+  .then(r => r.json())
+  .then(data => {
+    animData = data;
+    initPreview();
+    document.getElementById('loading-overlay').style.display = 'none';
+  })
+  .catch(err => {
+    document.getElementById('loading-overlay').innerHTML =
+      '<span style="color:#f87171;font-size:11px">Error al cargar JSON</span>';
+    console.error(err);
+  });
+
+// ── Preview ───────────────────────────────────────────
+function initPreview() {
+  if (previewAnim) previewAnim.destroy();
+
+  const seg = SEGMENTS[currentSeg];
+  previewAnim = lottie.loadAnimation({
+    container: document.getElementById('preview-lottie'),
+    renderer: 'svg',
+    loop: isLooping,
+    autoplay: false,
+    animationData: JSON.parse(JSON.stringify(animData)),
+  });
+
+  previewAnim.addEventListener('DOMLoaded', () => {
+    previewAnim.playSegments([seg.start, seg.end], true);
+    isPlaying = true;
+    document.getElementById('play-btn').textContent = '⏸ Pausa';
+    document.getElementById('scrubber').min = seg.start;
+    document.getElementById('scrubber').max = seg.end;
+    updateRangeBar();
+  });
+
+  previewAnim.addEventListener('enterFrame', () => {
+    if (!scrubbing) {
+      const f = Math.round(previewAnim.currentFrame);
+      document.getElementById('scrubber').value = f;
+      document.getElementById('timecode').textContent = (f / 60).toFixed(2) + 's';
+      const pct = (f / 480) * 100;
+      document.getElementById('range-playhead').style.left = pct + '%';
+    }
+  });
+
+  previewAnim.addEventListener('complete', () => {
+    if (!isLooping) {
+      isPlaying = false;
+      document.getElementById('play-btn').textContent = '▶ Play';
+    }
+  });
+}
+
+function updateRangeBar() {
+  const seg = SEGMENTS[currentSeg];
+  const fill = document.getElementById('range-fill');
+  const leftPct = (seg.start / 480) * 100;
+  const widthPct = ((seg.end - seg.start) / 480) * 100;
+  fill.style.left = leftPct + '%';
+  fill.style.width = widthPct + '%';
+  fill.style.background = seg.color;
+}
+
+function togglePlay() {
+  if (!previewAnim) return;
+  isPlaying = !isPlaying;
+  if (isPlaying) {
+    const seg = SEGMENTS[currentSeg];
+    const cur = Math.round(previewAnim.currentFrame);
+    if (cur >= seg.end - 1) previewAnim.goToAndStop(seg.start, true);
+    previewAnim.play();
+    document.getElementById('play-btn').textContent = '⏸ Pausa';
+  } else {
+    previewAnim.pause();
+    document.getElementById('play-btn').textContent = '▶ Play';
+  }
+}
+
+function goStart() {
+  if (!previewAnim) return;
+  const seg = SEGMENTS[currentSeg];
+  previewAnim.goToAndStop(seg.start, true);
+  isPlaying = false;
+  document.getElementById('play-btn').textContent = '▶ Play';
+}
+
+function toggleLoop() {
+  isLooping = !isLooping;
+  if (previewAnim) previewAnim.loop = isLooping;
+  document.getElementById('loop-btn').style.opacity = isLooping ? '1' : '0.4';
+}
+
+function setBg(el) {
+  document.querySelectorAll('.bg-dot').forEach(d => d.classList.remove('active'));
+  el.classList.add('active');
+  const stage = document.getElementById('stage');
+  stage.className = 'stage bg-' + el.dataset.bg;
+}
+
+function selectSegment(idx) {
+  currentSeg = idx;
+  document.querySelectorAll('.segment-btn').forEach((b, i) => {
+    b.classList.toggle('active', i === idx);
+  });
+  if (animData) initPreview();
+}
+
+// Scrubber
+const scrubber = document.getElementById('scrubber');
+scrubber.addEventListener('mousedown', () => { scrubbing = true; });
+scrubber.addEventListener('touchstart', () => { scrubbing = true; });
+scrubber.addEventListener('input', () => {
+  if (!previewAnim) return;
+  const f = parseInt(scrubber.value);
+  previewAnim.goToAndStop(f, true);
+  document.getElementById('timecode').textContent = (f / 60).toFixed(2) + 's';
+  const pct = (f / 480) * 100;
+  document.getElementById('range-playhead').style.left = pct + '%';
+});
+document.addEventListener('mouseup', () => { scrubbing = false; });
+document.addEventListener('touchend', () => { scrubbing = false; });
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
+  if (e.code === 'ArrowLeft') {
+    if (!previewAnim) return;
+    const f = Math.max(SEGMENTS[currentSeg].start, Math.round(previewAnim.currentFrame) - 1);
+    previewAnim.goToAndStop(f, true);
+    scrubber.value = f;
+  }
+  if (e.code === 'ArrowRight') {
+    if (!previewAnim) return;
+    const f = Math.min(SEGMENTS[currentSeg].end, Math.round(previewAnim.currentFrame) + 1);
+    previewAnim.goToAndStop(f, true);
+    scrubber.value = f;
+  }
+});
+
+// ── Option selectors ──────────────────────────────────
+function selectOpt(btn, type) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (type === 'size') exportSize = parseInt(btn.dataset.size);
+  if (type === 'fps') exportFps = parseInt(btn.dataset.fps);
+  if (type === 'quality') exportQuality = parseInt(btn.dataset.quality);
+}
+
+// ── GIF Export ────────────────────────────────────────
+let exportCount = 0;
+
+async function startExport() {
+  if (!animData) return;
+
+  const seg = SEGMENTS[currentSeg];
+  const btn = document.getElementById('export-btn');
+  const progressWrap = document.getElementById('progress-wrap');
+  const progressFill = document.getElementById('progress-fill');
+  const progressLabel = document.getElementById('progress-label');
+
+  btn.disabled = true;
+  btn.textContent = 'Exportando…';
+  progressWrap.classList.add('visible');
+
+  // Pause preview
+  if (previewAnim) previewAnim.pause();
+  isPlaying = false;
+  document.getElementById('play-btn').textContent = '▶ Play';
+
+  // Create hidden render host
+  const host = document.getElementById('render-host');
+  const container = document.createElement('div');
+  container.style.cssText = `width:${exportSize}px;height:${exportSize}px;`;
+  host.appendChild(container);
+
+  // Load Lottie with canvas renderer
+  const renderAnim = lottie.loadAnimation({
+    container,
+    renderer: 'canvas',
+    loop: false,
+    autoplay: false,
+    animationData: JSON.parse(JSON.stringify(animData)),
+    rendererSettings: {
+      clearCanvas: true,
+      preserveAspectRatio: 'xMidYMid meet',
+    },
+  });
+
+  await new Promise(resolve => renderAnim.addEventListener('DOMLoaded', resolve));
+  const canvas = container.querySelector('canvas');
+
+  // Setup GIF encoder
+  const gif = new GIF({
+    workers: 2,
+    quality: exportQuality,
+    width: exportSize,
+    height: exportSize,
+    workerScript: 'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js',
+    repeat: 0,
+  });
+
+  // Render frames
+  const step = 60 / exportFps;
+  const totalFrames = Math.ceil((seg.end - seg.start) / step);
+  const delay = Math.round(1000 / exportFps);
+  let rendered = 0;
+
+  for (let f = seg.start; f < seg.end; f += step) {
+    const frame = Math.round(f);
+    renderAnim.goToAndStop(frame, true);
+
+    // Wait one animation frame for canvas to flush
+    await new Promise(r => requestAnimationFrame(r));
+
+    gif.addFrame(canvas, { delay, copy: true });
+    rendered++;
+
+    const pct = Math.round((rendered / totalFrames) * 75);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = `Renderizando frame ${rendered} / ${totalFrames}…`;
+
+    // Yield to UI every 5 frames
+    if (rendered % 5 === 0) await new Promise(r => setTimeout(r, 0));
+  }
+
+  progressLabel.textContent = 'Codificando GIF…';
+  progressFill.style.width = '80%';
+
+  gif.on('progress', p => {
+    progressFill.style.width = (80 + p * 20) + '%';
+  });
+
+  gif.on('finished', blob => {
+    progressFill.style.width = '100%';
+    progressLabel.textContent = '¡Listo!';
+
+    // Download
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const fname = `teemeup_${seg.name}_${exportSize}px_${exportFps}fps.gif`;
+    a.download = fname;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Add to downloads list
+    addDownloadItem(url, fname, blob.size, exportSize, exportFps);
+
+    // Cleanup
+    renderAnim.destroy();
+    host.removeChild(container);
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Exportar GIF ↓';
+      progressWrap.classList.remove('visible');
+      progressFill.style.width = '0%';
+    }, 1500);
+  });
+
+  gif.render();
+}
+
+function addDownloadItem(url, fname, size, px, fps) {
+  const section = document.getElementById('downloads-section');
+  const list = document.getElementById('downloads-list');
+  section.style.display = 'block';
+
+  const kb = (size / 1024).toFixed(0);
+  const item = document.createElement('a');
+  item.href = url;
+  item.download = fname;
+  item.className = 'dl-item';
+  item.innerHTML = `
+    <div>
+      <div class="dl-name">${fname.replace('teemeup_', '')}</div>
+      <div class="dl-meta">${px}×${px}px · ${fps}fps · ${kb} KB</div>
+    </div>
+    <span class="dl-icon">↓</span>
+  `;
+  list.prepend(item);
+}
+</script>
+</body>
+</html>

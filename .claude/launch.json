@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "teemeup",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "3000", "."],
+      "port": 3000
+    },
+    {
+      "name": "bob-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "8765", "animations"],
+      "port": 8765
+    }
+  ]
+}
