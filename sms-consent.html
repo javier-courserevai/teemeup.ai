@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMS Consent — teemeup.ai</title>
+<meta name="description" content="How teemeup collects consent to send SMS messages, what those messages contain, and how to manage or stop them at any time (reply STOP or HELP).">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.teemeup.ai/sms-consent">
+<meta property="og:title" content="SMS Consent — teemeup.ai">
+<meta property="og:url" content="https://www.teemeup.ai/sms-consent">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/teemeupai_favicon.png">
+<link rel="apple-touch-icon" href="assets/teemeupai_favicon.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .legal { padding: clamp(60px,8vw,100px) 0 clamp(80px,10vw,120px); }
+  .legal__header { margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--color-line); }
+  .legal__eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand-green); display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .legal__eyebrow::before { content: ""; width: 18px; height: 1px; background: currentColor; }
+  .legal__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(36px,5vw,60px); letter-spacing: -0.03em; line-height: 1.05; color: var(--color-ink); margin: 0 0 16px; }
+  .legal__meta { font-family: var(--font-mono); font-size: 12px; color: var(--color-muted); letter-spacing: 0.06em; }
+  .legal__body { max-width: 720px; }
+  .legal__body h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(20px,2.4vw,26px); letter-spacing: -0.02em; color: var(--color-ink); margin: 48px 0 14px; }
+  .legal__body h2:first-child { margin-top: 0; }
+  .legal__body h3 { font-family: var(--font-display); font-weight: 600; font-size: 17px; color: var(--color-ink); margin: 28px 0 10px; }
+  .legal__body p { font-size: 16px; line-height: 1.75; color: var(--color-muted); margin: 0 0 16px; }
+  .legal__body ul { padding-left: 20px; margin: 0 0 16px; }
+  .legal__body li { font-size: 16px; line-height: 1.75; color: var(--color-muted); margin-bottom: 6px; }
+  .legal__body strong { color: var(--color-ink); font-weight: 600; }
+  .legal__body a { color: var(--brand-purple); text-decoration: underline; }
+  .legal__divider { border: 0; border-top: 1px solid var(--color-line); margin: 0; }
+
+  /* Consent-checkbox text as it appears on the form */
+  .checkbox-quote {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--color-card);
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 0 0 16px;
+    font-size: 15px; line-height: 1.7; color: var(--color-ink);
+  }
+  .checkbox-quote .box { flex: none; font-size: 18px; line-height: 1.5; color: var(--brand-green); }
+
+  /* ── Legal pages: nav always solid (no dark hero) ── */
+  #nav {
+    background: rgba(255,255,255,0.95) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  #nav .nav__logo-img { filter: none !important; height: 22px !important; }
+  #nav .nav__link { color: var(--text-mid) !important; }
+  #nav .nav__link:hover { color: var(--text) !important; background: rgba(0,0,0,.05) !important; }
+  #nav .nav__burger span { background: var(--text) !important; }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.teemeup.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "SMS Consent", "item": "https://www.teemeup.ai/sms-consent" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__brand" aria-label="teemeupAI home">
+      <img src="assets/teemeupai_logo.svg" alt="teemeupAI" class="nav__logo-img">
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="index.html#features" class="nav__link">Features</a></li>
+        <li><a href="index.html#how" class="nav__link">How it works</a></li>
+        <li><a href="index.html#faq" class="nav__link">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav__cta">
+      <a href="/early-access" class="btn btn--primary btn--sm">Get early access <span class="btn__arrow">→</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="legal">
+    <div class="container">
+      <div class="legal__header">
+        <p class="legal__eyebrow">Legal</p>
+        <h1 class="legal__title">SMS Consent</h1>
+        <p class="legal__meta">Last updated: September 4, 2026</p>
+      </div>
+      <div class="legal__body">
+
+        <p>This page explains how teemeup collects consent to send SMS text messages, what those messages contain, and how you can manage or stop them at any time.</p>
+
+        <h2>1. What messages you can receive</h2>
+        <p>If you opt in, teemeup may send you:</p>
+        <ul>
+          <li><strong>Assistant replies</strong> — teemeup is an AI golf booking assistant. If you message us by SMS to search for or book a tee time, the assistant replies by SMS as part of that conversation.</li>
+          <li><strong>Booking confirmations</strong> — sent immediately after a tee time is booked.</li>
+          <li><strong>Updates and changes</strong> to your booking, if applicable.</li>
+          <li><strong>Cancellation confirmations</strong> — sent immediately after a cancellation completes.</li>
+          <li><strong>Tee-time reminders</strong> — typically the day before your round.</li>
+        </ul>
+        <p>We do not use this messaging program to send marketing or promotional messages.</p>
+
+        <h2>2. Who is sending these messages</h2>
+        <p>Messages are sent by <strong>teemeup</strong>. teemeup.ai is a service operated by <strong>Shank Tech Inc.</strong>, registered at 100 Millpond Plantation Way, Warner Robins, GA 31088.</p>
+
+        <h2>3. The assistant's replies are AI-generated</h2>
+        <p>teemeup's replies are generated by an AI assistant, not written by a person. The content of your messages is processed by our AI provider in order to understand your request and generate a response, as described in our <a href="https://www.teemeup.ai/privacy">Privacy Policy</a>. Please confirm important booking details — course, date, time and price — before you travel.</p>
+
+        <h2>4. How you opt in</h2>
+        <p>You can opt in to teemeup SMS in two ways. Both are started by you.</p>
+
+        <h3>4.1 When you create an account</h3>
+        <p>Enter your mobile number during signup in the teemeup app or on our <a href="https://www.teemeup.ai/early-access">early access page</a>, and tick the SMS consent checkbox. On the form, the checkbox text reads:</p>
+        <div class="checkbox-quote">
+          <span class="box" aria-hidden="true">&#9744;</span>
+          <span>I agree to receive tee-time booking confirmations, reminders and service messages from teemeup at this number. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. See our <a href="https://www.teemeup.ai/privacy">Privacy Policy</a> and <a href="https://www.teemeup.ai/terms">Terms of Service</a>.</span>
+        </div>
+        <p><strong>The checkbox is not pre-ticked, and consent is not required to use teemeup or to complete a booking.</strong> Your consent to receive SMS messages is not a condition of purchase.</p>
+
+        <h3>4.2 When you text us first</h3>
+        <p>You can start a conversation yourself by texting teemeup's number, reached through a QR code or link published on our own website. Our first reply confirms that you are subscribed and tells you how to get help or opt out.</p>
+
+        <h2>5. Opting out and getting help</h2>
+        <p>Reply to any message you receive from us:</p>
+        <ul>
+          <li><strong>STOP</strong> — unsubscribe from messages.</li>
+          <li><strong>HELP</strong> — get help and support information.</li>
+          <li><strong>START</strong> — resubscribe after opting out.</li>
+        </ul>
+        <p>After you text STOP you may receive one final message confirming that you have been unsubscribed. You will not receive further messages unless you opt in again. Opt-out is processed through the same number that messaged you.</p>
+        <p>Opting out of SMS does not close your teemeup account. We will continue to email you about any active bookings.</p>
+
+        <h2>6. Message frequency and charges</h2>
+        <ul>
+          <li><strong>Message frequency varies</strong> depending on how often you use the assistant and how many bookings you make — typically fewer than 10 messages per month.</li>
+          <li><strong>Message and data rates may apply</strong>, depending on your mobile carrier and plan.</li>
+        </ul>
+
+        <h2>7. What we collect for SMS, and why</h2>
+        <p>For SMS delivery and compliance we may collect and store:</p>
+        <ul>
+          <li>Your name</li>
+          <li>Your mobile phone number</li>
+          <li>Your consent status (opt-in / opt-out)</li>
+          <li>The timestamp and method of consent</li>
+          <li>Booking identifiers, so we can send you the right updates</li>
+          <li>Message delivery events (sent / delivered / failed), where available</li>
+        </ul>
+        <p>We use this to send the messages you asked for, to keep compliance records and prevent unwanted messages, and to troubleshoot delivery problems.</p>
+
+        <h2>8. Data sharing and mobile information</h2>
+        <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. SMS opt-in data and consent will not be shared with any third parties.</strong></p>
+        <p>We use trusted service providers — including messaging and telephony vendors and our AI provider — to deliver and operate this service. Where a booking requires it, we pass only the contact details the golf course or booking partner needs to hold your reservation. See our <a href="https://www.teemeup.ai/privacy">Privacy Policy</a> and <a href="https://www.teemeup.ai/terms">Terms of Service</a> for more.</p>
+
+        <h2>9. Contact us</h2>
+        <p>Questions about SMS consent or your messaging preferences: <a href="mailto:support@teemeup.ai">support@teemeup.ai</a></p>
+
+        <h2>10. Changes to this page</h2>
+        <p>We may update this page as our messaging program evolves. The "Last updated" date will reflect the latest version.</p>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <a href="index.html" aria-label="teemeup home">
+        <img src="assets/teemeupai_logo.svg" alt="teemeup" class="footer__logo">
+      </a>
+      <p class="footer__tagline">Your personal AI golf agent. Book tee times on WhatsApp, SMS, iMessage, ChatGPT and more — powered by Courserev.ai.</p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/teemeup.ai/" rel="noopener" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://www.facebook.com/Teemeupai" rel="noopener" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Product</h4>
+      <ul class="footer__links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a href="index.html#ecosystem">Ecosystem</a></li>
+        <li><a href="/early-access">Early access</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Company</h4>
+      <ul class="footer__links">
+        <li><a href="about.html">About us</a></li>
+        <li><a href="media-kit.html">Media Kit</a></li>
+        <li><a href="https://courserev.ai" rel="noopener">Courserev.ai</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Resources</h4>
+      <ul class="footer__links">
+        <li><a href="support.html">Support</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="mailto:hello@teemeup.ai">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer__col-title">Legal</h4>
+      <ul class="footer__links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="cookies.html">Cookie Policy</a></li>
+        <li><a href="/sms-consent">SMS Consent</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 teemeup.ai — all rights reserved</span>
+    <span>Made for golfers, by golfers</span>
+  </div>
+</footer>
+
+</body>
+</html>
