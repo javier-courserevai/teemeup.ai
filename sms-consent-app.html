@@ -4,12 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SMS Consent — teemeup.ai</title>
-<meta name="description" content="How teemeup collects consent to send SMS messages, what those messages contain, and how to manage or stop them at any time (reply STOP or HELP).">
-<meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://www.teemeup.ai/sms-consent">
-<meta property="og:title" content="SMS Consent — teemeup.ai">
-<meta property="og:url" content="https://www.teemeup.ai/sms-consent">
-<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -45,30 +39,14 @@
     font-size: 15px; line-height: 1.7; color: var(--color-ink);
   }
   .checkbox-quote .box { flex: none; font-size: 18px; line-height: 1.5; color: var(--brand-green); }
-
-  /* ── Legal pages: nav always solid (no dark hero) ── */
-  #nav {
-    background: rgba(255,255,255,0.95) !important;
-    backdrop-filter: blur(24px) !important;
-    -webkit-backdrop-filter: blur(24px) !important;
-    border-bottom: 1px solid var(--border) !important;
-  }
-  #nav .nav__logo-img { filter: none !important; height: 22px !important; }
-  #nav .nav__link { color: var(--text-mid) !important; }
-  #nav .nav__link:hover { color: var(--text) !important; background: rgba(0,0,0,.05) !important; }
-  #nav .nav__burger span { background: var(--text) !important; }
 </style>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.teemeup.ai/" },
-    { "@type": "ListItem", "position": 2, "name": "SMS Consent", "item": "https://www.teemeup.ai/sms-consent" }
-  ]
-}
-</script>
+<style>
+  /* ── App-embedded view: hide chrome ── */
+  .nav, footer.footer { display: none !important; }
+  .legal { padding: 32px 0 48px !important; }
+</style>
+<meta name="robots" content="noindex, nofollow">
 </head>
 <body>
 
