@@ -151,6 +151,9 @@
 .ea-consent input { flex: none; width: 17px; height: 17px; margin-top: 2px; accent-color: var(--purple-light); cursor: pointer; }
 .ea-consent label { font-size: .78rem; color: rgba(255,255,255,.52); line-height: 1.55; }
 .ea-consent a { color: var(--purple-light); text-decoration: underline; }
+.ea-consent label strong { color: rgba(255,255,255,.75); font-weight: 700; }
+.ea-field label .ea-optional { color: rgba(255,255,255,.38); font-weight: 500; letter-spacing: 0; text-transform: none; }
+.ea-field__hint { font-size: .72rem; color: rgba(255,255,255,.4); line-height: 1.5; margin-top: 7px; }
 .ea-formcard .btn { width: 100%; justify-content: center; }
 .ea-form__note { font-size: .72rem; color: rgba(255,255,255,.3); text-align: center; margin-top: 14px; line-height: 1.5; }
 .ea-form__error { display: none; font-size: .82rem; color: #fca5a5; background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.25); border-radius: var(--radius); padding: 10px 14px; margin-bottom: 14px; }
@@ -380,14 +383,30 @@
           <label for="ea-email">Email <span class="ea-req">*</span></label>
           <input class="ea-input" type="email" id="ea-email" name="email" placeholder="you@example.com" autocomplete="email" required>
         </div>
+        <div class="ea-field">
+          <label for="ea-phone">Mobile number <span class="ea-optional">(optional)</span></label>
+          <input class="ea-input" type="tel" id="ea-phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel">
+          <p class="ea-field__hint">Only if you want tee-time updates by text. We will not use it for anything else.</p>
+        </div>
         <div class="ea-consent">
           <input type="checkbox" id="ea-consent" name="consent" value="yes" required>
           <label for="ea-consent">I agree to be contacted about my teemeup invitation and accept the <a href="/privacy">Privacy Policy</a>.</label>
+        </div>
+        <div class="ea-consent">
+          <input type="checkbox" id="ea-sms-consent" name="sms_optin" value="yes">
+          <label for="ea-sms-consent">I agree to receive <strong>text messages (SMS)</strong> from teemeup at this number: tee-time booking confirmations, reminders and service messages. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. See our <a href="https://www.teemeup.ai/privacy">Privacy Policy</a>, <a href="https://www.teemeup.ai/terms">Terms of Service</a> and <a href="https://www.teemeup.ai/sms-consent">SMS Consent</a>.</label>
         </div>
         <input type="hidden" name="_source" value="early-access-page">
         <input type="hidden" name="_subject" value="New early-access signup">
         <input type="hidden" name="_next" value="https://www.teemeup.ai/early-access/thanks">
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <!-- SMS consent record — persisted with the submission (see /sms-consent §7) -->
+        <input type="hidden" name="sms_consent_method" value="web_form">
+        <input type="hidden" name="sms_consent_source_url" value="https://www.teemeup.ai/early-access">
+        <input type="hidden" name="sms_consent_text" value="I agree to receive text messages (SMS) from teemeup at this number: tee-time booking confirmations, reminders and service messages. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. See our Privacy Policy, Terms of Service and SMS Consent.">
+        <input type="hidden" name="phone_e164" id="ea-phone-e164" value="">
+        <input type="hidden" name="sms_consent" id="ea-sms-consent-flag" value="false">
+        <input type="hidden" name="sms_consent_at" id="ea-sms-consent-at" value="">
         <button type="submit" class="btn btn--primary btn--lg" id="ea-submit">Request an invitation →</button>
         <p class="ea-form__note">Invitation-only · Industry preview · Powered by Courserev.ai</p>
       </form>
@@ -625,11 +644,13 @@
         <li><a href="/privacy">Privacy Policy</a></li>
         <li><a href="/terms">Terms of Service</a></li>
         <li><a href="/cookies">Cookie Policy</a></li>
+        <li><a href="/sms-consent">SMS Consent</a></li>
       </ul>
     </div>
   </div>
   <div class="footer__bottom">
     <span>© 2026 teemeup.ai — all rights reserved</span>
+    <span>teemeup.ai is a service of Shank Tech Inc., Warner Robins, GA.</span>
     <span>Made for golfers, by golfers</span>
   </div>
 </footer>
@@ -638,12 +659,38 @@
 <script>
 (function () {
   'use strict';
-  // Standard POST → Formspree reCAPTCHA → redirect to /early-access/thanks.
-  // Just show a loading state while the browser navigates away.
+  // Standard POST → Formspree → redirect to /early-access/thanks.
+  // On submit we (1) normalise the phone to E.164, (2) stamp the SMS consent
+  // record (true/false + ISO timestamp) into hidden fields, then (3) show a
+  // loading state while the browser navigates away. None of this blocks the
+  // submit — email is the only required field.
   var form   = document.getElementById('ea-signup');
   var submit = document.getElementById('ea-submit');
+
+  // Best-effort US E.164 normalisation. Returns '' (null) if not confidently a
+  // US number — the raw `phone` field is still submitted regardless.
+  function toE164(v) {
+    if (!v) return '';
+    var raw = ('' + v).trim();
+    var digits = raw.replace(/\D/g, '');
+    if (raw.charAt(0) === '+') return digits ? '+' + digits : '';
+    if (digits.length === 11 && digits.charAt(0) === '1') return '+' + digits;
+    if (digits.length === 10) return '+1' + digits;
+    return '';
+  }
+
   if (form && submit) {
     form.addEventListener('submit', function () {
+      try {
+        var phoneEl = document.getElementById('ea-phone');
+        var e164El  = document.getElementById('ea-phone-e164');
+        var smsBox  = document.getElementById('ea-sms-consent');
+        var flagEl  = document.getElementById('ea-sms-consent-flag');
+        var atEl    = document.getElementById('ea-sms-consent-at');
+        if (e164El) e164El.value = phoneEl ? toE164(phoneEl.value) : '';
+        if (flagEl) flagEl.value = (smsBox && smsBox.checked) ? 'true' : 'false';
+        if (atEl)   atEl.value = new Date().toISOString();
+      } catch (e) { /* never block the native submit */ }
       submit.disabled = true;
       submit.textContent = 'Sending…';
     });
