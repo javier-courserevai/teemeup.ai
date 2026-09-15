@@ -1703,6 +1703,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .cta-form__input::placeholder { color: var(--text-dim); }
 .cta-form__input:focus { border-color: var(--purple-light); background: rgba(255,255,255,.08); }
+.cta-form__field { display: flex; flex-direction: column; gap: 6px; }
+.cta-form__hint { font-size: .72rem; color: rgba(255,255,255,.38); line-height: 1.5; padding: 0 4px; margin: 0; }
+.cta-form__consent strong { color: rgba(255,255,255,.72); font-weight: 700; }
 .cta-section__fine {
   font-size: .78rem;
   color: rgba(255,255,255,.3);

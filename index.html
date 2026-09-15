@@ -908,14 +908,29 @@
         <input class="cta-form__input" type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
         <button type="submit" class="btn btn--primary btn--lg" id="cta-submit">Request an invitation →</button>
       </div>
+      <div class="cta-form__field">
+        <input class="cta-form__input" type="tel" id="cta-phone" name="phone" placeholder="Mobile number (optional)" aria-label="Mobile number (optional)" autocomplete="tel" inputmode="tel">
+        <p class="cta-form__hint">Only if you want tee-time updates by text. We will not use it for anything else.</p>
+      </div>
       <div class="cta-form__consent">
         <input type="checkbox" id="cta-consent" name="consent" value="yes" required>
         <label for="cta-consent">I agree to be contacted about my teemeup invitation and accept the <a href="/privacy">Privacy Policy</a>.</label>
+      </div>
+      <div class="cta-form__consent">
+        <input type="checkbox" id="cta-sms-consent" name="sms_optin" value="yes">
+        <label for="cta-sms-consent">I agree to receive <strong>text messages (SMS)</strong> from teemeup at this number: tee-time booking confirmations, reminders and service messages. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. See our <a href="https://www.teemeup.ai/privacy">Privacy Policy</a>, <a href="https://www.teemeup.ai/terms">Terms of Service</a> and <a href="https://www.teemeup.ai/sms-consent">SMS Consent</a>.</label>
       </div>
       <input type="hidden" name="_source" value="homepage-cta">
       <input type="hidden" name="_subject" value="New early-access signup">
       <input type="hidden" name="_next" value="https://www.teemeup.ai/early-access/thanks">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <!-- SMS consent record — persisted with the submission (see /sms-consent §7) -->
+      <input type="hidden" name="sms_consent_method" value="web_form">
+      <input type="hidden" name="sms_consent_source_url" value="https://www.teemeup.ai/">
+      <input type="hidden" name="sms_consent_text" value="I agree to receive text messages (SMS) from teemeup at this number: tee-time booking confirmations, reminders and service messages. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. See our Privacy Policy, Terms of Service and SMS Consent.">
+      <input type="hidden" name="phone_e164" id="cta-phone-e164" value="">
+      <input type="hidden" name="sms_consent" id="cta-sms-consent-flag" value="false">
+      <input type="hidden" name="sms_consent_at" id="cta-sms-consent-at" value="">
     </form>
     <p class="cta-section__fine reveal reveal-delay-4">Invitation-only · Industry preview · Powered by Courserev.ai</p>
   </div>
@@ -984,12 +999,37 @@
 <script>
 (function () {
   'use strict';
-  // Standard POST → Formspree reCAPTCHA → redirect to /early-access/thanks.
-  // Just show a loading state while the browser navigates away.
+  // Standard POST → Formspree → redirect to /early-access/thanks.
+  // On submit: normalise the phone to E.164 and stamp the SMS consent record
+  // (true/false + ISO timestamp) into hidden fields, then show a loading state.
+  // None of this blocks submission — email is the only required field.
   var form   = document.getElementById('cta-signup');
   var submit = document.getElementById('cta-submit');
+
+  // Best-effort US E.164 normalisation. Returns '' (null) when not confidently
+  // a US number — the raw `phone` field is still submitted regardless.
+  function toE164(v) {
+    if (!v) return '';
+    var raw = ('' + v).trim();
+    var digits = raw.replace(/\D/g, '');
+    if (raw.charAt(0) === '+') return digits ? '+' + digits : '';
+    if (digits.length === 11 && digits.charAt(0) === '1') return '+' + digits;
+    if (digits.length === 10) return '+1' + digits;
+    return '';
+  }
+
   if (form && submit) {
     form.addEventListener('submit', function () {
+      try {
+        var phoneEl = document.getElementById('cta-phone');
+        var e164El  = document.getElementById('cta-phone-e164');
+        var smsBox  = document.getElementById('cta-sms-consent');
+        var flagEl  = document.getElementById('cta-sms-consent-flag');
+        var atEl    = document.getElementById('cta-sms-consent-at');
+        if (e164El) e164El.value = phoneEl ? toE164(phoneEl.value) : '';
+        if (flagEl) flagEl.value = (smsBox && smsBox.checked) ? 'true' : 'false';
+        if (atEl)   atEl.value = new Date().toISOString();
+      } catch (e) { /* never block the native submit */ }
       submit.disabled = true;
       submit.textContent = 'Sending…';
     });
