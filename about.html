@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) with Consent Mode v2 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D53QMEPLC8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  // Consent Mode v2 — deny everything by default until the visitor chooses (EU-safe)
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted',
+    wait_for_update: 500
+  });
+  // Honor a returning visitor's saved choice immediately, before config
+  try {
+    var tmuC = JSON.parse(localStorage.getItem('tmu_consent') || 'null');
+    if (tmuC && tmuC.categories) {
+      gtag('consent', 'update', {
+        analytics_storage: tmuC.categories.analytics ? 'granted' : 'denied',
+        ad_storage: tmuC.categories.marketing ? 'granted' : 'denied',
+        ad_user_data: tmuC.categories.marketing ? 'granted' : 'denied',
+        ad_personalization: tmuC.categories.marketing ? 'granted' : 'denied'
+      });
+    }
+  } catch (e) {}
   gtag('js', new Date());
-
   gtag('config', 'G-D53QMEPLC8');
 </script>
 <meta charset="UTF-8">
@@ -787,5 +808,6 @@
 </footer>
 
 <script src="app.js"></script>
+<script src="/cookie-consent.js" defer></script>
 </body>
 </html>
