@@ -167,19 +167,22 @@
     font-size: .74rem; font-weight: 600; color: rgba(255,255,255,.4);
     text-transform: uppercase; letter-spacing: .09em; margin: 0 0 12px;
   }
-  .applp-store-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-bottom: 24px; }
+  .applp-store-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 24px; }
   .store-badge-link {
-    display: inline-flex; padding: 6px; border-radius: 12px;
+    display: inline-flex; padding: 3px; border-radius: 10px;
     transition: transform .18s ease, opacity .18s ease;
   }
   .store-badge-link:hover { transform: translateY(-2px); opacity: .9; }
   .store-badge-link:active { transform: translateY(0) scale(.98); }
-  .store-badge-link img { display: block; height: 44px; width: auto; }
-  /* Apple's SVG badge trims tighter than Google's PNG — nudge it up slightly
-     so both marks read as the same visual size, per Google's own guidance
-     to keep the Play badge the same size or larger than adjacent badges. */
-  .store-badge-link--apple img { height: 44px; }
-  .store-badge-link--google img { height: 58px; margin: -7px 0; }
+  /* Apple's SVG badge is trimmed tight to the mark (no built-in padding).
+     Google's official PNG bakes in a uniform ~41px transparent margin on
+     every side (of its 250px-tall canvas), so at equal img heights the
+     Google mark visibly renders smaller. Scaling it up and pulling the
+     baked-in margin back in with a negative margin makes both marks read
+     at the same true size — the artwork itself is never cropped or
+     redrawn, only its own transparent padding is compensated for. */
+  .store-badge-link--apple img { display: block; height: 40px; width: auto; }
+  .store-badge-link--google img { display: block; height: 60px; width: auto; margin: -10px; }
 
   /* Contact row: call / text / WhatsApp */
   .applp-divider {
