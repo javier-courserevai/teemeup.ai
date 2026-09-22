@@ -209,22 +209,6 @@
   }
   .applp-pill--green { color: var(--green-dark); background: var(--green-faint); }
 
-  /* ── Screenshot gallery ────────────────────────────── */
-  .applp-gallery { padding: 24px 0 64px; }
-  .applp-gallery__track {
-    display: flex; gap: 16px; margin-top: 32px;
-    overflow-x: auto; scroll-snap-type: x mandatory;
-    padding: 4px 20px 22px; margin-left: -20px; margin-right: -20px;
-    -webkit-overflow-scrolling: touch; scrollbar-width: none;
-  }
-  .applp-gallery__track::-webkit-scrollbar { display: none; }
-  .applp-shot { flex: 0 0 auto; width: 68vw; max-width: 220px; scroll-snap-align: start; }
-  .applp-shot img {
-    width: 100%; border-radius: 24px; border: 1px solid var(--border);
-    box-shadow: 0 16px 40px rgba(13,13,26,.1);
-  }
-  .applp-shot__caption { margin-top: 12px; font-size: .82rem; color: var(--text-mid); text-align: center; }
-
   /* ── Bottom CTA band ───────────────────────────────── */
   .applp-cta {
     padding: 56px 0 64px;
@@ -246,12 +230,6 @@
     .applp-hero__visual .hero__phone { width: clamp(220px, 30vw, 300px); }
     .applp-hero__visual .hero__float { display: block; }
     .applp-about { padding: 88px 0; }
-    .applp-gallery { padding: 32px 0 96px; }
-    .applp-gallery__track {
-      display: grid; grid-template-columns: repeat(5, 1fr);
-      overflow: visible; margin: 32px 0 0; padding: 0;
-    }
-    .applp-shot { width: 100%; max-width: none; }
     .applp-cta { padding: 96px 0; }
   }
 </style>
@@ -363,37 +341,6 @@
         <li class="applp-pill applp-pill--green">Call, text &amp; WhatsApp</li>
         <li class="applp-pill applp-pill--green">Reminders &amp; directions</li>
       </ul>
-    </div>
-  </section>
-
-  <!-- ═══════════════ SCREENSHOTS ═══════════════ -->
-  <section class="applp-gallery" id="screenshots">
-    <div class="container">
-      <span class="eyebrow">Take a look</span>
-      <h2 class="s-title">A peek inside<br>the app.</h2>
-      <p class="s-lede">Swipe through a few screens — from Bob's daily picks to a confirmed tee time.</p>
-      <div class="applp-gallery__track">
-        <figure class="applp-shot">
-          <img src="assets/teemeup_home.webp" alt="teemeup app home screen with Bob's tee time recommendations" loading="lazy">
-          <figcaption class="applp-shot__caption">Bob's daily picks</figcaption>
-        </figure>
-        <figure class="applp-shot">
-          <img src="assets/hero-voice.webp" alt="teemeup voice booking screen — tap the mic to book hands-free" loading="lazy">
-          <figcaption class="applp-shot__caption">Book by voice</figcaption>
-        </figure>
-        <figure class="applp-shot">
-          <img src="assets/hero-chat.webp" alt="teemeup chat screen with Bob discussing tee time options" loading="lazy">
-          <figcaption class="applp-shot__caption">Chat it through</figcaption>
-        </figure>
-        <figure class="applp-shot">
-          <img src="assets/teemeup_bookings.webp" alt="teemeup app screen listing upcoming golf bookings" loading="lazy">
-          <figcaption class="applp-shot__caption">All your rounds, in view</figcaption>
-        </figure>
-        <figure class="applp-shot">
-          <img src="assets/teemeup_booking_details.webp" alt="teemeup booking confirmation screen with tee time details and directions" loading="lazy">
-          <figcaption class="applp-shot__caption">Confirmed, with directions</figcaption>
-        </figure>
-      </div>
     </div>
   </section>
 
