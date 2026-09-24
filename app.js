@@ -6,6 +6,31 @@
 (function () {
   'use strict';
 
+  /* ── Nav "Get the App" links: route straight to the right store ──
+     Any [data-store-link] element (mobile nav button + drawer item)
+     gets its href rewritten to the visitor's platform store — App
+     Store on iOS, Google Play on Android. Desktop/unknown UAs keep
+     the plain /app fallback already in the markup, and the mobile
+     nav button itself is CSS-hidden on desktop regardless. ────── */
+  var storeLinks = document.querySelectorAll('[data-store-link]');
+  if (storeLinks.length) {
+    var ua = window.navigator.userAgent || window.navigator.vendor || '';
+    var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+    var isAndroid = /Android/.test(ua);
+    var storeUrl = isIOS
+      ? 'https://apps.apple.com/us/app/teemeup-golf-tee-times/id6763700956'
+      : isAndroid
+      ? 'https://play.google.com/store/apps/details?id=com.teemeupai'
+      : null;
+    if (storeUrl) {
+      storeLinks.forEach(function (a) {
+        a.href = storeUrl;
+        a.target = '_blank';
+        a.rel = 'noopener';
+      });
+    }
+  }
+
   /* ── Smooth anchor scroll ─────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {

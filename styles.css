@@ -234,6 +234,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: center;
   gap: 12px;
 }
+/* Mobile-only "Get the App" nav button — hidden on desktop, shown only
+   at the mobile breakpoint below. app.js points its href at the right
+   store (App Store / Google Play) based on the visitor's device. */
+.nav__store-cta { display: none; }
 .nav__burger {
   display: none;
   flex-direction: column;
@@ -1815,7 +1819,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   /* Nav */
   .nav__center { display: none; }
   .nav__burger { display: flex; }
-  .nav__right .btn { display: none; }
+  .nav__store-cta { display: inline-flex; }
 
   /* Hero */
   .hero__inner { grid-template-columns: 1fr; gap: 32px; padding: 72px 20px 40px; }
