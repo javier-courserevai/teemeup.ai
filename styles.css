@@ -1847,8 +1847,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 @media (max-width: 768px) {
-  /* Nav */
-  .nav__center { display: none; }
+  /* Nav — brand stays left, the menu trigger moves into the center
+     column (swapping places with the link list it now replaces), and
+     "Get the App" is the only thing left in the right column, so it
+     sits at the true right edge instead of bunched up against the
+     burger. */
+  .nav__list { display: none; }
   .nav__burger { display: flex; }
   /* .nav__store-cta's visibility is decided in JS (app.js), not by
      viewport width — see the .is-store-ready rule above. */
