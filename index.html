@@ -222,7 +222,7 @@
       </ul>
     </nav>
     <div class="nav__right">
-      <a href="#cta" class="btn btn--primary btn--sm">Get early access</a>
+      <a href="/app" class="btn btn--primary btn--sm">Get the App</a>
       <button class="nav__burger" id="nav-burger" aria-label="Open menu">
         <span></span><span></span>
       </button>
@@ -233,9 +233,8 @@
       <li><a href="#features">Features</a></li>
       <li><a href="#how">How it works</a></li>
       <li><a href="#ecosystem">Ecosystem</a></li>
-        <li><a href="/app">Get the App</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#cta">Get early access</a></li>
+      <li><a href="/app">Get the App</a></li>
     </ul>
   </div>
 </header>
@@ -265,8 +264,19 @@
         Tell Bob where you want to play and he handles everything — course search, weather check, booking and reminders. Available on WhatsApp, SMS, iMessage, ChatGPT and the app. No forms. No calls.
       </p>
 
+      <p class="store-note store-note--light">Coming soon — join the waitlist</p>
       <div class="hero__actions">
-        <a href="#cta" class="btn btn--primary btn--lg">Request an invitation →</a>
+        <div class="store-badge-row">
+          <!-- Official badge artwork (Apple/Google), used unmodified.
+               TODO: swap /early-access for the live App Store / Google Play
+               listing URLs once teemeup exits invite-only preview. -->
+          <a href="/early-access" class="store-badge-link store-badge-link--apple" aria-label="Join the waitlist for the teemeup iOS app">
+            <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="120" height="40">
+          </a>
+          <a href="/early-access" class="store-badge-link store-badge-link--google" aria-label="Join the waitlist for the teemeup Android app">
+            <img src="assets/google-play-badge.png" alt="Get it on Google Play" width="646" height="250">
+          </a>
+        </div>
         <a href="#how" class="btn btn--outline btn--lg">
           <svg width="13" height="13" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><polygon points="3,1 13,7 3,13"/></svg>
           See how it works
@@ -669,7 +679,15 @@
       <span class="eyebrow eyebrow--light">Why teemeup</span>
       <h2 class="stats__title">Golf planning,<br>finally fixed.</h2>
       <p class="stats__desc">We obsessed over every friction point in booking a round — so the experience feels like talking to someone who actually plays golf.</p>
-      <a href="#cta" class="btn btn--white">Get early access →</a>
+      <p class="store-note store-note--light">Coming soon — join the waitlist</p>
+      <div class="store-badge-row">
+        <a href="/early-access" class="store-badge-link store-badge-link--apple" aria-label="Join the waitlist for the teemeup iOS app">
+          <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="120" height="40">
+        </a>
+        <a href="/early-access" class="store-badge-link store-badge-link--google" aria-label="Join the waitlist for the teemeup Android app">
+          <img src="assets/google-play-badge.png" alt="Get it on Google Play" width="646" height="250">
+        </a>
+      </div>
     </div>
     <div class="stats__grid">
       <div class="stats__card reveal">
@@ -713,7 +731,15 @@
         <span class="eyebrow">Industry preview</span>
         <h2 class="founding__title">Currently by<br>invitation only.</h2>
         <p class="founding__desc">teemeup is in a focused industry preview, working with golf experts and insiders to refine the experience before public launch. Invitations are limited.</p>
-        <a href="#cta" class="btn btn--primary btn--lg">Request an invitation →</a>
+        <p class="store-note">Coming soon — join the waitlist</p>
+        <div class="store-badge-row">
+          <a href="/early-access" class="store-badge-link store-badge-link--apple" aria-label="Join the waitlist for the teemeup iOS app">
+            <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="120" height="40">
+          </a>
+          <a href="/early-access" class="store-badge-link store-badge-link--google" aria-label="Join the waitlist for the teemeup Android app">
+            <img src="assets/google-play-badge.png" alt="Get it on Google Play" width="646" height="250">
+          </a>
+        </div>
         <p class="founding__note">Founding member access · Limited spots</p>
       </div>
 
@@ -933,36 +959,19 @@
   <div class="cta-section__inner">
     <span class="eyebrow cta-section__eyebrow reveal">Ready to play more?</span>
     <h2 class="cta-section__title reveal reveal-delay-1">Stop planning.<br><em>Start playing.</em></h2>
-    <p class="cta-section__sub reveal reveal-delay-2">teemeup is in invite-only industry preview. Request access and we'll reach out when your invitation is ready.</p>
-    <form class="cta-form reveal reveal-delay-3" id="cta-signup" action="https://formspree.io/f/xbdqkekb" method="POST">
-      <div class="cta-form__row">
-        <input class="cta-form__input" type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
-        <button type="submit" class="btn btn--primary btn--lg" id="cta-submit">Request an invitation →</button>
-      </div>
-      <div class="cta-form__field">
-        <input class="cta-form__input" type="tel" id="cta-phone" name="phone" placeholder="Mobile number (optional)" aria-label="Mobile number (optional)" autocomplete="tel" inputmode="tel">
-        <p class="cta-form__hint">Only if you want tee-time updates by text. We will not use it for anything else.</p>
-      </div>
-      <div class="cta-form__consent">
-        <input type="checkbox" id="cta-consent" name="consent" value="yes" required>
-        <label for="cta-consent">I agree to be contacted about my teemeup invitation and accept the <a href="/privacy">Privacy Policy</a>.</label>
-      </div>
-      <div class="cta-form__consent">
-        <input type="checkbox" id="cta-sms-consent" name="sms_optin" value="yes">
-        <label for="cta-sms-consent">I agree to receive <strong>text messages (SMS)</strong> from teemeup at this number: tee-time booking confirmations, reminders and service messages. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. See our <a href="https://www.teemeup.ai/privacy">Privacy Policy</a>, <a href="https://www.teemeup.ai/terms">Terms of Service</a> and <a href="https://www.teemeup.ai/sms-consent">SMS Consent</a>.</label>
-      </div>
-      <input type="hidden" name="_source" value="homepage-cta">
-      <input type="hidden" name="_subject" value="New early-access signup">
-      <input type="hidden" name="_next" value="https://www.teemeup.ai/early-access/thanks">
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <!-- SMS consent record — persisted with the submission (see /sms-consent §7) -->
-      <input type="hidden" name="sms_consent_method" value="web_form">
-      <input type="hidden" name="sms_consent_source_url" value="https://www.teemeup.ai/">
-      <input type="hidden" name="sms_consent_text" value="I agree to receive text messages (SMS) from teemeup at this number: tee-time booking confirmations, reminders and service messages. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. See our Privacy Policy, Terms of Service and SMS Consent.">
-      <input type="hidden" name="phone_e164" id="cta-phone-e164" value="">
-      <input type="hidden" name="sms_consent" id="cta-sms-consent-flag" value="false">
-      <input type="hidden" name="sms_consent_at" id="cta-sms-consent-at" value="">
-    </form>
+    <p class="cta-section__sub reveal reveal-delay-2">teemeup is in invite-only industry preview. Get the app the moment it launches — join the waitlist and we'll let you know.</p>
+    <p class="store-note store-note--light reveal reveal-delay-3">Coming soon — join the waitlist</p>
+    <div class="store-badge-row reveal reveal-delay-3">
+      <!-- Official badge artwork (Apple/Google), used unmodified.
+           TODO: swap /early-access for the live App Store / Google Play
+           listing URLs once teemeup exits invite-only preview. -->
+      <a href="/early-access" class="store-badge-link store-badge-link--apple" aria-label="Join the waitlist for the teemeup iOS app">
+        <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="120" height="40">
+      </a>
+      <a href="/early-access" class="store-badge-link store-badge-link--google" aria-label="Join the waitlist for the teemeup Android app">
+        <img src="assets/google-play-badge.png" alt="Get it on Google Play" width="646" height="250">
+      </a>
+    </div>
     <p class="cta-section__fine reveal reveal-delay-4">Invitation-only · Industry preview · Powered by Courserev.ai</p>
   </div>
 </section>
@@ -1028,46 +1037,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="animations.js"></script>
-<script>
-(function () {
-  'use strict';
-  // Standard POST → Formspree → redirect to /early-access/thanks.
-  // On submit: normalise the phone to E.164 and stamp the SMS consent record
-  // (true/false + ISO timestamp) into hidden fields, then show a loading state.
-  // None of this blocks submission — email is the only required field.
-  var form   = document.getElementById('cta-signup');
-  var submit = document.getElementById('cta-submit');
-
-  // Best-effort US E.164 normalisation. Returns '' (null) when not confidently
-  // a US number — the raw `phone` field is still submitted regardless.
-  function toE164(v) {
-    if (!v) return '';
-    var raw = ('' + v).trim();
-    var digits = raw.replace(/\D/g, '');
-    if (raw.charAt(0) === '+') return digits ? '+' + digits : '';
-    if (digits.length === 11 && digits.charAt(0) === '1') return '+' + digits;
-    if (digits.length === 10) return '+1' + digits;
-    return '';
-  }
-
-  if (form && submit) {
-    form.addEventListener('submit', function () {
-      try {
-        var phoneEl = document.getElementById('cta-phone');
-        var e164El  = document.getElementById('cta-phone-e164');
-        var smsBox  = document.getElementById('cta-sms-consent');
-        var flagEl  = document.getElementById('cta-sms-consent-flag');
-        var atEl    = document.getElementById('cta-sms-consent-at');
-        if (e164El) e164El.value = phoneEl ? toE164(phoneEl.value) : '';
-        if (flagEl) flagEl.value = (smsBox && smsBox.checked) ? 'true' : 'false';
-        if (atEl)   atEl.value = new Date().toISOString();
-      } catch (e) { /* never block the native submit */ }
-      submit.disabled = true;
-      submit.textContent = 'Sending…';
-    });
-  }
-})();
-</script>
 <script src="/cookie-consent.js" defer></script>
 </body>
 </html>

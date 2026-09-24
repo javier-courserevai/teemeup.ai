@@ -160,29 +160,10 @@
   }
   .applp-hero__lead { font-size: 1rem; color: rgba(255,255,255,.62); line-height: 1.7; max-width: 480px; margin: 0 0 28px; }
 
-  /* Store badges — official Apple / Google artwork, used unmodified per
-     each platform's brand guidelines (no recolouring, no text overlay on
-     the mark itself; clear space kept via row gap + wrapper padding). */
-  .applp-store-note {
-    font-size: .74rem; font-weight: 600; color: rgba(255,255,255,.4);
-    text-transform: uppercase; letter-spacing: .09em; margin: 0 0 12px;
-  }
-  .applp-store-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 24px; }
-  .store-badge-link {
-    display: inline-flex; padding: 3px; border-radius: 10px;
-    transition: transform .18s ease, opacity .18s ease;
-  }
-  .store-badge-link:hover { transform: translateY(-2px); opacity: .9; }
-  .store-badge-link:active { transform: translateY(0) scale(.98); }
-  /* Apple's SVG badge is trimmed tight to the mark (no built-in padding).
-     Google's official PNG bakes in a uniform ~41px transparent margin on
-     every side (of its 250px-tall canvas), so at equal img heights the
-     Google mark visibly renders smaller. Scaling it up and pulling the
-     baked-in margin back in with a negative margin makes both marks read
-     at the same true size — the artwork itself is never cropped or
-     redrawn, only its own transparent padding is compensated for. */
-  .store-badge-link--apple img { display: block; height: 40px; width: auto; }
-  .store-badge-link--google img { display: block; height: 60px; width: auto; margin: -10px; }
+  /* Store badges (.store-note / .store-badge-row / .store-badge-link*) now
+     live as shared, reusable components in styles.css — the homepage uses
+     them too. Just a layout tweak for this page's hero: */
+  .applp-hero__content .store-badge-row { margin-bottom: 24px; }
 
   /* Contact row: call / text / WhatsApp */
   .applp-divider {
@@ -227,10 +208,9 @@
   .applp-cta__inner { max-width: 620px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; }
   .applp-cta__title { font-family: var(--font-head); font-weight: 800; font-size: clamp(1.7rem, 5vw, 2.4rem); color: #fff; letter-spacing: -.03em; margin: 0 0 12px; }
   .applp-cta__lead { color: rgba(255,255,255,.62); font-size: .92rem; line-height: 1.6; max-width: 420px; margin: 0 0 28px; }
-  .applp-cta .applp-store-row,
   .applp-cta .applp-contact-row { justify-content: center; }
   .applp-cta .applp-divider,
-  .applp-cta .applp-store-note { text-align: center; }
+  .applp-cta .store-note { text-align: center; }
 
   /* ── Desktop layout (min-width enhancement) ────────── */
   @media (min-width: 900px) {
@@ -291,8 +271,8 @@
         <h1 class="applp-hero__title">Your AI caddie —<br><em>in your pocket, or a text away.</em></h1>
         <p class="applp-hero__lead">Tell Bob where and when you want to play. He checks the weather, finds the best tee times and confirms your booking — through the app, or straight from your phone with a call, a text or a WhatsApp message. No forms, no hold music.</p>
 
-        <p class="applp-store-note">Coming soon — join the waitlist</p>
-        <div class="applp-store-row">
+        <p class="store-note store-note--light">Coming soon — join the waitlist</p>
+        <div class="store-badge-row">
           <!-- Official badge artwork (Apple/Google), used unmodified.
                TODO: swap /early-access for the live App Store / Google Play
                listing URLs once teemeup exits invite-only preview. -->
@@ -361,8 +341,8 @@
       <h2 class="applp-cta__title">Ready when you are.</h2>
       <p class="applp-cta__lead">Get the app when it launches, or reach Bob right now by phone, text or WhatsApp.</p>
 
-      <p class="applp-store-note">Coming soon — join the waitlist</p>
-      <div class="applp-store-row">
+      <p class="store-note store-note--light">Coming soon — join the waitlist</p>
+      <div class="store-badge-row">
         <a href="/early-access" class="store-badge-link store-badge-link--apple" aria-label="Join the waitlist for the teemeup iOS app">
           <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="120" height="40">
         </a>

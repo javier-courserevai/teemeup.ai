@@ -116,6 +116,33 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .btn--lg { padding: 13px 28px; font-size: .95rem; }
 .btn--sm { padding: 8px 16px; font-size: .82rem; }
 
+/* ── Store badges — official Apple / Google artwork, used unmodified
+   per each platform's brand guidelines (no recolouring, no text
+   overlaid on the mark itself; the wrapper padding/gap below is the
+   "clear space" each guideline asks for). ─────────────────────── */
+.store-note {
+  display: block;
+  font-size: .74rem; font-weight: 600; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: .09em; margin: 0 0 12px;
+}
+.store-note--light { color: rgba(255,255,255,.4); }
+.store-badge-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.store-badge-link {
+  display: inline-flex; padding: 3px; border-radius: 10px;
+  transition: transform .18s ease, opacity .18s ease;
+}
+.store-badge-link:hover { transform: translateY(-2px); opacity: .9; }
+.store-badge-link:active { transform: translateY(0) scale(.98); }
+/* Apple's SVG badge is trimmed tight to the mark (no built-in padding).
+   Google's official PNG bakes in a uniform ~41px transparent margin on
+   every side (of its 250px-tall canvas), so at equal img heights the
+   Google mark visibly renders smaller. Scaling it up and pulling the
+   baked-in margin back in with a negative margin makes both marks read
+   at the same true size — the artwork itself is never cropped or
+   redrawn, only its own transparent padding is compensated for. */
+.store-badge-link--apple img { display: block; height: 40px; width: auto; }
+.store-badge-link--google img { display: block; height: 60px; width: auto; margin: -10px; }
+
 /* ── Eyebrow ───────────────────────────────────────────── */
 .eyebrow {
   display: inline-block;
@@ -1658,59 +1685,14 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   line-height: 1.72;
   margin-bottom: 40px;
 }
-.cta-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 520px;
-  margin: 0 auto 16px;
-}
-.cta-form__row {
-  display: flex;
-  gap: 10px;
-}
-.cta-form__consent {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: .8rem;
-  color: rgba(255,255,255,.45);
-  line-height: 1.5;
-  max-width: 480px;
-  margin: 0 auto;
-}
-.cta-form__consent input[type="checkbox"] {
-  flex-shrink: 0;
-  margin-top: 2px;
-  width: 15px;
-  height: 15px;
-  accent-color: var(--purple-light);
-  cursor: pointer;
-}
-.cta-form__consent a { color: rgba(255,255,255,.65); text-decoration: underline; }
-.cta-form__consent a:hover { color: #fff; }
-.cta-form__input {
-  flex: 1;
-  background: rgba(255,255,255,.06);
-  border: 1px solid var(--border2);
-  border-radius: var(--radius-pill);
-  padding: 12px 20px;
-  font-family: var(--font-body);
-  font-size: .9rem;
-  color: #fff;
-  outline: none;
-  transition: border-color .2s, background .2s;
-}
-.cta-form__input::placeholder { color: var(--text-dim); }
-.cta-form__input:focus { border-color: var(--purple-light); background: rgba(255,255,255,.08); }
-.cta-form__field { display: flex; flex-direction: column; gap: 6px; }
-.cta-form__hint { font-size: .72rem; color: rgba(255,255,255,.38); line-height: 1.5; padding: 0 4px; margin: 0; }
-.cta-form__consent strong { color: rgba(255,255,255,.72); font-weight: 700; }
 .cta-section__fine {
   font-size: .78rem;
   color: rgba(255,255,255,.3);
   line-height: 1.5;
 }
+/* Center the store badge row when it sits in a text-align:center block
+   (e.g. .cta-section__inner) rather than a flex column. */
+.cta-section__inner .store-badge-row { justify-content: center; }
 
 /* ═══════════════════════════════════════════════════════
    FOOTER
