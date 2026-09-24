@@ -9,9 +9,17 @@
   /* ── Nav "Get the App" links: route straight to the right store ──
      Any [data-store-link] element (mobile nav button + drawer item)
      gets its href rewritten to the visitor's platform store — App
-     Store on iOS, Google Play on Android. Desktop/unknown UAs keep
-     the plain /app fallback already in the markup, and the mobile
-     nav button itself is CSS-hidden on desktop regardless. ────── */
+     Store on iOS, Google Play on Android.
+
+     Visibility and redirect are decided by the SAME check, so the
+     button can never be shown without also knowing where to send
+     the tap: real desktop UAs (including a merely narrow browser
+     window, which has no real store to open) never see the nav
+     button at all; a genuine iOS/Android UA always gets it, and it
+     always resolves straight to that platform's store. The drawer's
+     copy of the link ignores .is-store-ready (its own visibility is
+     handled by the drawer open state) but still gets the right href
+     whenever detection succeeds. */
   var storeLinks = document.querySelectorAll('[data-store-link]');
   if (storeLinks.length) {
     var ua = window.navigator.userAgent || window.navigator.vendor || '';
@@ -27,6 +35,7 @@
         a.href = storeUrl;
         a.target = '_blank';
         a.rel = 'noopener';
+        a.classList.add('is-store-ready');
       });
     }
   }
@@ -42,8 +51,13 @@
       var navH = 72;
       var top = target.getBoundingClientRect().top + window.pageYOffset - navH;
       window.scrollTo({ top: top, behavior: 'smooth' });
-      var drawer = document.getElementById('nav-drawer');
-      if (drawer) drawer.classList.remove('is-open');
+      var openDrawerEl = document.getElementById('nav-drawer');
+      var openBurgerEl = document.getElementById('nav-burger');
+      if (openDrawerEl) openDrawerEl.classList.remove('is-open');
+      if (openBurgerEl) {
+        openBurgerEl.classList.remove('is-open');
+        openBurgerEl.setAttribute('aria-expanded', 'false');
+      }
     });
   });
 
@@ -64,8 +78,32 @@
   var burger = document.getElementById('nav-burger');
   var drawer = document.getElementById('nav-drawer');
   if (burger && drawer) {
-    burger.addEventListener('click', function () {
-      drawer.classList.toggle('is-open');
+    var openDrawer = function () {
+      drawer.classList.add('is-open');
+      burger.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
+    };
+    var closeDrawer = function () {
+      drawer.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    };
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (drawer.classList.contains('is-open')) closeDrawer(); else openDrawer();
+    });
+    // Tap/click outside the open drawer closes it
+    document.addEventListener('click', function (e) {
+      if (drawer.classList.contains('is-open') && !drawer.contains(e.target) && e.target !== burger) {
+        closeDrawer();
+      }
+    });
+    // Esc closes it, and returns focus to the trigger
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+        closeDrawer();
+        burger.focus();
+      }
     });
   }
 

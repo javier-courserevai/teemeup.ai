@@ -234,24 +234,45 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: center;
   gap: 12px;
 }
-/* Mobile-only "Get the App" nav button — hidden on desktop, shown only
-   at the mobile breakpoint below. app.js points its href at the right
-   store (App Store / Google Play) based on the visitor's device. */
+/* "Get the App" nav button — visibility and store link are decided
+   together in app.js: it only ever renders once we know a real
+   store to send the tap to (genuine iOS/Android UA), so it can
+   never appear "broken" on desktop or on a merely narrow browser
+   window. See app.js for the detection. */
 .nav__store-cta { display: none; }
+.nav__store-cta.is-store-ready { display: inline-flex; }
+.nav__link:focus-visible {
+  outline: 2px solid var(--purple-light);
+  outline-offset: 2px;
+}
+.nav.is-scrolled .nav__link:focus-visible { outline-color: var(--purple); }
 .nav__burger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  padding: 6px;
-  width: 36px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 8px;
+  transition: background .15s;
 }
+.nav__burger:hover { background: rgba(255,255,255,.1); }
+.nav.is-scrolled .nav__burger:hover { background: rgba(0,0,0,.05); }
+.nav__burger:focus-visible { outline: 2px solid var(--purple-light); outline-offset: 2px; }
 .nav__burger span {
   display: block;
+  width: 20px;
   height: 1.5px;
   background: #fff; /* white over hero */
   border-radius: 2px;
-  transition: transform .2s, opacity .2s;
+  transition: transform .25s cubic-bezier(.4,0,.2,1), opacity .2s, background .15s;
 }
+.nav.is-scrolled .nav__burger span { background: var(--text); }
+/* Hamburger -> X, driven by .is-open on the button itself */
+.nav__burger.is-open span:first-child { transform: translateY(3.25px) rotate(45deg); }
+.nav__burger.is-open span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
 .nav__drawer {
   display: none;
   position: absolute;
@@ -263,8 +284,17 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: var(--radius-lg);
   padding: 12px;
   box-shadow: 0 16px 48px rgba(0,0,0,.12);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .18s ease, transform .18s ease;
+  pointer-events: none;
 }
-.nav__drawer.is-open { display: block; }
+.nav__drawer.is-open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 .nav__drawer ul { display: flex; flex-direction: column; gap: 4px; }
 .nav__drawer li a {
   display: block;
@@ -276,6 +306,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transition: color .15s, background .15s;
 }
 .nav__drawer li a:hover { color: var(--text); background: rgba(0,0,0,.04); }
+.nav__drawer li a:focus-visible { outline: 2px solid var(--purple-light); outline-offset: -2px; }
 .nav__drawer li:last-child a {
   margin-top: 4px;
   background: linear-gradient(135deg, #5D28EE 0%, var(--purple) 100%);
@@ -1819,7 +1850,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   /* Nav */
   .nav__center { display: none; }
   .nav__burger { display: flex; }
-  .nav__store-cta { display: inline-flex; }
+  /* .nav__store-cta's visibility is decided in JS (app.js), not by
+     viewport width — see the .is-store-ready rule above. */
 
   /* Hero */
   .hero__inner { grid-template-columns: 1fr; gap: 32px; padding: 72px 20px 40px; }
